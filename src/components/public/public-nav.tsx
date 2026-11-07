@@ -32,12 +32,12 @@ export function PublicNav() {
             onClick={() => setOpen(false)}
             className={cx(
               "flex min-h-[44px] items-center text-body-sm font-bold no-underline",
-              mobile ? "px-5" : "px-3",
+              mobile ? "px-5" : "rounded-[8px] px-4",
               !mobile && link.key === "tryDemo"
-                ? "ml-2 rounded-[8px] bg-white px-5 text-ink hover:bg-ground"
+                ? "ml-2 bg-white px-5 text-ink hover:bg-ground"
                 : current
-                  ? "text-white underline decoration-[3px] decoration-line-finance underline-offset-[10px]"
-                  : "text-sign-muted hover:text-white",
+                  ? cx("bg-white/15 text-white", mobile && "shadow-[inset_4px_0_0_var(--tc-line-finance)]")
+                  : "text-sign-muted hover:bg-white/5 hover:text-white",
             )}
           >
             {t(link.key)}

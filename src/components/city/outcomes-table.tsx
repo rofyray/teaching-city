@@ -54,7 +54,7 @@ export async function OutcomesTable({ metrics }: { metrics: MetricResult[] }) {
               </div>
               {n ? (
                 <div>
-                  <dt className="text-micro font-extrabold text-muted">n</dt>
+                  <dt className="text-micro font-extrabold text-muted">{pick(CITY_COPY.students, locale)}</dt>
                   <dd className="tabular text-body font-bold">{n}</dd>
                 </div>
               ) : null}
