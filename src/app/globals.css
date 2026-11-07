@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+@theme inline {
+  --color-ink: var(--tc-ink);
+  --color-ground: var(--tc-ground);
+  --color-surface: var(--tc-surface);
+  --color-muted: var(--tc-muted);
+  --color-rule: var(--tc-rule);
+  --color-future: var(--tc-future);
+  --color-sign-muted: var(--tc-sign-muted);
+  --color-due: var(--tc-due);
+  --color-due-tint: var(--tc-due-tint);
+  --color-level-1: var(--tc-level-1);
+  --color-level-2: var(--tc-level-2);
+  --color-level-3: var(--tc-level-3);
+  --color-level-4: var(--tc-level-4);
+  --color-focus: var(--tc-focus);
+  --color-line: var(--tc-line);
+  --color-line-tint: var(--tc-line-tint);
+  --color-line-ink: var(--tc-line-ink);
+  --color-line-finance: var(--tc-line-finance);
+  --color-line-works: var(--tc-line-works);
+  --color-line-tech: var(--tc-line-tech);
+  --color-line-community: var(--tc-line-community);
+  --color-line-info: var(--tc-line-info);
+  --color-line-safety: var(--tc-line-safety);
+
+  --font-sans: var(--font-overpass), "Trebuchet MS", system-ui, sans-serif;
+
+  --text-display: 40px;
+  --text-display--line-height: 42px;
+  --text-title: 22px;
+  --text-title--line-height: 26px;
+  --text-heading: 20px;
+  --text-heading--line-height: 24px;
+  --text-subheading: 16px;
+  --text-subheading--line-height: 22px;
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 20px;
+  --text-caption: 13px;
+  --text-caption--line-height: 18px;
+  --text-micro: 12px;
+  --text-micro--line-height: 16px;
+
+  --radius-card: 8px;
+  --radius-cell: 6px;
+  --radius-pill: 14px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--tc-ground);
+    color: var(--tc-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 24px;
+  }
+  a {
+    color: var(--tc-focus);
+  }
+  :focus-visible {
+    outline: 3px solid var(--tc-focus);
+    outline-offset: 2px;
+  }
+  .sign :focus-visible {
+    outline-color: #ffffff;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 800;
+  }
+  button, [role="button"], input, select, textarea {
+    font: inherit;
+  }
+  * {
+    transition-property: color, background-color, border-color, box-shadow;
+    transition-duration: 0s;
+  }
+  a, button, [role="radio"], [role="switch"] {
+    transition-duration: 150ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility focus-ring {
+  &:focus-visible {
+    outline: 3px solid var(--tc-focus);
+    outline-offset: 2px;
+  }
+}
+
+@utility card {
+  background: var(--tc-surface);
+  border-radius: 8px;
+}
+
+@utility outline-ink {
+  box-shadow: inset 0 0 0 2px var(--tc-ink);
+}
+
+@utility outline-rule {
+  box-shadow: inset 0 0 0 2px var(--tc-rule);
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-sign {
+    background: #ffffff !important;
+    color: var(--tc-ink) !important;
+    border-bottom: 4px solid var(--tc-ink);
+  }
+  .print-sign * {
+    color: var(--tc-ink) !important;
+  }
+  .print-break {
+    break-before: page;
+  }
+  .print-avoid {
+    break-inside: avoid;
+  }
+}
