@@ -120,8 +120,29 @@
 }
 
 @media print {
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
   body {
     background: #ffffff !important;
+    /* Fit the transcript on 2 to 3 letter pages without changing the screen layout. */
+    zoom: 0.82;
+  }
+  /* Tables that scroll on screen print in full. */
+  [role="region"] {
+    overflow: visible !important;
+  }
+  table {
+    min-width: 0 !important;
+  }
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  .card {
+    border: 1px solid var(--tc-rule);
   }
   .no-print {
     display: none !important;

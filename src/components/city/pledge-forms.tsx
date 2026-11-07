@@ -86,6 +86,8 @@ export function AddPledgeForm({ vendorLabel, today }: { vendorLabel: string; tod
 
 export function EndPledgeButton({ pledgeId, vendorName }: { pledgeId: string; vendorName: string }) {
   const t = useTranslations("vendors");
+  const tc = useTranslations("common");
+  const te = useTranslations("errors");
   const router = useRouter();
   const [pending, start] = useTransition();
   return (
@@ -94,7 +96,8 @@ export function EndPledgeButton({ pledgeId, vendorName }: { pledgeId: string; ve
       disabled={pending}
       onClick={() =>
         start(async () => {
-          await endPledge(pledgeId);
+          const result = await endPledge(pledgeId);
+          toast[result.ok ? "success" : "error"](result.ok ? tc("saved") : te("generic"));
           router.refresh();
         })
       }

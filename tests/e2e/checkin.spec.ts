@@ -22,7 +22,7 @@ test("P6.4 + P11.2 Dana rates week 6 with a drafted note and Amara reaches 5 of 
     ["Uses spreadsheet and budget tools", "Above standard"],
   ];
   for (const [skill, level] of skills) {
-    await page.getByRole("radiogroup", { name: new RegExp(skill) }).getByRole("radio", { name: level }).click();
+    await page.getByRole("radiogroup", { name: new RegExp(skill) }).getByRole("radio", { name: level }).locator("xpath=..").click();
   }
   await expect(page.getByRole("status").getByText("5 of 5")).toBeVisible();
 

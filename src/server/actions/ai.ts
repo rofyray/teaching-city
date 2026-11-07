@@ -110,8 +110,4 @@ export async function mapCourses(courses: string[]): Promise<{ ok: true; eventId
   }
 }
 
-export async function classificationTitles() {
-  const rows = await db.select({ code: jobClassifications.code, title: jobClassifications.title }).from(jobClassifications);
-  return Object.fromEntries(rows.map((r) => [r.code, r.title]));
-}
 

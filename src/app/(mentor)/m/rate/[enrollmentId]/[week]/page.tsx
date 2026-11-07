@@ -1,6 +1,8 @@
+import { CaretLeftIcon, CheckIcon, InfoIcon, SignatureIcon, SparkleIcon, WarningCircleIcon } from "@phosphor-icons/react/ssr";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { Icon } from "@/components/icon";
 import { canEditRating } from "@/domain/rules";
 import { can } from "@/server/authz";
 import { getEnrollmentView } from "@/server/queries/enrollment";
@@ -37,6 +39,14 @@ export default async function RatePage({ params }: { params: Promise<Params> }) 
         firstName={view.student.firstName}
         signer={current.name}
         line={view.unit?.lineColor}
+        icons={{
+          back: <Icon icon={CaretLeftIcon} weight="bold" size={24} />,
+          warning: <Icon icon={WarningCircleIcon} weight="bold" size={20} />,
+          sparkle: <Icon icon={SparkleIcon} weight="duotone" size={20} />,
+          info: <Icon icon={InfoIcon} weight="regular" size={20} />,
+          signature: <Icon icon={SignatureIcon} weight="light" size={20} />,
+          check: <Icon icon={CheckIcon} weight="bold" size={16} />,
+        }}
         competencies={view.competencies.map((c) => ({
           id: c.id,
           position: c.position,

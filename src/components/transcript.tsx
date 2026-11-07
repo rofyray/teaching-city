@@ -101,7 +101,7 @@ export async function Transcript({
   const refsNeeded = Math.max(program.referencesRequired - derived.confirmed, 0);
   const inPool = view.poolEntry && view.poolEntry.status !== "withdrawn";
 
-  const section = "card print-avoid p-5 sm:p-6";
+  const section = "card print-avoid p-5 sm:p-6 print:p-4";
 
   return (
     <div data-line={unit?.lineColor} className="flex flex-1 flex-col">
@@ -159,7 +159,7 @@ export async function Transcript({
           </section>
         </div>
 
-        <div className="contents lg:flex lg:flex-col lg:gap-6 lg:[grid-area:side]">
+        <div className="contents lg:flex lg:flex-col lg:gap-6 lg:[grid-area:side] print:order-4 print:grid print:grid-cols-2 print:items-start print:gap-4">
           {!limited ? (
             <section aria-labelledby="t-toward" className="card print-avoid order-4 p-5 border-2 border-line">
               <h2 id="t-toward" className="flex items-center gap-3 text-[18px] leading-6 font-extrabold">
@@ -230,7 +230,7 @@ export async function Transcript({
             <h2 id="t-vouch" className="text-title font-extrabold">
               {t("transcript.whoVouches", { firstName })}
             </h2>
-            <div className="mt-3 grid gap-4 md:grid-cols-2">
+            <div className="mt-3 grid gap-4 md:grid-cols-2 print:grid-cols-2">
               {quotes.map(({ ref, quote }) => (
                 <VouchCard key={ref.id} quote={quote} name={ref.refereeName} title={ref.refereeTitle} city={view.cityName} />
               ))}
@@ -243,7 +243,7 @@ export async function Transcript({
             <h2 id="t-samples" className="text-title font-extrabold">
               {t("transcript.workSamples")}
             </h2>
-            <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 print:grid-cols-3">
               {samples.map((s) => (
                 <WorkSampleCard
                   key={s.id}

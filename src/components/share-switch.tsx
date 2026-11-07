@@ -1,12 +1,11 @@
 "use client";
 
-import * as Dialog from "@radix-ui/react-dialog";
-import * as Switch from "@radix-ui/react-switch";
 import { CopyIcon, LinkIcon } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import { useId, useState, useTransition } from "react";
 import { setSharing } from "@/server/actions/sharing";
 import { Icon } from "./icon";
+import { Modal } from "./modal";
 import { toast } from "./toast";
 
 type ShareType = "share_city_hr" | "share_vendor_bridge" | "public_link";
@@ -31,16 +30,21 @@ function ShareSwitch({
         <label htmlFor={id} className="text-body font-bold">
           {label}
         </label>
-        <Switch.Root
+        <button
           id={id}
-          checked={checked}
+          type="button"
+          role="switch"
+          aria-checked={checked}
           disabled={disabled}
-          onCheckedChange={onChange}
+          onClick={() => onChange(!checked)}
           aria-describedby={help ? `${id}-help` : undefined}
-          className="relative h-7 w-12 shrink-0 rounded-full bg-future data-[state=checked]:bg-line disabled:opacity-70"
+          className="relative h-7 w-12 shrink-0 rounded-full bg-future aria-checked:bg-line disabled:opacity-70"
         >
-          <Switch.Thumb className="block h-[22px] w-[22px] translate-x-[3px] rounded-full bg-surface data-[state=checked]:translate-x-[23px]" />
-        </Switch.Root>
+          <span
+            aria-hidden="true"
+            className={`block h-[22px] w-[22px] rounded-full bg-surface ${checked ? "translate-x-[23px]" : "translate-x-[3px]"}`}
+          />
+        </button>
       </div>
       {help ? (
         <p id={`${id}-help`} className="text-caption text-muted">
@@ -131,30 +135,27 @@ export function SharingControls({ initial }: { initial: Record<ShareType, boolea
         </div>
       ) : null}
 
-      <Dialog.Root open={confirmOpen} onOpenChange={setConfirmOpen}>
-        <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 z-50 bg-ink/60" />
-          <Dialog.Content className="fixed top-1/2 left-1/2 z-50 w-[min(92vw,440px)] -translate-x-1/2 -translate-y-1/2 rounded-[8px] bg-surface p-6">
-            <Dialog.Title className="text-heading font-extrabold">{t("cityHrOffTitle")}</Dialog.Title>
-            <Dialog.Description className="mt-3 text-body text-muted">{t("cityHrOffBody")}</Dialog.Description>
-            <div className="mt-6 flex flex-wrap justify-end gap-3">
-              <Dialog.Close className="inline-flex min-h-[44px] items-center rounded-[8px] px-4 text-body font-bold outline-rule">
-                {tc("cancel")}
-              </Dialog.Close>
-              <button
-                type="button"
-                onClick={() => {
-                  setConfirmOpen(false);
-                  apply("share_city_hr", false);
-                }}
-                className="inline-flex min-h-[44px] items-center rounded-[8px] bg-ink px-4 text-body font-extrabold text-white"
-              >
-                {t("cityHrOffConfirm")}
-              </button>
-            </div>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+      <Modal open={confirmOpen} onClose={() => setConfirmOpen(false)} title={t("cityHrOffTitle")} description={t("cityHrOffBody")}>
+        <div className="mt-6 flex flex-wrap justify-end gap-3">
+          <button
+            type="button"
+            onClick={() => setConfirmOpen(false)}
+            className="inline-flex min-h-[44px] items-center rounded-[8px] px-4 text-body font-bold outline-rule"
+          >
+            {tc("cancel")}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setConfirmOpen(false);
+              apply("share_city_hr", false);
+            }}
+            className="inline-flex min-h-[44px] items-center rounded-[8px] bg-ink px-4 text-body font-extrabold text-white"
+          >
+            {t("cityHrOffConfirm")}
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 }

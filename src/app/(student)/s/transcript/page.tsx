@@ -30,7 +30,7 @@ export default async function StudentTranscriptPage() {
       headerActions={
         <div className="flex items-center gap-1">
           <PrintButton label={t("transcript.print")} />
-          <div className="flex lg:hidden">
+          <div className="no-print flex lg:hidden">
             <HeaderActions current={current} settingsHref="/s/settings" />
           </div>
         </div>
