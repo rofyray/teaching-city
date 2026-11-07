@@ -29,7 +29,8 @@ export function weekStart(startDate: string, week: number): string {
 export type HoursValidation = { ok: true; hours: number } | { ok: false; error: "notNumber" | "tooMany" };
 
 export function validateHours(input: string | number, maxHours = 12): HoursValidation {
-  const raw = typeof input === "number" ? String(input) : input.trim();
+  // Accept a decimal comma too ("10,5"), as Spanish speakers write it.
+  const raw = typeof input === "number" ? String(input) : input.trim().replace(",", ".");
   if (raw === "" || !/^\d+(\.\d+)?$/.test(raw)) return { ok: false, error: "notNumber" };
   const hours = Number(raw);
   if (!Number.isFinite(hours) || hours < 0) return { ok: false, error: "notNumber" };

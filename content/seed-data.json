@@ -2564,6 +2564,98 @@
           },
           "overdueWeek5": false
         }
+      ],
+      "unmatched": [
+        {
+          "name": "Jada Brooks",
+          "college": "wsu",
+          "major": "Accounting",
+          "majorCategory": "accounting_finance",
+          "classYear": "junior",
+          "firstGenOrPell": true,
+          "availability": [
+            {
+              "day": 1,
+              "start": "09:00",
+              "end": "12:00"
+            },
+            {
+              "day": 2,
+              "start": "09:00",
+              "end": "12:00"
+            },
+            {
+              "day": 3,
+              "start": "09:00",
+              "end": "12:00"
+            },
+            {
+              "day": 4,
+              "start": "09:00",
+              "end": "12:00"
+            }
+          ],
+          "courses": [
+            "Financial Accounting",
+            "Principles of Microeconomics",
+            "Spreadsheet Modeling"
+          ]
+        },
+        {
+          "name": "Nate Owens",
+          "college": "wcc",
+          "major": "Engineering Technology",
+          "majorCategory": "engineering",
+          "classYear": "community_college",
+          "firstGenOrPell": true,
+          "availability": [
+            {
+              "day": 2,
+              "start": "08:00",
+              "end": "14:00"
+            },
+            {
+              "day": 4,
+              "start": "08:00",
+              "end": "14:00"
+            }
+          ],
+          "courses": [
+            "Surveying I",
+            "Construction Materials",
+            "Technical Drawing"
+          ]
+        },
+        {
+          "name": "Mateo Ramos",
+          "college": "wsu",
+          "major": "Sociology",
+          "majorCategory": "social_sciences_psychology",
+          "classYear": "senior",
+          "firstGenOrPell": false,
+          "availability": [
+            {
+              "day": 1,
+              "start": "12:00",
+              "end": "16:00"
+            },
+            {
+              "day": 3,
+              "start": "12:00",
+              "end": "16:00"
+            },
+            {
+              "day": 5,
+              "start": "12:00",
+              "end": "16:00"
+            }
+          ],
+          "courses": [
+            "Research Methods",
+            "Social Policy",
+            "Statistics for the Social Sciences"
+          ]
+        }
       ]
     }
   },
@@ -2807,7 +2899,8 @@
         "status": "asked",
         "askedDaysAgo": 4,
         "quote": null,
-        "quoteApproved": false
+        "quoteApproved": false,
+        "detailsRequestedDaysAgo": 1
       }
     ]
   },

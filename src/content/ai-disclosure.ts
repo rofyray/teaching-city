@@ -35,5 +35,5 @@ export const aiDisclosure = {
   models: "requests go through Vercel AI Gateway to the model set by the program (AI_MODEL). Each request is logged with the feature, model and size, without storing the text.",
   builtWithLabel: "Built with AI:",
   builtWith:
-    "Teaching City was built with Claude Code (Anthropic), which wrote and tested the application code from this PRD, and Claude (Anthropic), which drafted the PRD and design canvas with the team. People reviewed every change.",
+    "Teaching City was built with Claude Code following a PRD that was designed and put together by the human team. People reviewed every change.",
 } as const;

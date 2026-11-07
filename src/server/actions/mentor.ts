@@ -201,3 +201,21 @@ export async function respondReference(raw: z.input<typeof ReferenceInput>): Pro
   revalidatePath("/", "layout");
   return { ok: true };
 }
+
+/** A referee asks the student to confirm the details of a reference before confirming it. */
+export async function requestReferenceDetails(referenceId: string): Promise<ActionResult> {
+  const current = await requireRole("preceptor", "sponsor");
+  const [ref] = await db.select().from(references).where(eq(references.id, referenceId)).limit(1);
+  if (!ref || ref.refereeUserId !== current.id) throw new ForbiddenError();
+  if (ref.status !== "asked") return { ok: false, error: "generic" };
+  await db.update(references).set({ detailsRequestedAt: new Date(), detailsConfirmedAt: null }).where(eq(references.id, ref.id));
+  await audit(current.id, "reference.details_request", "references", ref.id);
+  const [owner] = await db
+    .select({ userId: studentProfiles.userId })
+    .from(enrollments)
+    .innerJoin(studentProfiles, eq(studentProfiles.id, enrollments.studentId))
+    .where(eq(enrollments.id, ref.enrollmentId));
+  if (owner) await notify(owner.userId, "detailsRequest", { name: current.name, href: "/s/people" });
+  revalidatePath("/", "layout");
+  return { ok: true };
+}

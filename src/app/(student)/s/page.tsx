@@ -3,6 +3,7 @@ import {
   CaretRightIcon,
   ClipboardTextIcon,
   CurrencyDollarIcon,
+  HourglassMediumIcon,
   MapTrifoldIcon,
   TimerIcon,
   UsersThreeIcon,
@@ -53,6 +54,13 @@ export default async function StudentHome() {
     const due = item.state === "overdue" ? t("home.overdue") : t("home.dueFriday");
     if (item.kind === "rating") rows.push({ icon: ClipboardTextIcon, label: t("home.dueRating", { preceptor: firstName(preceptor?.name) }), due });
     if (item.kind === "hours") rows.push({ icon: TimerIcon, label: t("home.dueHours"), due, href: "/s/hours" });
+    if (item.kind === "reference" && derived.detailsPending)
+      rows.push({
+        icon: HourglassMediumIcon,
+        label: t("home.dueReference", { name: firstName(derived.detailsPending.refereeName) }),
+        due,
+        href: "/s/people",
+      });
     if (item.kind === "meeting")
       rows.push({ icon: CalendarCheckIcon, label: t("home.dueMeeting", { sponsor: firstName(sponsor?.name) }), due: t("home.dueToday") });
   }

@@ -31,7 +31,7 @@ export default async function MeetingsPage() {
         {students.length > 0 ? (
           <section aria-labelledby="sched" className="card p-5">
             <h2 id="sched" className="mb-3 text-subheading font-extrabold">
-              {t("meetings.schedule")}
+              {t("meetings.scheduleTitle")}
             </h2>
             <ScheduleForm students={students.map((s) => ({ enrollmentId: s.enrollmentId, name: s.name }))} />
           </section>

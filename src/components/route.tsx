@@ -15,17 +15,17 @@ export function RouteVertical({ stations, label }: { stations: Station[]; label:
         return (
           <li key={s.title} className="flex min-h-[64px] gap-[14px]" aria-current={s.state === "here" ? "step" : undefined}>
             <div aria-hidden="true" className="flex w-7 flex-col items-center">
-              <div className="h-[10px] w-[6px]" style={{ background: segAbove }} />
+              <div className="anim-draw-y h-[10px] w-[6px]" style={{ background: segAbove, ["--i" as string]: i }} />
               {s.state === "done" ? (
                 <span className="rounded-full bg-surface">
                   <Icon icon={CheckCircleIcon} weight="fill" size={24} className="text-line" />
                 </span>
               ) : s.state === "here" ? (
-                <span className="block h-[26px] w-[26px] rounded-full bg-surface shadow-[inset_0_0_0_6px_var(--tc-line)]" />
+                <span className="anim-ping relative block h-[26px] w-[26px] rounded-full bg-surface shadow-[inset_0_0_0_6px_var(--tc-line)]" />
               ) : (
                 <span className="block h-[18px] w-[18px] rounded-full bg-surface shadow-[inset_0_0_0_3px_var(--tc-future)]" />
               )}
-              <div className="w-[6px] flex-1" style={{ background: segBelow }} />
+              <div className="anim-draw-y w-[6px] flex-1" style={{ background: segBelow, ["--i" as string]: i + 0.5 }} />
             </div>
             <div className="flex flex-col gap-[2px] pt-[10px] pb-3">
               <span
@@ -59,7 +59,7 @@ export function RouteHorizontal({ stations, label, progress = 0.4 }: { stations:
         return (
           <li key={s.title} className="relative flex gap-3 sm:block" aria-current={s.state === "here" ? "step" : undefined}>
             {!last ? (
-              <div aria-hidden="true" className="absolute top-[11px] left-3 hidden h-[6px] w-full sm:block" style={{ background: seg }} />
+              <div aria-hidden="true" className="anim-draw-x absolute top-[11px] left-3 hidden h-[6px] w-full sm:block" style={{ background: seg, ["--i" as string]: i }} />
             ) : null}
             <div aria-hidden="true" className="relative z-10 flex h-7 w-7 items-center justify-start">
               {s.state === "done" ? (

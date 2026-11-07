@@ -15,7 +15,7 @@ import {
   type DueItem,
   type Level,
 } from "@/domain/rules";
-import { addDays, localDate } from "@/domain/time";
+import { addDays, localDate, mondayOf } from "@/domain/time";
 import { consentState } from "../authz";
 import { db } from "../db";
 import {
@@ -150,12 +150,18 @@ export async function getEnrollmentView(enrollmentId: string, now = new Date()) 
         }) ?? null
       : null;
 
+  const detailsPending = refs.find((r) => r.status === "asked" && r.detailsRequestedAt && !r.detailsConfirmedAt) ?? null;
   const due: DueItem[] = [];
   if (base.enrollment.status === "active" && startDate && rawWeek >= 1 && rawWeek <= program.weeks) {
     const state = ratingDueState(startDate, rawWeek, now, tz);
     if (!ratedThisWeek) due.push({ kind: "rating", state });
     if (!thisWeekHours) due.push({ kind: "hours", state });
     if (meetingThisWeek) due.push({ kind: "meeting", state: localDate(meetingThisWeek.scheduledAt, tz) < today ? "overdue" : "due" });
+    // A referee asked the student to confirm details: due by the Friday of the week it was asked.
+    if (detailsPending?.detailsRequestedAt) {
+      const friday = addDays(mondayOf(localDate(detailsPending.detailsRequestedAt, tz)), 4);
+      due.push({ kind: "reference", state: today > friday ? "overdue" : "due" });
+    }
   }
 
   return {
@@ -192,6 +198,7 @@ export async function getEnrollmentView(enrollmentId: string, now = new Date()) 
       eligibility,
       dueItems: orderDueItems(due),
       meetingThisWeek,
+      detailsPending,
       nextMeeting: meetings.find((m) => !m.completedAt && m.scheduledAt >= now) ?? null,
     },
   };

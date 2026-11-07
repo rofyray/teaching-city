@@ -13,6 +13,8 @@ export const NOTIFICATION_TYPES = [
   "invited",
   "vendorRequest",
   "invitePastTarget",
+  "detailsRequest",
+  "detailsConfirmed",
 ] as const;
 
 export type KnownNotificationType = (typeof NOTIFICATION_TYPES)[number];

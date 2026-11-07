@@ -9,12 +9,25 @@ test("P5.1 F1 rotation home shows seeded values", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Budget Office" })).toBeVisible();
   const week = page.getByRole("region", { name: "This Week" });
   await expect(week.getByText("Dana rates your week")).toBeVisible();
-  await expect(week.getByText("Due Friday")).toBeVisible();
+  await expect(week.getByText("Due Friday").first()).toBeVisible();
   await expect(week.getByText("11 of 12")).toBeVisible();
   await expect(week.getByText("$1,122")).toBeVisible();
   await expect(page.getByText("Week 6 of 15")).toBeVisible();
   await expect(page.getByText("4 of 5 skills at the bar so far")).toBeVisible();
   await expect(page.getByText("2 of 3")).toBeVisible();
+});
+
+test("P5.2 a referee's details request shows in This Week and can be confirmed", async ({ page }) => {
+  await signInAs(page, "amara");
+  const row = page.getByRole("region", { name: "This Week" }).getByRole("link", { name: /Priya asked you to confirm details/ });
+  await expect(row).toBeVisible();
+  await row.click();
+  await expect(page).toHaveURL(/\/s\/people$/);
+  await expect(page.getByText("Priya Shah asked you to confirm these details before confirming your reference.")).toBeVisible();
+  await page.getByRole("button", { name: "Confirm details" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Details confirmed. Priya Shah can now confirm your reference." }).first()).toBeVisible();
+  await page.goto("/s");
+  await expect(page.getByText("Priya asked you to confirm details")).toHaveCount(0);
 });
 
 test("P5.3 hours validation errors", async ({ page }) => {
@@ -23,10 +36,10 @@ test("P5.3 hours validation errors", async ({ page }) => {
   const first = page.getByRole("region", { name: "Week 6" });
   const input = first.getByLabel("Hours worked");
   await input.fill("13");
-  await first.getByRole("button", { name: "Save hours" }).click();
+  await first.getByRole("button", { name: "Save" }).click();
   await expect(first.getByText("Enter 12 hours or fewer for one week.")).toBeVisible();
   await input.fill("ten");
-  await first.getByRole("button", { name: "Save hours" }).click();
+  await first.getByRole("button", { name: "Save" }).click();
   await expect(first.getByText("Enter hours as a number, like 11 or 10.5.")).toBeVisible();
 });
 
@@ -59,7 +72,7 @@ test("sample data notice is a closable toast and work samples open in a new tab"
   await notice.getByRole("button", { name: "Close" }).click();
   await expect(notice).toHaveCount(0);
   await page.goto("/s/transcript");
-  const link = page.getByRole("link", { name: /Open sample.*Parks overtime variance memo.*opens in a new tab/ });
+  const link = page.getByRole("link", { name: /Open.*Parks overtime variance memo.*opens in a new tab/ });
   await expect(link).toHaveAttribute("target", "_blank");
   await expect(link).toHaveAttribute("rel", "noopener noreferrer");
 });
@@ -69,6 +82,6 @@ test("saving hours shows a toast", async ({ page }) => {
   await page.goto("/s/hours");
   const week = page.getByRole("region", { name: "Week 6" });
   await week.getByLabel("Hours worked").fill("11");
-  await week.getByRole("button", { name: "Save hours" }).click();
+  await week.getByRole("button", { name: "Save" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Saved" }).first()).toBeVisible();
 });

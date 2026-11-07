@@ -1,12 +1,12 @@
-/** Content Pack 13.1.1, verbatim. */
+/** Landing page copy. The tagline is from the Content Pack (13.1.1); the rest is condensed for the site. */
 export const landing = {
-  title: "Nursing has clinicals. Now every major does.",
-  lead: "Teaching City turns City Hall into a teaching hospital for every major. It is a college-city compact that gives students in majors without a placement pipeline a paid, credit-bearing \"civic rotation\" inside local government, modeled on nursing clinicals.",
-  primaryAction: "Try the demo",
+  title: ["Nursing has clinicals.", "Now every major does."],
+  lead: "Teaching City turns City Hall into a teaching hospital for every major: a paid, for-credit semester inside local government, where real work becomes the way in.",
+  primaryAction: "Demo",
   secondaryLink: "How it works",
   barrier: {
     heading: "The Barrier",
-    body: "The barrier is not a lack of talent or job listings. It is the absence of a structured rotation that lets employers see students do real work before hiring them, the bridge nursing and teaching students already have.",
+    body: "Nursing and teaching students get a built-in bridge to work: a supervised rotation inside the places that hire them. Most majors get nothing like it, so employers never see them do real work before deciding.",
   },
   route: {
     heading: "Four Parts, One Route",
@@ -17,29 +17,44 @@ export const landing = {
       { name: "4. The Hiring Lane and Vendor Bridge", line: "Meet the bar and join a pre-qualified pool, or interview with city vendors." },
     ],
   },
+  semester: {
+    heading: "How a Semester Works",
+    steps: [
+      { who: "You", text: "Pick the hours you are free. You spend 10 to 12 paid hours a week in a city office that fits your major, around your classes and job." },
+      { who: "Your preceptor", text: "A city employee in your office rates five skills each week in about two minutes and signs a short note to you." },
+      { who: "Your sponsor", text: "Once a month, a director sits down with you to talk about where your career could go." },
+      { who: "Your transcript", text: "Every rating, note and work sample adds to your Civic Transcript. You choose who sees it." },
+      { who: "What's next", text: "Finish at the bar with three references and you join the city's hiring lane. Prefer another path? City vendors have pledged to interview you." },
+    ],
+  },
   whyNow: {
     heading: "Why Now",
-    body: "In an AI-saturated hiring market, a résumé is cheap and observed work is scarce. Whoever watches a student do real work for a semester holds the most valuable hiring signal there is.",
+    body: "AI makes every résumé look polished. A semester of watched, rated work is now the clearest hiring signal there is, and cities are in every college town to offer it.",
+  },
+  cta: {
+    heading: "See It from Every Side",
+    body: "Walk through the program as a student, a preceptor, a city coordinator or a recruiter. No account needed.",
+    action: "Demo",
   },
 } as const;
 
-/** Node labels from the PRD Section 3 flow (Core user journeys). */
+/** The semester journey (PRD Section 3), in plain words. */
 export const journey = {
-  label: "Core user journeys",
+  label: "One semester, step by step",
   stations: [
-    "Student onboards: profile, consent, availability, courses",
-    "System suggests units by rule",
-    "City coordinator confirms match",
-    "Rotation: 15 weeks, 10 to 12 paid hours",
-    "Weekly: student logs hours and samples",
-    "Weekly: preceptor rates 5 skills and signs a note",
-    "Monthly: sponsor meeting",
-    "Civic Transcript updates live",
-    "References confirmed",
-    "Meets the bar at completion?",
+    "Sign up: profile, consent, free hours, courses",
+    "Get units that fit your major and schedule",
+    "The city confirms your match",
+    "Rotate 15 weeks, 10 to 12 paid hours a week",
+    "Log hours and add work samples",
+    "Your preceptor rates five skills and signs a note",
+    "Meet your sponsor each month",
+    "Your Civic Transcript updates as you go",
+    "Senior references confirm they vouch for you",
+    "Finish at the bar?",
   ],
   branches: [
-    { edge: "yes", label: "Pre-qualified pool: city hiring lane", next: "Invite, interview, offer: target 30 days" },
-    { edge: "other paths", label: "Vendor Bridge interviews", next: null },
+    { edge: "Yes", label: "Join the city's hiring lane", next: "Invite, interview, offer within 30 days" },
+    { edge: "Other paths", label: "Interview with city vendors", next: null },
   ],
 } as const;

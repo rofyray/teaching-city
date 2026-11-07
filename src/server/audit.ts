@@ -26,7 +26,9 @@ export type NotificationType =
   | "poolEntered"
   | "invited"
   | "vendorRequest"
-  | "invitePastTarget";
+  | "invitePastTarget"
+  | "detailsRequest"
+  | "detailsConfirmed";
 
 export async function notify(userId: string, type: NotificationType, payload: Record<string, string | number>, tx: Tx = defaultDb) {
   await tx.insert(notifications).values({ userId, type, payload });

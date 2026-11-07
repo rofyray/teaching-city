@@ -162,3 +162,136 @@
     break-inside: avoid;
   }
 }
+
+/* Motion. Hidden start states apply only when the motion flag is set (JavaScript ran and the
+   visitor has not asked for reduced motion), so content is always readable without it. */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-motion="on"] [data-reveal] {
+    transition:
+      opacity 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: calc(var(--i, 0) * 110ms);
+  }
+  html[data-motion="on"] [data-reveal="rise"]:not([data-shown]) {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  html[data-motion="on"] [data-reveal="pop"]:not([data-shown]) {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  html[data-motion="on"] [data-reveal="draw-x"] {
+    transform-origin: left center;
+  }
+  html[data-motion="on"] [data-reveal="draw-x"]:not([data-shown]) {
+    transform: scaleX(0);
+  }
+  html[data-motion="on"] [data-reveal="draw-y"] {
+    transform-origin: center top;
+  }
+  html[data-motion="on"] [data-reveal="draw-y"]:not([data-shown]) {
+    transform: scaleY(0);
+  }
+  @media (min-width: 768px) {
+    html[data-motion="on"] [data-reveal="draw-route"] {
+      transform-origin: left center;
+    }
+    html[data-motion="on"] [data-reveal="draw-route"]:not([data-shown]) {
+      transform: scaleX(0);
+    }
+  }
+  @media (max-width: 767px) {
+    html[data-motion="on"] [data-reveal="draw-route"] {
+      transform-origin: center top;
+    }
+    html[data-motion="on"] [data-reveal="draw-route"]:not([data-shown]) {
+      transform: scaleY(0);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    html[data-motion="on"] [data-reveal="draw-route-lg"] {
+      transform-origin: left center;
+    }
+    html[data-motion="on"] [data-reveal="draw-route-lg"]:not([data-shown]) {
+      transform: scaleX(0);
+    }
+  }
+  @media (max-width: 1023px) {
+    html[data-motion="on"] [data-reveal="draw-route-lg"] {
+      transform-origin: center top;
+    }
+    html[data-motion="on"] [data-reveal="draw-route-lg"]:not([data-shown]) {
+      transform: scaleY(0);
+    }
+  }
+
+  /* Page-load motion for signed-in screens: short, one-time, CSS only. */
+  .anim-rise {
+    animation: tc-rise 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+  .anim-fade {
+    animation: tc-fade 450ms ease-out both;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+  .anim-draw-y {
+    transform-origin: center top;
+    animation: tc-draw-y 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--i, 0) * 160ms);
+  }
+  .anim-draw-x {
+    transform-origin: left center;
+    animation: tc-draw-x 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--i, 0) * 160ms);
+  }
+  .anim-ping::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 3px var(--tc-line);
+    animation: tc-ping 1400ms ease-out 600ms 2 both;
+  }
+  .anim-toast {
+    animation: tc-toast 280ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+@keyframes tc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes tc-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes tc-draw-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes tc-draw-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes tc-ping {
+  from {
+    opacity: 0.8;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+@keyframes tc-toast {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}

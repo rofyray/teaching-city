@@ -1,10 +1,12 @@
 import { SealCheckIcon } from "@phosphor-icons/react/ssr";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { ActionButton } from "@/components/action-button";
 import { EmptyState } from "@/components/empty-state";
 import { Icon } from "@/components/icon";
 import { PageHeader } from "@/components/page-header";
 import { StatusPill } from "@/components/status-pill";
+import { requestReferenceDetails } from "@/server/actions/mentor";
 import { getReferenceRequests } from "@/server/queries/mentor";
 import { requireRole } from "@/server/session";
 import { ReferenceForm } from "./reference-form";
@@ -36,6 +38,21 @@ export default async function ReferencesPage() {
                   </h2>
                   <StatusPill variant={reference.status === "confirmed" ? "confirmed" : "asked"}>{t(`people.${reference.status}`)}</StatusPill>
                 </div>
+                {reference.status === "asked" ? (
+                  <div className="mt-2 text-body-sm">
+                    {!reference.detailsRequestedAt ? (
+                      <ActionButton
+                        action={requestReferenceDetails.bind(null, reference.id)}
+                        label={t("references.askDetails", { firstName })}
+                        successMessage={t("references.detailsAsked", { firstName })}
+                      />
+                    ) : reference.detailsConfirmedAt ? (
+                      <p className="font-bold text-line">{t("references.detailsDone", { firstName })}</p>
+                    ) : (
+                      <p className="font-bold text-muted">{t("references.detailsWaiting", { firstName })}</p>
+                    )}
+                  </div>
+                ) : null}
                 {reference.status === "asked" ? (
                   <ReferenceForm referenceId={reference.id} firstName={firstName} />
                 ) : reference.quote ? (

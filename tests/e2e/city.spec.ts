@@ -23,33 +23,22 @@ async function db<T>(run: (c: Client) => Promise<T>) {
 const toast = (page: Page, text: string | RegExp) => page.getByRole("status").filter({ hasText: text }).first();
 
 test("P4.3 and P4.4: an accounting student sees Budget Office first and the match is confirmed", async ({ page }) => {
-  // A synthetic test-only student who finished onboarding with both consents and no match.
-  await db(async (c) => {
-    await c.query(`delete from "user" where id = 'u_e2e-unmatched'`);
-    await c.query(`insert into "user" (id, name, email, email_verified) values ('u_e2e-unmatched', 'Avery Lane', 'avery.lane@wsu.example.edu', true)`);
-    await c.query(`insert into memberships (id, user_id, organization_id, role) values ('m_e2e_unmatched', 'u_e2e-unmatched', 'org_wsu', 'student')`);
-    await c.query(
-      `insert into student_profiles (id, user_id, college_org_id, major, major_category, class_year, availability, onboarded_at)
-       values ('sp_e2e-unmatched', 'u_e2e-unmatched', 'org_wsu', 'Accounting', 'accounting_finance', 'junior', $1, now())`,
-      [JSON.stringify([1, 2, 3, 4, 5].map((day) => ({ day, start: "09:00", end: "12:00" })))],
-    );
-    for (const type of ["program_participation", "share_city_hr"]) {
-      await c.query(`insert into consents (id, student_id, type, granted, version, granted_at) values ($2, 'sp_e2e-unmatched', $1, true, '2026-11-v1', now())`, [type, `con_e2e_${type}`]);
-    }
-  });
+  // Jada Brooks is a seeded student who finished onboarding with both consents and has no match yet.
   await signInAs(page, "renee");
   await page.goto("/city/matching");
-  const card = page.getByRole("article").filter({ hasText: "Avery Lane" }).or(page.locator("section, li").filter({ hasText: "Avery Lane" })).first();
-  await expect(card).toBeVisible();
+  for (const name of ["Jada Brooks", "Nate Owens", "Mateo Ramos"]) await expect(page.getByText(name).first()).toBeVisible();
+  const card = page.getByRole("listitem").filter({ has: page.getByRole("heading", { name: "Jada Brooks" }) }).first();
   await expect(card.getByText("Budget Office").first()).toBeVisible();
-  await expect(card.getByText("15 of 15 free hours overlap").first()).toBeVisible();
-  await card.getByRole("button", { name: "Confirm match" }).click();
-  await expect(toast(page, /Match confirmed\. Avery and .* have been notified\./)).toBeVisible();
-  const status = await db((c) => c.query(`select status, match_reason from enrollments where student_id = 'sp_e2e-unmatched'`));
+  await expect(card.getByText("12 of 12 free hours overlap").first()).toBeVisible();
+  await card.getByRole("button", { name: "Confirm" }).click();
+  await expect(toast(page, /Match confirmed\. Jada and .* have been notified\./)).toBeVisible();
+  const status = await db((c) =>
+    c.query(`select e.status, e.match_reason, (select count(*)::int from audit_log a where a.entity_id = e.id) as audits
+             from enrollments e where e.student_id = 'sp_jada-brooks'`),
+  );
   expect(status.rows[0].status).toBe("active");
   expect(status.rows[0].match_reason).toContain("Accounting maps to the Budget Office.");
-  const audit = await db((c) => c.query(`select count(*)::int as n from audit_log where entity = 'enrollments' and entity_id in (select id from enrollments where student_id = 'sp_e2e-unmatched')`));
-  expect(audit.rows[0].n).toBeGreaterThan(0);
+  expect(status.rows[0].audits).toBeGreaterThan(0);
 });
 
 test("P9.4: record an offer for Luis, then mark it accepted", async ({ page }) => {
@@ -77,7 +66,7 @@ test("P9.4: create an opening and invite from the hiring lane", async ({ page })
   const opening = page.getByRole("listitem").filter({ has: page.getByRole("heading", { name: "Engineering Technician I, Drainage" }) });
   await expect(opening).toBeVisible();
   await opening.getByRole("checkbox").first().check();
-  await opening.getByRole("button", { name: "Invite from the hiring lane" }).click();
+  await opening.getByRole("button", { name: "Invite" }).click();
   await expect(toast(page, "Invited")).toBeVisible();
 });
 
@@ -88,7 +77,7 @@ test("P11.3: approve a plain-language version and students see it", async ({ pag
   await editor.getByLabel("Summary").fill("You help keep streets, water and drainage working by measuring, checking plans and writing field reports.");
   await editor.getByLabel("Day to Day").fill("Take field measurements\nCheck plans for missing details\nWrite field reports");
   await editor.getByLabel("What You Need").fill("An associate degree in engineering technology, or equivalent experience from a Teaching City rotation\nA valid driver's license");
-  await editor.getByRole("button", { name: "Approve for students" }).click();
+  await editor.getByRole("button", { name: "Approve" }).click();
   await expect(toast(page, "Approved. Students now see this version.")).toBeVisible();
   await signInAs(page, "luis");
   await page.goto("/s/openings");
@@ -110,7 +99,7 @@ test("P10.1: ending a pledge hides its students from that vendor", async ({ page
 test("P10.1: add a vendor pledge", async ({ page }) => {
   await signInAs(page, "renee");
   await page.goto("/city/vendors");
-  await page.getByRole("button", { name: "Add a pledge" }).click();
+  await page.getByRole("button", { name: "Add pledge" }).click();
   await page.getByLabel("Firm").fill("Riverbend Survey Co");
   await page.getByLabel("Contact").fill("Jo Park");
   await page.getByLabel("Roles offered").fill("Survey technician");
@@ -122,12 +111,12 @@ test("P10.1: add a vendor pledge", async ({ page }) => {
 test("P9.2: completing a rotation early needs a reason and is audit logged", async ({ page }) => {
   await signInAs(page, "renee");
   await page.goto("/city");
-  await page.getByRole("button", { name: /Mark rotation complete.*Jordan Ellis/ }).click();
+  await page.getByRole("button", { name: /Complete rotation.*Jordan Ellis/ }).click();
   const form = page.locator("form").filter({ hasText: "Reason" }).first();
-  await form.getByRole("button", { name: "Mark rotation complete" }).click();
+  await form.getByRole("button", { name: "Complete rotation" }).click();
   await expect(form.getByText("Completing before week 15 needs a reason.").last()).toBeVisible();
   await form.getByLabel("Reason").fill("Hired early by the Finance Department");
-  await form.getByRole("button", { name: "Mark rotation complete" }).click();
+  await form.getByRole("button", { name: "Complete rotation" }).click();
   await expect(toast(page, "Rotation marked complete.")).toBeVisible();
   const rows = await db((c) =>
     c.query(`select e.status, (select count(*)::int from audit_log a where a.entity_id = e.id) as audits from enrollments e where e.id = 'enr_fall_jordan-ellis'`),

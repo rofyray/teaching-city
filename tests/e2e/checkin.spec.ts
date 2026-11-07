@@ -11,7 +11,7 @@ test("P6.4 + P11.2 Dana rates week 6 with a drafted note and Amara reaches 5 of 
   await page.goto("/m/rate/enr_fall_amara-okafor/6");
   await expect(page.getByRole("heading", { name: "Rate Amara's Week 6" })).toBeVisible();
 
-  await page.getByRole("button", { name: "Submit week 6 rating" }).click();
+  await page.getByRole("button", { name: "Submit rating" }).click();
   await expect(page.getByRole("alert").getByText("Fix These Before You Continue")).toBeVisible();
 
   const skills = [
@@ -27,11 +27,11 @@ test("P6.4 + P11.2 Dana rates week 6 with a drafted note and Amara reaches 5 of 
   await expect(page.getByRole("status").getByText("5 of 5")).toBeVisible();
 
   await page.getByLabel("Note for Amara").fill("reconciled overtime, on time, paired with a colleague on parks numbers");
-  await page.getByRole("button", { name: "Draft from my notes" }).click();
-  await page.getByRole("button", { name: "Use this draft" }).click();
+  await page.getByRole("button", { name: "Draft note" }).click();
+  await page.getByRole("button", { name: "Use draft" }).click();
   await expect(page.getByLabel("Note for Amara")).toHaveValue(/Next week/);
   await expect(page.getByText("Signed Dana Ortiz")).toBeVisible();
-  await page.getByRole("button", { name: "Submit week 6 rating" }).click();
+  await page.getByRole("button", { name: "Submit rating" }).click();
   await expect(page.getByRole("status").getByText("Week 6 rating sent to Amara's transcript.").first()).toBeVisible();
 
   await signInAs(page, "amara");

@@ -10,8 +10,6 @@ import { cx } from "@/lib/cx";
 
 const LINKS = [
   { href: "/how-it-works", key: "howItWorks" },
-  { href: "/why", key: "why" },
-  { href: "/pilot", key: "pilot" },
   { href: "/demo", key: "tryDemo" },
 ] as const;
 
@@ -35,7 +33,11 @@ export function PublicNav() {
             className={cx(
               "flex min-h-[44px] items-center text-body-sm font-bold no-underline",
               mobile ? "px-5" : "px-3",
-              current ? "text-white underline decoration-[3px] decoration-line-finance underline-offset-[10px]" : "text-sign-muted hover:text-white",
+              !mobile && link.key === "tryDemo"
+                ? "ml-2 rounded-[8px] bg-white px-5 text-ink hover:bg-ground"
+                : current
+                  ? "text-white underline decoration-[3px] decoration-line-finance underline-offset-[10px]"
+                  : "text-sign-muted hover:text-white",
             )}
           >
             {t(link.key)}

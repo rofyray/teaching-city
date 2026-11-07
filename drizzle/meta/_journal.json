@@ -15,6 +15,13 @@
       "when": 1794014647544,
       "tag": "0001_oval_lila_cheney",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794025080899,
+      "tag": "0002_charming_gladiator",
+      "breakpoints": true
     }
   ]
 }

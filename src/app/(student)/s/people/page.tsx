@@ -1,11 +1,12 @@
 import { HourglassMediumIcon, QuotesIcon, SealCheckIcon, UsersThreeIcon, XCircleIcon } from "@phosphor-icons/react/ssr";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { ActionButton } from "@/components/action-button";
 import { EmptyState } from "@/components/empty-state";
 import { Icon } from "@/components/icon";
 import { PageHeader } from "@/components/page-header";
 import { initials } from "@/components/vouch-card";
-import { eligibleReferees } from "@/server/actions/student";
+import { confirmReferenceDetails, eligibleReferees } from "@/server/actions/student";
 import { getStudentArea } from "@/server/queries/student";
 import { AskReferenceButton, QuoteToggle } from "./people-controls";
 
@@ -78,6 +79,36 @@ export default async function PeoplePage() {
                     {t(`people.${r.status}`)}
                   </span>
                 </div>
+                {r.status === "asked" && r.detailsRequestedAt ? (
+                  <div className="ml-9 flex flex-col gap-2 rounded-[8px] bg-due-tint p-3 text-body-sm">
+                    {r.detailsConfirmedAt ? (
+                      <p className="font-bold">{t("people.detailsConfirmed", { name: r.refereeName })}</p>
+                    ) : (
+                      <>
+                        <p className="font-bold">{t("people.detailsRequested", { name: r.refereeName })}</p>
+                        <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+                          <dt className="font-bold">{t("pool.name")}</dt>
+                          <dd>{r.refereeName}</dd>
+                          <dt className="font-bold">{t("work.titleLabel")}</dt>
+                          <dd>{r.refereeTitle}</dd>
+                          <dt className="font-bold">{t("people.relationLabel")}</dt>
+                          <dd>
+                            {r.relation === "preceptor" ? t("people.preceptor") : r.relation === "sponsor" ? t("people.sponsor") : t("people.relationOther")}
+                          </dd>
+                          <dt className="font-bold">{t("pool.unit")}</dt>
+                          <dd>{view.unit?.name}</dd>
+                        </dl>
+                        <ActionButton
+                          action={confirmReferenceDetails.bind(null, r.id)}
+                          label={t("people.confirmDetails")}
+                          successMessage={t("people.detailsConfirmed", { name: r.refereeName })}
+                          variant="primary"
+                          className="self-start"
+                        />
+                      </>
+                    )}
+                  </div>
+                ) : null}
                 {r.status === "confirmed" && r.quote && r.quoteApproved ? (
                   <div className="ml-9 flex flex-col gap-1">
                     <p className="flex gap-2 text-body-sm text-muted">
@@ -95,7 +126,7 @@ export default async function PeoplePage() {
         {referees.length > 0 && view.enrollment.status === "active" ? (
           <section aria-labelledby="ask" className="card p-4">
             <h2 id="ask" className="text-subheading font-extrabold">
-              {t("people.ask")}
+              {t("people.askTitle")}
             </h2>
             <ul className="mt-2">
               {referees.map((r) => (

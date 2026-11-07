@@ -419,6 +419,7 @@ export async function seed(db: Db, now = new Date()) {
       for (const r of data.amara.references) {
         const referee = staffByName.get(r.name)!;
         const askedAt = r.status === "asked" ? at(addDays(today, -r.askedDaysAgo!), "10:00") : at(fallWeekDay(r.confirmedWeek! - 1, 2));
+        const detailsRequestedAt = r.detailsRequestedDaysAgo ? at(addDays(today, -r.detailsRequestedDaysAgo), "14:00") : null;
         refs.push({
           id: `ref_${eid}_${slug(r.name).replace(/\./g, "-")}`,
           enrollmentId: eid,
@@ -432,7 +433,16 @@ export async function seed(db: Db, now = new Date()) {
           quoteHiddenByStudent: false,
           askedAt,
           confirmedAt: r.status === "confirmed" ? at(fallWeekDay(r.confirmedWeek!, 2), "10:00") : null,
+          detailsRequestedAt,
         });
+        if (detailsRequestedAt) {
+          notifications.push({
+            id: `ntf_${uid}_details_${slug(r.name).replace(/\./g, "-")}`,
+            userId: uid,
+            type: "detailsRequest",
+            payload: { name: r.name, href: "/s/people" },
+          });
+        }
       }
 
       notifications.push(
@@ -470,6 +480,20 @@ export async function seed(db: Db, now = new Date()) {
         payload: { firstName: f.name.split(" ")[0], week: 6, href: `/m/rate/${eid}/6` },
       });
     }
+  }
+
+  // Fall 2026 students who finished onboarding and wait for a match (for the matching screen)
+  for (const u of data.cohorts.fall2026.unmatched) {
+    const { pid } = addProfile(u.name, u.college, u.major, u.majorCategory, u.firstGenOrPell, at(addDays(today, -3)));
+    const profile = profiles[profiles.length - 1];
+    profile.classYear = u.classYear as "junior";
+    profile.availability = u.availability;
+    profile.courses = u.courses;
+    consent(pid, "program_participation", true, at(addDays(today, -3)));
+    consent(pid, "share_city_hr", true, at(addDays(today, -3)));
+    consent(pid, "share_vendor_bridge", false, at(addDays(today, -3)));
+    consent(pid, "public_link", false, at(addDays(today, -3)));
+    consent(pid, "demographic_reporting", true, at(addDays(today, -3)));
   }
 
   // Spring 2026 (completed)

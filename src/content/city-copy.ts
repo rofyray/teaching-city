@@ -7,74 +7,85 @@ export function pick(copy: Copy, locale: string): string {
   return copy[(locale === "es" ? "es" : "en") as Locale];
 }
 
-/**
- * Outcomes dashboard copy from Content Pack 13.5, verbatim.
- * TODO(copy): the Content Pack has no Spanish for 13.5, so both locales use the English text.
- */
-const same = (en: string): Copy => ({ en, es: en });
+/** Outcomes dashboard copy: English verbatim from Content Pack 13.5, with Spanish translations. */
+const c = (en: string, es: string): Copy => ({ en, es });
 
 export const METRIC_COPY: Record<MetricKey, { name: Copy; value: Copy; target: Copy; how: Copy }> = {
   completion: {
-    name: same("Finish the Rotation"),
-    value: same("Completion rate"),
-    target: same("85% or more"),
-    how: same("Students who finished the rotation, divided by all students enrolled in the cohort."),
+    name: c("Finish the Rotation", "Terminar la rotación"),
+    value: c("Completion rate", "Tasa de finalización"),
+    target: c("85% or more", "85% o más"),
+    how: c(
+      "Students who finished the rotation, divided by all students enrolled in the cohort.",
+      "Estudiantes que terminaron la rotación, divididos entre todos los estudiantes inscritos en el grupo.",
+    ),
   },
   reach: {
-    name: same("Reach Students Who Need It Most"),
-    value: same("First-gen or Pell share"),
-    target: same("60% or more"),
-    how: same(
+    name: c("Reach Students Who Need It Most", "Llegar a quienes más lo necesitan"),
+    value: c("First-gen or Pell share", "Proporción de primera generación o con beca Pell"),
+    target: c("60% or more", "60% o más"),
+    how: c(
       "Students who said they are first-generation or receive a Pell Grant, divided by all students enrolled, counting only students who agreed to share answers in totals. Shown only when 5 or more students are counted.",
+      "Estudiantes que dijeron ser la primera generación de su familia en la universidad o recibir una beca Pell, divididos entre todos los estudiantes inscritos, contando solo a quienes aceptaron incluir sus respuestas en los totales. Se muestra solo cuando se cuentan 5 estudiantes o más.",
     ),
   },
   references: {
-    name: same("Leave with 3 Senior References"),
-    value: same("Share of completers with 3+ confirmed references"),
-    target: same("Every completer"),
-    how: same("Completers with 3 or more confirmed senior references, divided by all completers."),
+    name: c("Leave with 3 Senior References", "Terminar con 3 referencias sénior"),
+    value: c("Share of completers with 3+ confirmed references", "Proporción de egresados con 3 o más referencias confirmadas"),
+    target: c("Every completer", "Todos los egresados"),
+    how: c(
+      "Completers with 3 or more confirmed senior references, divided by all completers.",
+      "Egresados con 3 o más referencias sénior confirmadas, divididos entre todos los egresados.",
+    ),
   },
   offers: {
-    name: same("Get a Public-Sector Offer"),
-    value: same("Offer rate"),
-    target: same("30% or more"),
-    how: same(
+    name: c("Get a Public-Sector Offer", "Recibir una oferta del sector público"),
+    value: c("Offer rate", "Tasa de ofertas"),
+    target: c("30% or more", "30% o más"),
+    how: c(
       "Completers with a public-sector job offer or apprenticeship within six months, divided by all completers. In this pilot we count from rotation completion, because most completers have not graduated yet.",
+      "Egresados con una oferta de empleo o de aprendizaje en el sector público dentro de seis meses, divididos entre todos los egresados. En este piloto contamos desde que terminan la rotación, porque la mayoría aún no se ha graduado.",
     ),
   },
   offerDays: {
-    name: same("Offer Within 30 Days"),
-    value: same("Median days from joining the hiring lane to an offer"),
-    target: same("30 days or fewer"),
-    how: same(
+    name: c("Offer Within 30 Days", "Oferta en 30 días o menos"),
+    value: c("Median days from joining the hiring lane to an offer", "Mediana de días desde la entrada a la vía de contratación hasta la oferta"),
+    target: c("30 days or fewer", "30 días o menos"),
+    how: c(
       "The middle value of days between joining the hiring lane and receiving an offer, for completers who received one.",
+      "El valor central de los días entre la entrada a la vía de contratación y la oferta, para los egresados que recibieron una.",
     ),
   },
   vendor: {
-    name: same("Interview with a City Vendor"),
-    value: same("Vendor interview rate"),
-    target: same("50% or more"),
-    how: same(
+    name: c("Interview with a City Vendor", "Entrevista con un proveedor de la ciudad"),
+    value: c("Vendor interview rate", "Tasa de entrevistas con proveedores"),
+    target: c("50% or more", "50% o más"),
+    how: c(
       "Completers not hired by the city who had at least one interview with a city vendor, divided by all completers not hired by the city.",
+      "Egresados no contratados por la ciudad que tuvieron al menos una entrevista con un proveedor de la ciudad, divididos entre todos los egresados no contratados por la ciudad.",
     ),
   },
   underemployment: {
-    name: same("Lower Underemployment than Peers"),
-    value: same("Completers vs. matched peers"),
-    target: same("Lower than matched peers"),
-    how: same(
+    name: c("Lower Underemployment than Peers", "Menos subempleo que sus pares"),
+    value: c("Completers vs. matched peers", "Egresados frente a pares comparables"),
+    target: c("Lower than matched peers", "Menor que el de pares comparables"),
+    how: c(
       "One year after graduation, the share of completers in jobs that do not require a degree, compared with matched peers from the same college and majors, from the college's outcomes survey. The first reading is due one year after the first completers graduate.",
+      "Un año después de la graduación, la proporción de egresados en empleos que no requieren título universitario, comparada con la de pares comparables de la misma universidad y carreras, según la encuesta de resultados de la universidad. La primera medición llega un año después de que se gradúen los primeros egresados.",
     ),
   },
 };
 
-/** Pilot budget funding list, Content Pack 13.5, in order. TODO(copy): no Spanish in the Content Pack. */
+/** Pilot budget funding list, Content Pack 13.5, in order, with Spanish translations. */
 export const FUNDING_SOURCES: Copy[] = [
-  same("City salary savings from positions that sit vacant during long hiring cycles"),
-  same("The college's experiential learning budget"),
-  same("Work-Study community service funds where available"),
-  same("Local workforce boards and philanthropy"),
-  same("Optional vendor sponsorships"),
+  c(
+    "City salary savings from positions that sit vacant during long hiring cycles",
+    "Ahorros de salarios de la ciudad en puestos que quedan vacantes durante procesos de contratación largos",
+  ),
+  c("The college's experiential learning budget", "El presupuesto de aprendizaje experiencial de la universidad"),
+  c("Work-Study community service funds where available", "Fondos de servicio comunitario de Work-Study donde estén disponibles"),
+  c("Local workforce boards and philanthropy", "Juntas locales de desarrollo laboral y filantropía"),
+  c("Optional vendor sponsorships", "Patrocinios opcionales de proveedores"),
 ];
 
 /** Match reason template from Content Pack 13.4.7 (Amara's match reason). */
@@ -87,7 +98,7 @@ export const CITY_COPY = {
   matchingEmptyTitle: { en: "No One Is Waiting for a Match", es: "Nadie está esperando asignación" },
   matchingEmptyBody: {
     en: "Students appear here after they finish onboarding and give both consents.",
-    es: "Los estudiantes aparecen aquí cuando terminan la inscripción y aceptan ambos consentimientos.",
+    es: "Los estudiantes aparecen aquí cuando terminan el registro inicial y aceptan ambos consentimientos.",
   },
   noSuggestions: { en: "No unit with open seats takes this major. You can choose any unit.", es: "Ninguna unidad con lugares libres recibe esta carrera. Puedes elegir cualquier unidad." },
   unitLabel: { en: "Teaching unit", es: "Unidad de formación" },
@@ -112,7 +123,7 @@ export const CITY_COPY = {
   plainStatus: {
     none: { en: "No plain-language version yet", es: "Aún sin versión en lenguaje sencillo" },
     draft: { en: "Draft, not shown to students", es: "Borrador, no se muestra a estudiantes" },
-    approved: { en: "Approved, shown to students", es: "Aprobado, se muestra a estudiantes" },
+    approved: { en: "Approved, shown to students", es: "Aprobada, se muestra a estudiantes" },
   },
   officialDescription: { en: "Official Description", es: "Descripción oficial" },
   summary: { en: "Summary", es: "Resumen" },
@@ -128,7 +139,7 @@ export const CITY_COPY = {
   value: { en: "Value", es: "Valor" },
   target: { en: "Target", es: "Meta" },
   metric: { en: "Metric", es: "Métrica" },
-  vsPeers: { en: "{value}% vs. {peer}% for peers", es: "{value}% frente a {peer}% de pares" },
+  vsPeers: { en: "{value}% vs. {peer}% for peers", es: "{value}% frente a {peer}% de sus pares" },
   daysValue: { en: "{days} days", es: "{days} días" },
   completed: { en: "Rotation marked complete.", es: "Rotación marcada como completa." },
   saved: { en: "Saved", es: "Guardado" },

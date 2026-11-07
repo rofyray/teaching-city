@@ -18,6 +18,13 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "2mb",
     },
   },
+  async redirects() {
+    // /why and /pilot became sections of the submission page.
+    return [
+      { source: "/why", destination: "/submission", permanent: true },
+      { source: "/pilot", destination: "/submission", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

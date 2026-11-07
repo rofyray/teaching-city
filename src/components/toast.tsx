@@ -67,7 +67,7 @@ function ToastItem({ item }: { item: Toast }) {
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
-      className={`pointer-events-auto flex items-start gap-3 rounded-[8px] py-3 pr-1 pl-4 text-body-sm font-bold ${cls}`}
+      className={`anim-toast pointer-events-auto flex items-start gap-3 rounded-[8px] py-3 pr-1 pl-4 text-body-sm font-bold ${cls}`}
     >
       <span className="mt-[2px]">{icons?.[item.variant]}</span>
       <p role={item.variant === "error" ? "alert" : "status"} className="flex-1 pt-[1px]">

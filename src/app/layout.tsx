@@ -7,6 +7,7 @@ import { Overpass } from "next/font/google";
 import type { ReactNode } from "react";
 import { CheckCircleIcon, InfoIcon, WarningCircleIcon, XIcon } from "@phosphor-icons/react/ssr";
 import { Icon } from "@/components/icon";
+import { Reveal } from "@/components/reveal";
 import { Toaster } from "@/components/toast";
 import { isDemoMode } from "@/server/auth";
 import "./globals.css";
@@ -43,10 +44,19 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const all = await getMessages();
   const messages = Object.fromEntries(CLIENT_NAMESPACES.filter((ns) => ns in all).map((ns) => [ns, all[ns]]));
   return (
-    <html lang={locale} className={`${overpass.variable} h-full`}>
+    <html lang={locale} className={`${overpass.variable} h-full`} suppressHydrationWarning>
+      <head>
+        {/* Turns on entrance motion before first paint, unless the visitor prefers reduced motion. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.dataset.motion='on'",
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>
           {children}
+          <Reveal />
           <Toaster
             icons={{
               success: <Icon icon={CheckCircleIcon} weight="fill" size={20} />,

@@ -28,7 +28,7 @@ test.describe("P1.5 demo personas", () => {
 test("P1.6 invalid email shows the inline error", async ({ page }) => {
   await page.goto("/sign-in");
   await page.getByLabel("Email").fill("not-an-email");
-  await page.getByRole("button", { name: "Email me a sign-in link" }).click();
+  await page.getByRole("button", { name: "Send link" }).click();
   await expect(page.getByText("Enter an email address like name@example.edu.")).toBeVisible();
 });
 
