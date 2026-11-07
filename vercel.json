@@ -1,4 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm vercel-build"
+  "buildCommand": "pnpm vercel-build",
+  "crons": [
+    {
+      "path": "/api/cron/weekly",
+      "schedule": "0 15 * * 4"
+    },
+    {
+      "path": "/api/cron/daily",
+      "schedule": "0 11 * * *"
+    }
+  ]
 }
