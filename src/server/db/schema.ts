@@ -513,6 +513,9 @@ export const references = pgTable(
     quoteHiddenByStudent: boolean("quote_hidden_by_student").notNull().default(false),
     askedAt: tstz("asked_at"),
     confirmedAt: tstz("confirmed_at"),
+    /** The referee asked the student to confirm the details of the reference before confirming it. */
+    detailsRequestedAt: tstz("details_requested_at"),
+    detailsConfirmedAt: tstz("details_confirmed_at"),
     ...timestamps,
   },
   (t) => [

@@ -221,7 +221,12 @@
     "askConfirm": "Ask {name} to Be a Reference?",
     "askSent": "Request sent to {name}.",
     "hideQuote": "Hide this quote from my transcript",
-    "showQuote": "Show this quote on my transcript"
+    "showQuote": "Show this quote on my transcript",
+    "detailsRequested": "{name} asked you to confirm these details before confirming your reference.",
+    "confirmDetails": "Confirm details",
+    "detailsConfirmed": "Details confirmed. {name} can now confirm your reference.",
+    "relationOther": "City leader",
+    "relationLabel": "Role in your rotation"
   },
   "transcript": {
     "title": "Civic Transcript",
@@ -354,7 +359,11 @@
     "quoteHelp": "Up to 240 characters. It appears with your name and title.",
     "approveQuote": "Show my quote on the transcript",
     "confirmed": "You are now a confirmed reference for {firstName}.",
-    "empty": "No reference requests yet."
+    "empty": "No reference requests yet.",
+    "askDetails": "Ask {firstName} to confirm details",
+    "detailsWaiting": "Waiting for {firstName} to confirm details.",
+    "detailsDone": "{firstName} confirmed the details.",
+    "detailsAsked": "Request sent to {firstName}."
   },
   "city": {
     "overviewTitle": "City of Westbrook Program",
@@ -476,7 +485,9 @@
     "poolEntered": "You joined the hiring lane for {classification}.",
     "invited": "You are invited to interview for {opening}.",
     "vendorRequest": "{vendor} would like to interview you.",
-    "invitePastTarget": "{name}'s invite for {opening} is past the {days}-day target."
+    "invitePastTarget": "{name}'s invite for {opening} is past the {days}-day target.",
+    "detailsRequest": "{name} asked you to confirm details for your reference.",
+    "detailsConfirmed": "{firstName} confirmed the details for the reference."
   },
   "errors": {
     "generic": "Something went wrong. Your changes were not saved. Try again.",

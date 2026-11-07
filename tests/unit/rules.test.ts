@@ -60,6 +60,7 @@ describe("BR-2 hours validation", () => {
   it("accepts 0 to 12 in half steps", () => {
     expect(validateHours("0")).toEqual({ ok: true, hours: 0 });
     expect(validateHours("10.5")).toEqual({ ok: true, hours: 10.5 });
+    expect(validateHours("10,5")).toEqual({ ok: true, hours: 10.5 });
     expect(validateHours(12)).toEqual({ ok: true, hours: 12 });
   });
   it("rejects more than 12 and non-numbers", () => {

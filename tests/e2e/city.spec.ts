@@ -23,33 +23,22 @@ async function db<T>(run: (c: Client) => Promise<T>) {
 const toast = (page: Page, text: string | RegExp) => page.getByRole("status").filter({ hasText: text }).first();
 
 test("P4.3 and P4.4: an accounting student sees Budget Office first and the match is confirmed", async ({ page }) => {
-  // A synthetic test-only student who finished onboarding with both consents and no match.
-  await db(async (c) => {
-    await c.query(`delete from "user" where id = 'u_e2e-unmatched'`);
-    await c.query(`insert into "user" (id, name, email, email_verified) values ('u_e2e-unmatched', 'Avery Lane', 'avery.lane@wsu.example.edu', true)`);
-    await c.query(`insert into memberships (id, user_id, organization_id, role) values ('m_e2e_unmatched', 'u_e2e-unmatched', 'org_wsu', 'student')`);
-    await c.query(
-      `insert into student_profiles (id, user_id, college_org_id, major, major_category, class_year, availability, onboarded_at)
-       values ('sp_e2e-unmatched', 'u_e2e-unmatched', 'org_wsu', 'Accounting', 'accounting_finance', 'junior', $1, now())`,
-      [JSON.stringify([1, 2, 3, 4, 5].map((day) => ({ day, start: "09:00", end: "12:00" })))],
-    );
-    for (const type of ["program_participation", "share_city_hr"]) {
-      await c.query(`insert into consents (id, student_id, type, granted, version, granted_at) values ($2, 'sp_e2e-unmatched', $1, true, '2026-11-v1', now())`, [type, `con_e2e_${type}`]);
-    }
-  });
+  // Jada Brooks is a seeded student who finished onboarding with both consents and has no match yet.
   await signInAs(page, "renee");
   await page.goto("/city/matching");
-  const card = page.getByRole("article").filter({ hasText: "Avery Lane" }).or(page.locator("section, li").filter({ hasText: "Avery Lane" })).first();
-  await expect(card).toBeVisible();
+  for (const name of ["Jada Brooks", "Nate Owens", "Mateo Ramos"]) await expect(page.getByText(name).first()).toBeVisible();
+  const card = page.getByRole("listitem").filter({ has: page.getByRole("heading", { name: "Jada Brooks" }) }).first();
   await expect(card.getByText("Budget Office").first()).toBeVisible();
-  await expect(card.getByText("15 of 15 free hours overlap").first()).toBeVisible();
+  await expect(card.getByText("12 of 12 free hours overlap").first()).toBeVisible();
   await card.getByRole("button", { name: "Confirm match" }).click();
-  await expect(toast(page, /Match confirmed\. Avery and .* have been notified\./)).toBeVisible();
-  const status = await db((c) => c.query(`select status, match_reason from enrollments where student_id = 'sp_e2e-unmatched'`));
+  await expect(toast(page, /Match confirmed\. Jada and .* have been notified\./)).toBeVisible();
+  const status = await db((c) =>
+    c.query(`select e.status, e.match_reason, (select count(*)::int from audit_log a where a.entity_id = e.id) as audits
+             from enrollments e where e.student_id = 'sp_jada-brooks'`),
+  );
   expect(status.rows[0].status).toBe("active");
   expect(status.rows[0].match_reason).toContain("Accounting maps to the Budget Office.");
-  const audit = await db((c) => c.query(`select count(*)::int as n from audit_log where entity = 'enrollments' and entity_id in (select id from enrollments where student_id = 'sp_e2e-unmatched')`));
-  expect(audit.rows[0].n).toBeGreaterThan(0);
+  expect(status.rows[0].audits).toBeGreaterThan(0);
 });
 
 test("P9.4: record an offer for Luis, then mark it accepted", async ({ page }) => {

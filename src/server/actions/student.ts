@@ -112,6 +112,18 @@ export async function setQuoteHidden(referenceId: string, hidden: boolean): Prom
   return { ok: true };
 }
 
+/** The student confirms the details a referee asked about; the referee can then confirm. */
+export async function confirmReferenceDetails(referenceId: string): Promise<Result> {
+  const { current, view } = await studentView();
+  const ref = view?.references.find((r) => r.id === referenceId);
+  if (!ref || !ref.detailsRequestedAt || ref.status !== "asked") return { ok: false, error: "generic" };
+  await db.update(references).set({ detailsConfirmedAt: new Date() }).where(eq(references.id, referenceId));
+  await audit(current.id, "reference.details_confirm", "references", referenceId);
+  if (ref.refereeUserId) await notify(ref.refereeUserId, "detailsConfirmed", { firstName: current.firstName, href: "/m/references" });
+  revalidatePath("/", "layout");
+  return { ok: true };
+}
+
 const SampleMeta = z.object({
   week: z.number().int().min(1).max(15),
   title: z.string().trim().min(1).max(120),

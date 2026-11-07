@@ -56,7 +56,7 @@ pnpm dev
 | `AI_MODEL` | AI Gateway model id, for example `anthropic/claude-sonnet-5.5` |
 | `AI_GATEWAY_API_KEY` | Local only; Vercel deployments use OIDC |
 | `BLOB_READ_WRITE_TOKEN` | Optional locally; uploads fall back to the database |
-| `RESEND_API_KEY`, `EMAIL_FROM` | Magic links and notices outside demo mode |
+| `RESEND_API_KEY`, `EMAIL_FROM` | Magic links and notice emails outside demo mode (planned for v2; not needed for the demo) |
 | `CRON_SECRET` | Protects `/api/cron/weekly` and `/api/cron/daily` |
 
 Without an AI key the app still works: every AI button shows the fallback message and the manual path stays open. Set `AI_MOCK=true` to use a fixed local response instead.

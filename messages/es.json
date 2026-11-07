@@ -1,7 +1,7 @@
 {
   "common": {
     "appName": "Teaching City",
-    "tagline": "Enfermería tiene prácticas clínicas. Ahora todas las carreras también.",
+    "tagline": "Las carreras de enfermería tienen prácticas clínicas. Ahora todas las carreras también.",
     "save": "Guardar",
     "saved": "Guardado",
     "cancel": "Cancelar",
@@ -77,7 +77,7 @@
     "title": "Prueba Teaching City",
     "lead": "Elige a una persona para ver el programa desde su lugar. No necesitas cuenta.",
     "student": "Amara Okafor, estudiante",
-    "studentDetail": "Estudiante de tercer año de contabilidad en la semana 6 en la Oficina de Presupuesto",
+    "studentDetail": "Estudiante de tercer año de Contabilidad, en la semana 6 en la Oficina de Presupuesto",
     "preceptor": "Dana Ortiz, preceptora",
     "preceptorDetail": "Analista sénior de presupuesto con dos estudiantes por evaluar esta semana",
     "sponsor": "Marcus Hill, patrocinador",
@@ -86,10 +86,10 @@
     "cityDetail": "Gestiona la asignación, la vía de contratación y los resultados",
     "college": "Omar Patel, coordinador de la universidad",
     "collegeDetail": "Director de Servicios de Carrera en Westbrook State University",
-    "vendor": "Kim Nguyen, reclutadora de proveedor",
+    "vendor": "Kim Nguyen, reclutadora de un proveedor",
     "vendorDetail": "Líder de talento en Brightline Engineering, contratista de la ciudad",
     "completer": "Luis Herrera, egresado en la vía de contratación",
-    "completerDetail": "Terminó en Obras Públicas en primavera e invitado a una vacante",
+    "completerDetail": "Terminó en Obras Públicas en primavera y tiene una invitación a una vacante",
     "enterAs": "Continuar como {name}",
     "reset": "Restablecer datos de demostración",
     "resetDone": "Datos de demostración restablecidos.",
@@ -102,7 +102,7 @@
     "linkSent": "Revisa tu correo. El enlace funciona durante 15 minutos.",
     "invalidEmail": "Escribe un correo como nombre@ejemplo.edu.",
     "noRoleTitle": "Todavía no tienes un rol",
-    "noRoleBody": "Tu cuenta funciona, pero aún no te han agregado a un programa. Pide a tu coordinador de la universidad o de la ciudad que te agregue.",
+    "noRoleBody": "Tu cuenta funciona, pero aún no te han agregado a un programa. Pide a la coordinación de tu universidad o de la ciudad que te agregue.",
     "demoLink": "¿Solo exploras? Prueba la demostración."
   },
   "onboarding": {
@@ -114,7 +114,7 @@
     "stepOptional": "Preguntas opcionales",
     "stepReview": "Revisión",
     "welcomeTitle": "Una rotación pagada en el gobierno de la ciudad, con créditos",
-    "welcomeBody": "Pasarás un semestre, de 10 a 12 horas pagadas por semana, en una oficina de la ciudad asignada según tu carrera. Una preceptora te guía, un director se reúne contigo cada mes y tu trabajo se convierte en un expediente que puedes usar para conseguir empleo.",
+    "welcomeBody": "Pasarás un semestre, de 10 a 12 horas pagadas por semana, en una oficina de la ciudad asignada según tu carrera. Una persona preceptora te guía, una persona directiva se reúne contigo cada mes y tu trabajo se convierte en un expediente que puedes usar para conseguir empleo.",
     "consentTitle": "Tu expediente y quién lo ve",
     "consentParticipation": "Acepto participar en Teaching City y que mi universidad y la ciudad compartan entre sí mi inscripción, mis horas y el estado de mis créditos.",
     "consentCityHr": "Acepto que Recursos Humanos de la Ciudad de Westbrook vea mis evaluaciones, notas, evidencias y muestras de trabajo para poder entrar a la vía de contratación al terminar.",
@@ -127,7 +127,7 @@
     "classJunior": "Tercer año",
     "classSenior": "Último año",
     "classCommunity": "Estudiante de colegio comunitario",
-    "classAdult": "Estudiante adulto o en cambio de carrera",
+    "classAdult": "Estudiante adulto o en transición de carrera",
     "availabilityTitle": "¿Cuándo puedes trabajar?",
     "availabilityBody": "Elige las horas libres que tienes entre semana. Necesitas al menos 10.",
     "availabilityTotal": "{hours} horas libres por semana",
@@ -143,9 +143,9 @@
     "consentDemographic": "Usar mis respuestas en los totales del programa",
     "firstGen": "Soy la primera persona de mi familia en ir a la universidad",
     "pell": "Recibo una beca Pell",
-    "adultLearner": "Soy estudiante adulto o estoy cambiando de carrera",
+    "adultLearner": "Estudio como persona adulta o estoy cambiando de carrera",
     "veteran": "Soy veterano o veterana",
-    "skip": "Omitir",
+    "skip": "Omitir estas preguntas",
     "reviewTitle": "Revisa tus datos",
     "finish": "Terminar",
     "finished": "Todo listo. La ciudad confirmará tu asignación pronto.",
@@ -159,7 +159,7 @@
     "dueMeeting": "Reunión con {sponsor}",
     "dueReference": "{name} te pidió confirmar unos datos",
     "dueFriday": "Vence el viernes",
-    "overdue": "Atrasado",
+    "overdue": "Vencido",
     "dueToday": "Hoy",
     "hoursLogged": "Horas registradas",
     "earned": "Ganado hasta ahora",
@@ -168,24 +168,24 @@
     "stationMatchedSub": "{unit}, según carrera y horario",
     "stationHereSub": "Estás aquí. {weeksLeft}",
     "stationTranscript": "Expediente Cívico",
-    "stationTranscriptSub": "{count} de 5 habilidades al nivel requerido",
+    "stationTranscriptSub": "{count} de 5 habilidades al nivel requerido hasta ahora",
     "stationExit": "Vía de contratación o Puente con proveedores",
     "stationExitSub": "Tú eliges al terminar",
     "references": "Referencias sénior",
     "lineSubtitle": "{line}, {city}",
     "notMatchedTitle": "Esperando tu asignación",
-    "notMatchedBody": "La coordinadora de la ciudad está revisando tus datos. Recibirás un aviso cuando se confirme tu unidad."
+    "notMatchedBody": "La coordinación de la ciudad está revisando tus datos. Recibirás un aviso cuando se confirme tu unidad."
   },
   "hours": {
     "title": "Horas",
     "weekLabel": "Semana {week}",
     "hoursLabel": "Horas trabajadas",
     "noteLabel": "Nota (opcional)",
-    "earningsPreview": "Ganarás {amount} esta semana",
-    "approved": "Aprobado por {name}",
+    "earningsPreview": "Ganarás {amount} por esta semana",
+    "approved": "Aprobadas por {name}",
     "pending": "Pendiente de aprobación",
     "tooMany": "Escribe 12 horas o menos por semana.",
-    "notNumber": "Escribe las horas como número, por ejemplo 11 o 10.5.",
+    "notNumber": "Escribe las horas como número, por ejemplo 11 o 10,5.",
     "save": "Guardar horas",
     "decrease": "Media hora menos",
     "increase": "Media hora más"
@@ -204,7 +204,7 @@
     "emptySlotBody": "Agrégala cuando {preceptor} la apruebe",
     "wrongType": "Sube un archivo PDF, Word, Excel, PNG o JPG.",
     "tooBig": "Este archivo pesa más de {size} MB. Sube uno más pequeño.",
-    "uploadFailed": "La carga no terminó. Revisa tu conexión e inténtalo de nuevo.",
+    "uploadFailed": "La subida no terminó. Revisa tu conexión e inténtalo de nuevo.",
     "titleRequired": "Escribe un título para la muestra.",
     "weekLabel": "Semana",
     "added": "Muestra agregada. Aparece como borrador hasta que tu preceptora o preceptor la verifique."
@@ -221,7 +221,12 @@
     "askConfirm": "¿Pedirle a {name} que sea tu referencia?",
     "askSent": "Solicitud enviada a {name}.",
     "hideQuote": "Ocultar esta cita de mi expediente",
-    "showQuote": "Mostrar esta cita en mi expediente"
+    "showQuote": "Mostrar esta cita en mi expediente",
+    "detailsRequested": "{name} te pidió confirmar estos datos antes de confirmar tu referencia.",
+    "confirmDetails": "Confirmar datos",
+    "detailsConfirmed": "Datos confirmados. {name} ya puede confirmar tu referencia.",
+    "relationOther": "Liderazgo de la ciudad",
+    "relationLabel": "Rol en tu rotación"
   },
   "transcript": {
     "title": "Expediente Cívico",
@@ -249,7 +254,7 @@
     "routeHoursWith": "{hours} horas con {preceptor}",
     "print": "Imprimir expediente",
     "sharedBy": "Compartido por {firstName}. Es una copia de solo lectura.",
-    "linkGone": "Este enlace venció o fue desactivado. Pide uno nuevo al estudiante.",
+    "linkGone": "Este enlace venció o fue desactivado. Pide un enlace nuevo a quien te lo compartió.",
     "whatCanDoEmpty": "{preceptor} agrega una frase para cada habilidad durante la rotación."
   },
   "sharing": {
@@ -264,7 +269,7 @@
     "copyLink": "Copiar enlace",
     "copied": "Copiado",
     "revokeLink": "Desactivar enlace",
-    "vendorsHelp": "Las empresas con contratos de la ciudad que firmaron el compromiso del Puente pueden ver tu resumen, evidencias, trabajo verificado y citas aprobadas."
+    "vendorsHelp": "Las empresas con contratos de la ciudad que firmaron el compromiso del Puente con proveedores pueden ver tu resumen, tus evidencias, tu trabajo verificado y las citas aprobadas."
   },
   "openings": {
     "title": "Vacantes",
@@ -273,9 +278,9 @@
     "missingComplete": "Termina tu rotación",
     "missingSkills": "Llega a Cumple el estándar en {count, plural, one {# habilidad más} other {# habilidades más}}",
     "missingRefs": "Consigue {count, plural, one {# referencia confirmada más} other {# referencias confirmadas más}}",
-    "missingConsent": "Activa compartir con Recursos Humanos",
+    "missingConsent": "Activa la opción de compartir con Recursos Humanos",
     "statusInPool": "Estás en el grupo precalificado",
-    "statusInvited": "Invitación para {opening}",
+    "statusInvited": "Invitación a {opening}",
     "statusOffered": "Oferta para {opening}",
     "interviewOn": "Entrevista el {date}",
     "aboutRole": "Sobre el puesto de {classification}",
@@ -329,8 +334,8 @@
     "keep": "Conservar",
     "skipOne": "Omitir",
     "needNotes": "Escribe primero algunas notas. El borrador usa solo lo que escribes.",
-    "unavailable": "La redacción no está disponible ahora. Puedes escribir la nota tú.",
-    "limit": "Ya usaste los borradores de hoy. Puedes escribir la nota tú.",
+    "unavailable": "La redacción no está disponible ahora. Puedes escribir la nota por tu cuenta.",
+    "limit": "Ya usaste los borradores de hoy. Puedes escribir la nota por tu cuenta.",
     "generatePlain": "Redactar versión en lenguaje sencillo",
     "approvePlain": "Aprobar para estudiantes",
     "plainApproved": "Aprobado. Los estudiantes ahora ven esta versión.",
@@ -354,7 +359,11 @@
     "quoteHelp": "Hasta 240 caracteres. Aparece con tu nombre y cargo.",
     "approveQuote": "Mostrar mi cita en el expediente",
     "confirmed": "Ahora eres referencia confirmada de {firstName}.",
-    "empty": "Todavía no hay solicitudes de referencia."
+    "empty": "Todavía no hay solicitudes de referencia.",
+    "askDetails": "Pedir a {firstName} que confirme los datos",
+    "detailsWaiting": "Esperando a que {firstName} confirme los datos.",
+    "detailsDone": "{firstName} confirmó los datos.",
+    "detailsAsked": "Solicitud enviada a {firstName}."
   },
   "city": {
     "overviewTitle": "Programa de la Ciudad de Westbrook",
@@ -401,7 +410,7 @@
     "title": "Vacantes",
     "new": "Nueva vacante",
     "invite": "Invitar desde la vía de contratación",
-    "invited": "Invitado",
+    "invited": "Invitación enviada",
     "interview": "Fecha de entrevista",
     "offer": "Fecha de oferta",
     "accepted": "Aceptada",
@@ -436,7 +445,7 @@
     "cohort": "Grupo",
     "target": "Meta {value}",
     "onTarget": "En la meta",
-    "belowTarget": "Debajo de la meta",
+    "belowTarget": "Por debajo de la meta",
     "inProgress": "En curso",
     "notMeasured": "Aún sin medir",
     "fewerThanFive": "Menos de 5",
@@ -462,7 +471,7 @@
     "enrollment": "Inscripción",
     "hoursToDate": "Horas a la fecha",
     "creditOnTrack": "Créditos al día",
-    "creditBehind": "Atrasado en horas"
+    "creditBehind": "Atraso en horas"
   },
   "notifications": {
     "title": "Notificaciones",
@@ -476,7 +485,9 @@
     "poolEntered": "Entraste a la vía de contratación para {classification}.",
     "invited": "Te invitaron a entrevistarte para {opening}.",
     "vendorRequest": "{vendor} quiere entrevistarte.",
-    "invitePastTarget": "La invitación de {name} para {opening} pasó la meta de {days} días."
+    "invitePastTarget": "La invitación de {name} para {opening} pasó la meta de {days} días.",
+    "detailsRequest": "{name} te pidió confirmar los datos de tu referencia.",
+    "detailsConfirmed": "{firstName} confirmó los datos de la referencia."
   },
   "errors": {
     "generic": "Algo salió mal. No se guardaron tus cambios. Inténtalo de nuevo.",
@@ -490,7 +501,7 @@
     "sponsor": "Patrocinador o patrocinadora",
     "city_coordinator": "Coordinación de la ciudad",
     "college_coordinator": "Coordinación de la universidad",
-    "vendor_recruiter": "Reclutamiento de proveedor"
+    "vendor_recruiter": "Reclutamiento de proveedores"
   },
   "majorCategories": {
     "accounting_finance": "Contabilidad o finanzas",
@@ -502,6 +513,6 @@
     "social_sciences_psychology": "Ciencias sociales o psicología",
     "criminal_justice": "Justicia penal",
     "humanities_arts": "Humanidades o artes",
-    "other": "Otra"
+    "other": "Otra área"
   }
 }
