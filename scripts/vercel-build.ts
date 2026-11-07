@@ -1,6 +1,7 @@
 /**
- * Vercel build: apply migrations, seed preview databases (and an empty production database),
- * then build. Production data is never reseeded once it exists (P14.9).
+ * Vercel build: apply migrations, seed an empty database, then build. Preview databases are
+ * reseeded only with SEED_PREVIEW_DB=true, so a preview that shares the production database
+ * never resets it. Production data is never reseeded once it exists (P14.9).
  */
 import "./env";
 import { execSync } from "node:child_process";
@@ -17,7 +18,8 @@ async function main() {
     const env = process.env.VERCEL_ENV;
     const result = await db.execute(sql`select count(*)::int as n from programs`);
     const empty = Number((result.rows[0] as { n: number }).n) === 0;
-    if (env === "preview" || empty) run("pnpm db:seed");
+    const previewOptIn = env === "preview" && process.env.SEED_PREVIEW_DB === "true";
+    if (empty || previewOptIn) run("pnpm db:seed");
   } else {
     console.warn("DATABASE_URL is not set; skipping migrations and seed");
   }
