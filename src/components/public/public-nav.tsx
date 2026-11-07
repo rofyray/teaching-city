@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useId, useState } from "react";
 import { Icon } from "@/components/icon";
-import { cn } from "@/lib/cn";
+import { cx } from "@/lib/cx";
 
 const LINKS = [
   { href: "/how-it-works", key: "howItWorks" },
@@ -32,10 +32,10 @@ export function PublicNav() {
             href={link.href}
             aria-current={current ? "page" : undefined}
             onClick={() => setOpen(false)}
-            className={cn(
-              "flex min-h-[44px] items-center text-body-sm font-bold text-white no-underline",
+            className={cx(
+              "flex min-h-[44px] items-center text-body-sm font-bold no-underline",
               mobile ? "px-5" : "px-3",
-              current ? "underline decoration-[3px] decoration-line-finance underline-offset-[10px]" : "text-sign-muted hover:text-white",
+              current ? "text-white underline decoration-[3px] decoration-line-finance underline-offset-[10px]" : "text-sign-muted hover:text-white",
             )}
           >
             {t(link.key)}

@@ -7,7 +7,7 @@ import { useId, useRef, useState, useTransition } from "react";
 import { Icon } from "@/components/icon";
 import { SignBand } from "@/components/sign-band";
 import { windowHours } from "@/domain/rules";
-import { cn } from "@/lib/cn";
+import { cx } from "@/lib/cx";
 import { mapCourses, recordAiDecision } from "@/server/actions/ai";
 import { finishOnboarding } from "@/server/actions/student";
 import type { ScheduleWindow } from "@/server/db/schema";
@@ -172,15 +172,15 @@ export function OnboardingWizard({
           <li key={s} className="flex flex-1 items-center last:flex-none" aria-current={i === step ? "step" : undefined}>
             <span
               aria-hidden="true"
-              className={cn(
-                "block shrink-0 rounded-full bg-surface",
-                i < step && "h-[14px] w-[14px] bg-line",
+              className={cx(
+                "block shrink-0 rounded-full",
+                i < step ? "h-[14px] w-[14px] bg-line" : "bg-surface",
                 i === step && "h-[18px] w-[18px] shadow-[inset_0_0_0_5px_var(--tc-line)]",
                 i > step && "h-3 w-3 shadow-[inset_0_0_0_2px_var(--tc-future)]",
               )}
             />
             <span className="sr-only">{t(`onboarding.${s}`)}</span>
-            {i < STEPS.length - 1 ? <span aria-hidden="true" className={cn("h-1 flex-1", i < step ? "bg-line" : "bg-future")} /> : null}
+            {i < STEPS.length - 1 ? <span aria-hidden="true" className={cx("h-1 flex-1", i < step ? "bg-line" : "bg-future")} /> : null}
           </li>
         ))}
       </ol>
@@ -310,7 +310,7 @@ export function OnboardingWizard({
                                         return next;
                                       })
                                     }
-                                    className={cn("h-11 w-full min-w-11 rounded-[6px] border-2", on ? "border-ink bg-ink" : "border-rule bg-surface")}
+                                    className={cx("h-11 w-full min-w-11 rounded-[6px] border-2", on ? "border-ink bg-ink" : "border-rule bg-surface")}
                                   />
                                 </td>
                               );
