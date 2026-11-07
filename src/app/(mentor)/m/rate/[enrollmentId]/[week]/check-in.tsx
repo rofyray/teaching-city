@@ -1,11 +1,9 @@
 "use client";
 
-import { CaretLeftIcon, InfoIcon, SignatureIcon, SparkleIcon, WarningCircleIcon } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useId, useRef, useState, useTransition } from "react";
-import { Icon } from "@/components/icon";
+import { useId, useRef, useState, useTransition, type ReactNode } from "react";
 import { RatingControl } from "@/components/rating-control";
 import { SignBand } from "@/components/sign-band";
 import { draftNote, recordAiDecision } from "@/server/actions/ai";
@@ -24,6 +22,7 @@ export function CheckIn({
   initialLevels,
   initialNote,
   line,
+  icons,
 }: {
   enrollmentId: string;
   week: number;
@@ -33,6 +32,8 @@ export function CheckIn({
   initialLevels: Record<string, number>;
   initialNote: string;
   line?: string;
+  /** Icons rendered on the server, so they ship as HTML rather than JavaScript. */
+  icons: { back: ReactNode; warning: ReactNode; sparkle: ReactNode; info: ReactNode; signature: ReactNode; check: ReactNode };
 }) {
   const t = useTranslations();
   const router = useRouter();
@@ -156,7 +157,7 @@ export function CheckIn({
         line={line}
         leading={
           <Link href="/m" aria-label={t("common.back")} className="-ml-2 inline-flex h-11 w-11 items-center justify-center text-white">
-            <Icon icon={CaretLeftIcon} weight="bold" size={24} />
+            {icons.back}
           </Link>
         }
         action={
@@ -176,7 +177,7 @@ export function CheckIn({
         {errorItems.length > 0 ? (
           <div ref={summaryRef} tabIndex={-1} role="alert" className="card p-4 outline-ink lg:col-span-2">
             <h2 className="flex items-center gap-2 text-subheading font-extrabold text-due">
-              <Icon icon={WarningCircleIcon} weight="bold" size={20} />
+              {icons.warning}
               {t("errors.summaryTitle")}
             </h2>
             <ul className="mt-2 list-disc pl-6">
@@ -198,6 +199,7 @@ export function CheckIn({
               lastWeek={c.lastWeek}
               invalid={showErrors}
               onChange={(level) => setLevels((l) => ({ ...l, [c.id]: level }))}
+              checkIcon={icons.check}
             />
           </div>
         ))}
@@ -228,15 +230,15 @@ export function CheckIn({
                 disabled={drafting}
                 className="inline-flex min-h-[44px] items-center gap-[6px] rounded-[8px] bg-line-tint px-3 text-caption font-extrabold text-line-ink disabled:opacity-60"
               >
-                <Icon icon={SparkleIcon} weight="duotone" size={20} />
+                {icons.sparkle}
                 {drafting ? t("ai.drafting") : t("ai.draftButton")}
               </button>
               <Link href="/about/ai" aria-label={t("common.aiDisclosureLink")} className="inline-flex h-11 w-11 items-center justify-center text-muted">
-                <Icon icon={InfoIcon} weight="regular" size={20} />
+                {icons.info}
               </Link>
             </span>
             <span className="flex items-center gap-[6px] text-caption font-bold text-muted">
-              <Icon icon={SignatureIcon} weight="light" size={20} />
+              {icons.signature}
               {t("note.signed", { name: signer })}
             </span>
           </div>
@@ -250,7 +252,7 @@ export function CheckIn({
         {aiState ? (
           <section aria-labelledby={`${id}-draft`} className="lg:col-span-2 card flex flex-col gap-3 p-4 border-2 border-line">
             <h2 id={`${id}-draft`} className="flex items-center gap-2 text-subheading font-extrabold">
-              <Icon icon={SparkleIcon} weight="duotone" size={20} className="text-line" />
+              <span className="text-line">{icons.sparkle}</span>
               {t("ai.draftButton")}
             </h2>
             <p className="text-body">{aiState.draft.note}</p>

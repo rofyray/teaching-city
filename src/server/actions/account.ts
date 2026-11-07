@@ -1,9 +1,10 @@
 "use server";
 
 import { eq } from "drizzle-orm";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { LOCALE_COOKIE, type Locale } from "@/i18n/request";
+import { auth } from "../auth";
 import { db } from "../db";
 import { user, type Role } from "../db/schema";
 import { getCurrentUser, ROLE_COOKIE, ROLE_HOME } from "../session";
@@ -20,4 +21,12 @@ export async function setLocale(locale: Locale) {
   (await cookies()).set(LOCALE_COOKIE, value, { sameSite: "lax", path: "/", maxAge: 60 * 60 * 24 * 365 });
   const current = await getCurrentUser();
   if (current) await db.update(user).set({ locale: value }).where(eq(user.id, current.id));
+}
+
+/** Signs out on the server, so pages do not need the auth client in the browser. */
+export async function signOut() {
+  await auth.api.signOut({ headers: await headers() });
+  const jar = await cookies();
+  jar.delete(ROLE_COOKIE);
+  redirect("/");
 }

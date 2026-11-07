@@ -1,9 +1,7 @@
 "use client";
 
-import { CheckCircleIcon, InfoIcon, WarningCircleIcon, XIcon, type Icon as PhosphorIcon } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { Icon } from "./icon";
+import { createContext, useContext, useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 
 export type ToastVariant = "success" | "info" | "error";
 export type ToastInput = { message: string; variant?: ToastVariant; id?: string; /** null keeps it until closed */ duration?: number | null };
@@ -38,11 +36,15 @@ export function dismissToast(id: string) {
   emit();
 }
 
-const STYLE: Record<ToastVariant, { icon: PhosphorIcon; cls: string }> = {
-  success: { icon: CheckCircleIcon, cls: "bg-[var(--tc-toast-success-bg)] text-[var(--tc-toast-success-fg)]" },
-  info: { icon: InfoIcon, cls: "bg-[var(--tc-toast-info-bg)] text-[var(--tc-toast-info-fg)]" },
-  error: { icon: WarningCircleIcon, cls: "bg-[var(--tc-toast-error-bg)] text-[var(--tc-toast-error-fg)]" },
+const STYLE: Record<ToastVariant, string> = {
+  success: "bg-[var(--tc-toast-success-bg)] text-[var(--tc-toast-success-fg)]",
+  info: "bg-[var(--tc-toast-info-bg)] text-[var(--tc-toast-info-fg)]",
+  error: "bg-[var(--tc-toast-error-bg)] text-[var(--tc-toast-error-fg)]",
 };
+
+/** Icons are rendered on the server (root layout) and passed in, so they ship as HTML. */
+export type ToastIcons = Record<ToastVariant | "close", ReactNode>;
+const IconsContext = createContext<ToastIcons | null>(null);
 
 function ToastItem({ item }: { item: Toast }) {
   const t = useTranslations("common");
@@ -57,7 +59,8 @@ function ToastItem({ item }: { item: Toast }) {
       if (remaining.current !== null) remaining.current -= Date.now() - started;
     };
   }, [item.id, item.duration, paused]);
-  const { icon, cls } = STYLE[item.variant];
+  const cls = STYLE[item.variant];
+  const icons = useContext(IconsContext);
   return (
     <li
       onMouseEnter={() => setPaused(true)}
@@ -66,7 +69,7 @@ function ToastItem({ item }: { item: Toast }) {
       onBlur={() => setPaused(false)}
       className={`pointer-events-auto flex items-start gap-3 rounded-[8px] py-3 pr-1 pl-4 text-body-sm font-bold ${cls}`}
     >
-      <Icon icon={icon} weight="fill" size={20} className="mt-[2px]" />
+      <span className="mt-[2px]">{icons?.[item.variant]}</span>
       <p role={item.variant === "error" ? "alert" : "status"} className="flex-1 pt-[1px]">
         {item.message}
       </p>
@@ -76,14 +79,14 @@ function ToastItem({ item }: { item: Toast }) {
         aria-label={t("close")}
         className="-my-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[8px] hover:bg-black/5"
       >
-        <Icon icon={XIcon} weight="bold" size={16} />
+        {icons?.close}
       </button>
     </li>
   );
 }
 
 /** Renders queued toasts. `initial` toasts show on every page load (for example the sample data notice). */
-export function Toaster({ initial = [] }: { initial?: ToastInput[] }) {
+export function Toaster({ initial = [], icons }: { initial?: ToastInput[]; icons: ToastIcons }) {
   const items = useSyncExternalStore(
     (l) => {
       listeners.add(l);
@@ -106,13 +109,15 @@ export function Toaster({ initial = [] }: { initial?: ToastInput[] }) {
     }
   }, [signature]);
   return (
-    <ol
-      aria-label={t("notifications")}
-      className="no-print pointer-events-none fixed inset-x-4 bottom-[84px] z-[60] flex flex-col gap-2 sm:left-auto sm:w-[400px] lg:right-6 lg:bottom-6"
-    >
-      {items.map((item) => (
-        <ToastItem key={item.id} item={item} />
-      ))}
-    </ol>
+    <IconsContext.Provider value={icons}>
+      <ol
+        aria-label={t("notifications")}
+        className="no-print pointer-events-none fixed inset-x-4 bottom-[84px] z-[60] flex flex-col gap-2 sm:left-auto sm:w-[400px] lg:right-6 lg:bottom-6"
+      >
+        {items.map((item) => (
+          <ToastItem key={item.id} item={item} />
+        ))}
+      </ol>
+    </IconsContext.Provider>
   );
 }

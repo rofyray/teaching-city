@@ -1,5 +1,3 @@
-"use client";
-
 import {
   BriefcaseIcon,
   BuildingsIcon,
@@ -14,14 +12,14 @@ import {
   SignpostIcon,
   SquaresFourIcon,
   UsersThreeIcon,
-  type Icon as PhosphorIcon,
-} from "@phosphor-icons/react";
-import { useTranslations } from "next-intl";
+} from "@phosphor-icons/react/ssr";
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Icon } from "./icon";
+import { NavLink } from "./nav-link";
 
 export const NAV_ICONS = {
   route: PathIcon,
@@ -44,22 +42,18 @@ export const NAV_ICONS = {
 
 export type NavItem = { href: string; label: string; icon: keyof typeof NAV_ICONS; exact?: boolean };
 
-function isCurrent(pathname: string, item: NavItem) {
-  return item.exact ? pathname === item.href : pathname === item.href || pathname.startsWith(`${item.href}/`);
-}
-
 /**
- * Signed-in shell. Desktop (1024px and up): ink top bar with brand, nav and actions.
+ * Signed-in shell, rendered on the server so icons ship as HTML, not JavaScript.
+ * Desktop (1024px and up): ink top bar with brand, nav and actions.
  * Mobile: a bottom tab bar when `tabs` is set (student and mentor), otherwise a scrolling top nav.
  */
-export function AppShell({
+export async function AppShell({
   items,
   tabs = false,
   line,
   brand,
   actions,
   children,
-  hideMobileChrome = false,
 }: {
   items: NavItem[];
   tabs?: boolean;
@@ -67,10 +61,8 @@ export function AppShell({
   brand: string;
   actions: ReactNode;
   children: ReactNode;
-  hideMobileChrome?: boolean;
 }) {
-  const pathname = usePathname();
-  const t = useTranslations("common");
+  const t = await getTranslations("common");
   return (
     <div data-line={line} className="flex min-h-full flex-1 flex-col">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-surface focus:p-3">
@@ -84,82 +76,65 @@ export function AppShell({
           </Link>
           <nav aria-label="Main" className="ml-auto hidden lg:block">
             <ul className="flex items-center gap-6">
-              {items.map((item) => {
-                const current = isCurrent(pathname, item);
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      aria-current={current ? "page" : undefined}
-                      className={cn(
-                        "inline-flex min-h-[44px] items-center text-body-sm font-semibold text-sign-muted no-underline hover:text-white",
-                        current && "font-extrabold text-white shadow-[inset_0_-3px_0_var(--tc-line)]",
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
+              {items.map((item) => (
+                <li key={item.href}>
+                  <NavLink
+                    href={item.href}
+                    exact={item.exact}
+                    className="inline-flex min-h-[44px] items-center text-body-sm font-semibold text-sign-muted no-underline hover:text-white aria-[current=page]:font-extrabold aria-[current=page]:text-white aria-[current=page]:shadow-[inset_0_-3px_0_var(--tc-line)]"
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </nav>
-          <div className={cn("flex items-center gap-1", "ml-auto lg:ml-0")}>{actions}</div>
+          <div className="ml-auto flex items-center gap-1 lg:ml-0">{actions}</div>
         </div>
         {!tabs ? (
           <nav aria-label="Main" className="overflow-x-auto lg:hidden">
             <ul className="flex gap-1 px-2 pb-2">
-              {items.map((item) => {
-                const current = isCurrent(pathname, item);
-                return (
-                  <li key={item.href} className="shrink-0">
-                    <Link
-                      href={item.href}
-                      aria-current={current ? "page" : undefined}
-                      className={cn(
-                        "inline-flex min-h-[44px] items-center rounded-[8px] px-3 text-body-sm font-semibold text-sign-muted no-underline",
-                        current && "bg-white/10 font-extrabold text-white",
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
+              {items.map((item) => (
+                <li key={item.href} className="shrink-0">
+                  <NavLink
+                    href={item.href}
+                    exact={item.exact}
+                    className="inline-flex min-h-[44px] items-center rounded-[8px] px-3 text-body-sm font-semibold text-sign-muted no-underline aria-[current=page]:bg-white/10 aria-[current=page]:font-extrabold aria-[current=page]:text-white"
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </nav>
         ) : null}
       </div>
-      <main id="main" className={cn("flex flex-1 flex-col", tabs && !hideMobileChrome && "pb-[76px] lg:pb-0")}>
+      <main id="main" className={cn("flex flex-1 flex-col", tabs && "pb-[76px] lg:pb-0")}>
         {children}
       </main>
-      {tabs && !hideMobileChrome ? <TabBar items={items} pathname={pathname} /> : null}
+      {tabs ? (
+        <nav aria-label="Main" className="no-print fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-surface lg:hidden">
+          <ul className="flex">
+            {items.map((item) => (
+              <li key={item.href} className="flex-1">
+                <NavLink
+                  href={item.href}
+                  exact={item.exact}
+                  className="group flex min-h-[60px] flex-col items-center gap-1 pt-[10px] pb-[14px] text-micro font-semibold text-muted no-underline aria-[current=page]:font-extrabold aria-[current=page]:text-ink aria-[current=page]:shadow-[inset_0_3px_0_var(--tc-line)]"
+                >
+                  <span className="text-muted group-aria-[current=page]:hidden">
+                    <Icon icon={NAV_ICONS[item.icon]} weight="bold" size={24} />
+                  </span>
+                  <span className="hidden text-line group-aria-[current=page]:block">
+                    <Icon icon={NAV_ICONS[item.icon]} weight="fill" size={24} />
+                  </span>
+                  <span>{item.label}</span>
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
     </div>
-  );
-}
-
-function TabBar({ items, pathname }: { items: NavItem[]; pathname: string }) {
-  return (
-    <nav aria-label="Main" className="no-print fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-surface lg:hidden">
-      <ul className="flex">
-        {items.map((item) => {
-          const current = isCurrent(pathname, item);
-          return (
-            <li key={item.href} className="flex-1">
-              <Link
-                href={item.href}
-                aria-current={current ? "page" : undefined}
-                className={cn(
-                  "flex min-h-[60px] flex-col items-center gap-1 pt-[10px] pb-[14px] text-micro font-semibold text-muted no-underline",
-                  current && "font-extrabold text-ink shadow-[inset_0_3px_0_var(--tc-line)]",
-                )}
-              >
-                <Icon icon={NAV_ICONS[item.icon]} weight={current ? "fill" : "bold"} size={24} className={current ? "text-line" : "text-muted"} />
-                <span>{item.label}</span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
   );
 }

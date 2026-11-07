@@ -5,6 +5,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { Overpass } from "next/font/google";
 import type { ReactNode } from "react";
+import { CheckCircleIcon, InfoIcon, WarningCircleIcon, XIcon } from "@phosphor-icons/react/ssr";
+import { Icon } from "@/components/icon";
 import { Toaster } from "@/components/toast";
 import { isDemoMode } from "@/server/auth";
 import "./globals.css";
@@ -46,6 +48,12 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <NextIntlClientProvider messages={messages}>
           {children}
           <Toaster
+            icons={{
+              success: <Icon icon={CheckCircleIcon} weight="fill" size={20} />,
+              info: <Icon icon={InfoIcon} weight="fill" size={20} />,
+              error: <Icon icon={WarningCircleIcon} weight="fill" size={20} />,
+              close: <Icon icon={XIcon} weight="bold" size={16} />,
+            }}
             initial={isDemoMode() ? [{ id: "sample-data", message: (all.banner as { sample: string }).sample, variant: "info", duration: null }] : []}
           />
         </NextIntlClientProvider>

@@ -1,3 +1,4 @@
+import { timingSafeEqual } from "node:crypto";
 import { and, eq, inArray, isNotNull, isNull, sql } from "drizzle-orm";
 import { NextResponse, type NextRequest } from "next/server";
 import { currentWeek, timeToOfferDays } from "@/domain/rules";
@@ -134,9 +135,16 @@ async function daily(now: Date) {
 
 const JOBS: Record<string, (now: Date) => Promise<Record<string, number>>> = { weekly, daily };
 
+/** Constant-time comparison so response timing does not leak the secret. */
+function sameSecret(given: string, expected: string) {
+  const a = Buffer.from(given);
+  const b = Buffer.from(expected);
+  return a.length === b.length && timingSafeEqual(a, b);
+}
+
 export async function GET(request: NextRequest, { params }: { params: Promise<{ job: string }> }) {
   const secret = process.env.CRON_SECRET;
-  if (!secret || request.headers.get("authorization") !== `Bearer ${secret}`) {
+  if (!secret || !sameSecret(request.headers.get("authorization") ?? "", `Bearer ${secret}`)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   const { job } = await params;

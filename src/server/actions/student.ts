@@ -5,7 +5,6 @@ import { revalidatePath } from "next/cache";
 import * as z from "zod";
 import { validateHours, windowHours } from "@/domain/rules";
 import { audit, notify } from "../audit";
-import { isDemoMode } from "../auth";
 import { db } from "../db";
 import {
   consents,
@@ -181,9 +180,6 @@ export async function uploadSampleDirect(formData: FormData): Promise<Result> {
   return { ok: true };
 }
 
-export async function demoUploadLimitMb() {
-  return isDemoMode() ? 2 : 10;
-}
 
 const Onboarding = z.object({
   participation: z.literal(true),
