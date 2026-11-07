@@ -1,0 +1,40 @@
+:root {
+  --tc-ink: #111a1f;
+  --tc-ground: #f4f5f5;
+  --tc-surface: #ffffff;
+  --tc-muted: #4b555b;
+  --tc-rule: #d9dee0;
+  --tc-future: #b9c2c6;
+  --tc-sign-muted: #c9d2d6;
+  --tc-due: #9a4a00;
+  --tc-due-tint: #fbebdb;
+  --tc-level-1: #e6eaec;
+  --tc-level-2: #c5dcf2;
+  --tc-level-3: #2f72ba;
+  --tc-level-4: #0b4a8a;
+  --tc-focus: #0a5faf;
+
+  --tc-line-finance: #0a5faf;
+  --tc-line-works: #b04f00;
+  --tc-line-tech: #6c3fb5;
+  --tc-line-community: #00785a;
+  --tc-line-info: #a3236a;
+  --tc-line-safety: #5c5f00;
+
+  /* The active line for the current screen; layouts override it per unit. */
+  --tc-line: var(--tc-line-finance);
+  --tc-line-tint: color-mix(in srgb, var(--tc-line) 12%, white);
+  /* Line color darkened for small text on the line tint, so every line passes 4.5:1. */
+  --tc-line-ink: color-mix(in srgb, var(--tc-line) 80%, black);
+}
+
+[data-line="finance"] { --tc-line: var(--tc-line-finance); }
+[data-line="works"] { --tc-line: var(--tc-line-works); }
+[data-line="tech"] { --tc-line: var(--tc-line-tech); }
+[data-line="community"] { --tc-line: var(--tc-line-community); }
+[data-line="info"] { --tc-line: var(--tc-line-info); }
+[data-line="safety"] { --tc-line: var(--tc-line-safety); }
+[data-line] {
+  --tc-line-tint: color-mix(in srgb, var(--tc-line) 12%, white);
+  --tc-line-ink: color-mix(in srgb, var(--tc-line) 80%, black);
+}

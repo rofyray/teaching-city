@@ -1,0 +1,1 @@
+ALTER TABLE "student_profiles" ADD COLUMN "course_mapping" jsonb;

@@ -41,3 +41,4 @@ next-env.d.ts
 /design/
 AGENTS.md
 CLAUDE.md
+.env*.local
