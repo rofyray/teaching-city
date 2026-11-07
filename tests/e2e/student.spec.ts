@@ -24,7 +24,7 @@ test("P5.2 a referee's details request shows in This Week and can be confirmed",
   await row.click();
   await expect(page).toHaveURL(/\/s\/people$/);
   await expect(page.getByText("Priya Shah asked you to confirm these details before confirming your reference.")).toBeVisible();
-  await page.getByRole("button", { name: "Confirm details" }).click();
+  await page.getByRole("button", { name: "Confirm Details" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Details confirmed. Priya Shah can now confirm your reference." }).first()).toBeVisible();
   await page.goto("/s");
   await expect(page.getByText("Priya asked you to confirm details")).toHaveCount(0);

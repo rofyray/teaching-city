@@ -46,6 +46,6 @@ export const program = {
     "An outcomes dashboard that counts every metric live",
   ],
   platformNote: "AI helps with three writing tasks. People make every selection and hiring decision.",
-  aiLink: "Our AI use",
+  aiLink: "Our AI Use",
   cta: "Demo",
 } as const;

@@ -59,7 +59,7 @@ test("P9.4: record an offer for Luis, then mark it accepted", async ({ page }) =
 test("P9.4: create an opening and invite from the hiring lane", async ({ page }) => {
   await signInAs(page, "renee");
   await page.goto("/city/openings");
-  await page.getByRole("button", { name: "New opening" }).click();
+  await page.getByRole("button", { name: "New Opening" }).click();
   await page.getByLabel("Title").fill("Engineering Technician I, Drainage");
   await page.getByRole("button", { name: "Save" }).first().click();
   await expect(toast(page, "Saved")).toBeVisible();
@@ -90,7 +90,7 @@ test("P10.1: ending a pledge hides its students from that vendor", async ({ page
   await expect(page.getByRole("heading", { name: "Peter Novak" })).toBeVisible();
   await signInAs(page, "renee");
   await page.goto("/city/vendors");
-  await page.getByRole("button", { name: /End pledge.*Brightline Engineering/ }).click();
+  await page.getByRole("button", { name: /End Pledge.*Brightline Engineering/ }).click();
   await expect(toast(page, "Saved")).toBeVisible();
   await signInAs(page, "kim");
   await expect(page.getByRole("heading", { name: "No Completers Are Sharing Right Now" })).toBeVisible();
@@ -99,7 +99,7 @@ test("P10.1: ending a pledge hides its students from that vendor", async ({ page
 test("P10.1: add a vendor pledge", async ({ page }) => {
   await signInAs(page, "renee");
   await page.goto("/city/vendors");
-  await page.getByRole("button", { name: "Add pledge" }).click();
+  await page.getByRole("button", { name: "Add Pledge" }).click();
   await page.getByLabel("Firm").fill("Riverbend Survey Co");
   await page.getByLabel("Contact").fill("Jo Park");
   await page.getByLabel("Roles offered").fill("Survey technician");
@@ -111,12 +111,12 @@ test("P10.1: add a vendor pledge", async ({ page }) => {
 test("P9.2: completing a rotation early needs a reason and is audit logged", async ({ page }) => {
   await signInAs(page, "renee");
   await page.goto("/city");
-  await page.getByRole("button", { name: /Complete rotation.*Jordan Ellis/ }).click();
+  await page.getByRole("button", { name: /Complete Rotation.*Jordan Ellis/ }).click();
   const form = page.locator("form").filter({ hasText: "Reason" }).first();
-  await form.getByRole("button", { name: "Complete rotation" }).click();
+  await form.getByRole("button", { name: "Complete Rotation" }).click();
   await expect(form.getByText("Completing before week 15 needs a reason.").last()).toBeVisible();
   await form.getByLabel("Reason").fill("Hired early by the Finance Department");
-  await form.getByRole("button", { name: "Complete rotation" }).click();
+  await form.getByRole("button", { name: "Complete Rotation" }).click();
   await expect(toast(page, "Rotation marked complete.")).toBeVisible();
   const rows = await db((c) =>
     c.query(`select e.status, (select count(*)::int from audit_log a where a.entity_id = e.id) as audits from enrollments e where e.id = 'enr_fall_jordan-ellis'`),

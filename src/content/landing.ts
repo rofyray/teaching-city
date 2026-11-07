@@ -3,7 +3,7 @@ export const landing = {
   title: ["Nursing has clinicals.", "Now every major does."],
   lead: "Teaching City turns City Hall into a teaching hospital for every major: a paid, for-credit semester inside local government, where real work becomes the way in.",
   primaryAction: "Demo",
-  secondaryLink: "How it works",
+  secondaryLink: "How It Works",
   barrier: {
     heading: "The Barrier",
     body: "Nursing and teaching students get a built-in bridge to work: a supervised rotation inside the places that hire them. Most majors get nothing like it, so employers never see them do real work before deciding.",

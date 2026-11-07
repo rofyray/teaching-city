@@ -5,12 +5,11 @@
 
 export const DEMO_URL = "https://teaching-city-app.vercel.app/demo";
 export const SITE_URL = "https://teaching-city-app.vercel.app";
-export const REPO_URL = "https://github.com/rofyray/teaching-city";
 
-export type TeamMember = { name: string; role: string; profileUrl?: string };
+export type TeamMember = { name: string; role: string; email?: string; profileUrl?: string };
 
 /** Add each member's CityGov profile link before submitting. */
-export const team: TeamMember[] = [{ name: "Raymond Okyere-Forson (Rofy)", role: "Team Lead" }];
+export const team: TeamMember[] = [{ name: "Rofy Ray", role: "Team Lead", email: "rofyray-bot@yahoo.com" }];
 
 export const title = {
   name: "Teaching City",

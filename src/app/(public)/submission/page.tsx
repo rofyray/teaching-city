@@ -12,7 +12,6 @@ import {
   metrics,
   pilot,
   problem,
-  REPO_URL,
   solution,
   sources,
   team,
@@ -98,7 +97,7 @@ export default function SubmissionPage() {
             <h1 className="mt-1 text-[36px] leading-[40px] font-extrabold sm:text-display">{title.name}</h1>
             <p className="mt-2 text-[18px] leading-[28px] text-sign-muted">{title.tagline}</p>
           </div>
-          <ExpandAll expand="Expand all" collapse="Collapse all" />
+          <ExpandAll expand="Expand All" collapse="Collapse All" />
         </div>
       </div>
 
@@ -113,11 +112,19 @@ export default function SubmissionPage() {
             {team.map((m) => (
               <li key={m.name}>
                 <span className="font-bold">{m.name}</span>, {m.role}
+                {m.email ? (
+                  <>
+                    {", "}
+                    <a href={`mailto:${m.email}`} className="font-bold">
+                      {m.email}
+                    </a>
+                  </>
+                ) : null}
                 {m.profileUrl ? (
                   <>
                     {" "}
                     <a href={m.profileUrl} target="_blank" rel="noopener noreferrer" className="font-bold">
-                      CityGov profile
+                      CityGov Profile
                     </a>
                   </>
                 ) : null}
@@ -241,12 +248,6 @@ export default function SubmissionPage() {
               </li>
             ))}
           </ol>
-          <p>
-            Source code:{" "}
-            <a href={REPO_URL} target="_blank" rel="noopener noreferrer" className="font-bold">
-              github.com/rofyray/teaching-city
-            </a>
-          </p>
         </Section>
 
         <Section n={10} title="AI-Use Disclosure">
@@ -258,7 +259,7 @@ export default function SubmissionPage() {
           <p>Teaching City was built with Claude Code following a PRD that was designed and put together by the human team. People reviewed every change.</p>
           <p>
             <Link href="/about/ai" className="font-bold">
-              Our AI use
+              Our AI Use
             </Link>
           </p>
         </Section>

@@ -15,7 +15,7 @@ export const VENDOR_COPY = {
   // TODO(copy): label before the date a request was sent
   requestedOn: { en: "Requested {date}", es: "Solicitada el {date}" },
   // TODO(copy): button on /notifications
-  markAllRead: { en: "Mark all as read", es: "Marcar todo como leído" },
+  markAllRead: { en: "Mark All as Read", es: "Marcar todo como leído" },
   // TODO(copy): screen reader label for unread notifications
   unread: { en: "Unread", es: "Sin leer" },
   // TODO(copy): unsubscribe line at the end of notification emails
@@ -26,7 +26,7 @@ export const VENDOR_COPY = {
   // TODO(copy): unsubscribe confirmation on /notifications?unsubscribe=1
   unsubscribeTitle: { en: "Stop Notification Emails?", es: "¿Dejar de recibir correos de avisos?" },
   // TODO(copy): unsubscribe confirm button
-  unsubscribeConfirm: { en: "Stop emails", es: "Dejar de recibir correos" },
+  unsubscribeConfirm: { en: "Stop Emails", es: "Dejar de recibir correos" },
   // TODO(copy): unsubscribe done
   unsubscribeDone: {
     en: "You will no longer get notification emails. Notices still appear here.",

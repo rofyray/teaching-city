@@ -10,7 +10,7 @@
     "done": "Done",
     "edit": "Edit",
     "close": "Close",
-    "signOut": "Sign out",
+    "signOut": "Sign Out",
     "switchRole": "Switch Role",
     "language": "Language",
     "english": "English",
@@ -22,9 +22,9 @@
     "of": "{count} of {total}",
     "loading": "Loading",
     "notifications": "Notifications",
-    "aiDisclosureLink": "Our AI use",
+    "aiDisclosureLink": "Our AI Use",
     "sampleNoteFooter": "Every person, school, city and number in this demo is fictional.",
-    "skipToContent": "Skip to content",
+    "skipToContent": "Skip to Content",
     "menu": "Menu",
     "newTab": "opens in a new tab"
   },
@@ -91,7 +91,7 @@
     "completer": "Completer",
     "completerDetail": "Finished Public Works in the spring, invited to an opening",
     "enterAs": "Enter as {name}",
-    "reset": "Reset demo",
+    "reset": "Reset Demo",
     "resetDone": "Demo data reset.",
     "resetWait": "Demo data was reset recently. Try again in a few minutes.",
     "enter": "Enter"
@@ -99,12 +99,12 @@
   "auth": {
     "signInTitle": "Sign in to Teaching City",
     "emailLabel": "Email",
-    "sendLink": "Send link",
+    "sendLink": "Send Link",
     "linkSent": "Check your email. The sign-in link works for 15 minutes.",
     "invalidEmail": "Enter an email address like name@example.edu.",
     "noRoleTitle": "No Role Yet",
     "noRoleBody": "Your account works, but you have not been added to a program. Ask your college or city coordinator to add you.",
-    "demoLink": "View demo"
+    "demoLink": "View Demo"
   },
   "onboarding": {
     "stepWelcome": "Welcome",
@@ -136,8 +136,8 @@
     "coursesTitle": "Your Courses",
     "coursesBody": "List courses you have taken. We use them to show which city roles connect to what you have learned.",
     "courseLabel": "Course title",
-    "addCourse": "Add course",
-    "showRoles": "Match courses",
+    "addCourse": "Add Course",
+    "showRoles": "Match Courses",
     "rolesYourCourses": "Roles Your Courses Connect To",
     "optionalTitle": "Optional Questions",
     "optionalBody": "These help the program check that it reaches students who need it most. Only you can see your answers. Reports show totals of 5 or more people, never individuals.",
@@ -172,7 +172,7 @@
     "stationTranscriptSub": "{count} of 5 skills at the bar so far",
     "stationExit": "Hiring Lane or Vendor Bridge",
     "stationExitSub": "Your choice when you finish",
-    "references": "Senior references",
+    "references": "Senior References",
     "lineSubtitle": "{line}, {city}",
     "notMatchedTitle": "Waiting for Your Match",
     "notMatchedBody": "The city coordinator is reviewing your details. You will get a notice when your teaching unit is confirmed."
@@ -193,7 +193,7 @@
   },
   "work": {
     "title": "Work Samples",
-    "add": "Add sample",
+    "add": "Add Sample",
     "titleLabel": "Title",
     "descriptionLabel": "One line about what it is",
     "fileLabel": "File",
@@ -222,10 +222,10 @@
     "ask": "Ask",
     "askConfirm": "Ask {name} to Be a Reference?",
     "askSent": "Request sent to {name}.",
-    "hideQuote": "Hide quote",
-    "showQuote": "Show quote",
+    "hideQuote": "Hide Quote",
+    "showQuote": "Show Quote",
     "detailsRequested": "{name} asked you to confirm these details before confirming your reference.",
-    "confirmDetails": "Confirm details",
+    "confirmDetails": "Confirm Details",
     "detailsConfirmed": "Details confirmed. {name} can now confirm your reference.",
     "relationOther": "City leader",
     "relationLabel": "Role in your rotation",
@@ -267,11 +267,11 @@
     "link": "Anyone with a link",
     "cityHrOffTitle": "Stop Sharing with City HR?",
     "cityHrOffBody": "City HR will no longer see your ratings, notes or work samples, and you will leave the hiring lane. You can turn this back on at any time.",
-    "cityHrOffConfirm": "Stop sharing",
+    "cityHrOffConfirm": "Stop Sharing",
     "linkCreated": "Link ready. It works for 90 days.",
-    "copyLink": "Copy link",
+    "copyLink": "Copy Link",
     "copied": "Copied",
-    "revokeLink": "Turn off",
+    "revokeLink": "Turn Off",
     "vendorsHelp": "Firms that hold city contracts and signed the Vendor Bridge pledge can see your summary, evidence, verified work and approved quotes."
   },
   "openings": {
@@ -301,7 +301,7 @@
     "ratingsDue": "Ratings Due",
     "doneThisWeek": "Done This Week",
     "meetingsThisMonth": "Meetings This Month",
-    "rateNow": "Rate week {week}",
+    "rateNow": "Rate Week {week}",
     "viewStudent": "View {firstName}",
     "approveHours": "Approve",
     "verifySample": "Verify",
@@ -315,7 +315,7 @@
     "subtitle": "About 2 minutes",
     "progress": "{count} of 5",
     "lastWeek": "Last week: {level}",
-    "submit": "Submit rating",
+    "submit": "Submit Rating",
     "submitted": "Week {week} rating sent to {firstName}'s transcript.",
     "missing": "Choose a level for every skill before you submit.",
     "editNote": "You can edit this rating until week {next} is rated.",
@@ -328,9 +328,9 @@
     "count": "{count} of 600"
   },
   "ai": {
-    "draftButton": "Draft note",
+    "draftButton": "Draft Note",
     "drafting": "Drafting",
-    "useDraft": "Use draft",
+    "useDraft": "Use Draft",
     "discard": "Discard",
     "label": "Drafted with AI from your notes. You edit every word before it goes out.",
     "evidenceSuggestions": "Suggested Evidence",
@@ -339,7 +339,7 @@
     "needNotes": "Type a few notes first. The draft uses only what you write.",
     "unavailable": "Drafting is unavailable right now. You can write the note yourself.",
     "limit": "You have used today's drafts. You can write the note yourself.",
-    "generatePlain": "Draft summary",
+    "generatePlain": "Draft Summary",
     "approvePlain": "Approve",
     "plainApproved": "Approved. Students now see this version.",
     "plainDraftNote": "AI draft. Check every line against the official description before approving."
@@ -347,7 +347,7 @@
   "meetings": {
     "title": "Meetings",
     "schedule": "Schedule",
-    "markDone": "Mark held",
+    "markDone": "Mark Held",
     "summaryLabel": "What you talked about (optional)",
     "next": "Next meeting {date}",
     "studentLabel": "Student",
@@ -364,7 +364,7 @@
     "approveQuote": "Show my quote on the transcript",
     "confirmed": "You are now a confirmed reference for {firstName}.",
     "empty": "No reference requests yet.",
-    "askDetails": "Ask for details",
+    "askDetails": "Ask for Details",
     "detailsWaiting": "Waiting for {firstName} to confirm details.",
     "detailsDone": "{firstName} confirmed the details.",
     "detailsAsked": "Request sent to {firstName}."
@@ -373,12 +373,12 @@
     "overviewTitle": "City of Westbrook Program",
     "activeEnrollments": "Active Students",
     "ratingsOverdue": "Ratings Overdue",
-    "poolSize": "In the hiring lane",
-    "openRequests": "Vendor requests pending",
+    "poolSize": "In the Hiring Lane",
+    "openRequests": "Vendor Requests Pending",
     "unitsTitle": "Teaching Units",
     "capacity": "{count} of {capacity} seats filled",
     "preceptors": "Preceptors",
-    "completeRotation": "Complete rotation",
+    "completeRotation": "Complete Rotation",
     "completeEarly": "Completing before week {week} needs a reason.",
     "reasonLabel": "Reason",
     "completed": "Rotation marked complete."
@@ -412,7 +412,7 @@
   },
   "openingsAdmin": {
     "title": "Openings",
-    "new": "New opening",
+    "new": "New Opening",
     "invite": "Invite",
     "invited": "Invited",
     "interview": "Interview date",
@@ -426,18 +426,18 @@
   "vendors": {
     "title": "Vendor Bridge",
     "lead": "Firms that hold city contracts and agree to interview Teaching City completers.",
-    "add": "Add pledge",
+    "add": "Add Pledge",
     "contact": "Contact",
     "roles": "Roles offered",
     "pledged": "Pledged",
-    "end": "End pledge"
+    "end": "End Pledge"
   },
   "vendorPortal": {
     "title": "Teaching City Completers",
     "lead": "Completers who chose to share their record with city vendors.",
     "skillsAtBar": "{count} of 5 skills at the bar",
-    "viewRecord": "View record",
-    "request": "Request interview",
+    "viewRecord": "View Record",
+    "request": "Request Interview",
     "requested": "Request sent",
     "outcome": "Outcome",
     "outcomeOffer": "Offer made",
@@ -454,7 +454,7 @@
     "inProgress": "In progress",
     "notMeasured": "Not yet measured",
     "fewerThanFive": "Fewer than 5",
-    "howWeCount": "How we count this"
+    "howWeCount": "How We Count This"
   },
   "pilot": {
     "title": "Pilot Budget",
@@ -504,9 +504,9 @@
     "student": "Student",
     "preceptor": "Preceptor",
     "sponsor": "Sponsor",
-    "city_coordinator": "City coordinator",
-    "college_coordinator": "College coordinator",
-    "vendor_recruiter": "Vendor recruiter"
+    "city_coordinator": "City Coordinator",
+    "college_coordinator": "College Coordinator",
+    "vendor_recruiter": "Vendor Recruiter"
   },
   "majorCategories": {
     "accounting_finance": "Accounting or finance",
