@@ -1,8 +1,10 @@
+import { PrinterIcon } from "@phosphor-icons/react/ssr";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ActionButton } from "@/components/action-button";
+import { Icon } from "@/components/icon";
 import { PrintButton } from "@/components/print-button";
 import { Transcript } from "@/components/transcript";
 import { formatHours } from "@/domain/rules";
@@ -36,7 +38,7 @@ export default async function MentorStudentPage({ params }: { params: Promise<Pa
       <Transcript
         view={view}
         variant="mentor"
-        headerActions={<PrintButton label={t("transcript.print")} />}
+        headerActions={<PrintButton label={t("transcript.print")} icon={<Icon icon={PrinterIcon} weight="bold" size={22} />} />}
         belowHeader={
           isPreceptor && nextWeek && view.enrollment.status === "active" ? (
             <div className="no-print mx-auto w-full max-w-[1280px] px-4 pt-4 lg:px-10">

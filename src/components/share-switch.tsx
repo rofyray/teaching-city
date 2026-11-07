@@ -1,10 +1,8 @@
 "use client";
 
-import { CopyIcon, LinkIcon } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
-import { useId, useState, useTransition } from "react";
+import { useId, useState, useTransition, type ReactNode } from "react";
 import { setSharing } from "@/server/actions/sharing";
-import { Icon } from "./icon";
 import { Modal } from "./modal";
 import { toast } from "./toast";
 
@@ -55,7 +53,14 @@ function ShareSwitch({
   );
 }
 
-export function SharingControls({ initial }: { initial: Record<ShareType, boolean> }) {
+export function SharingControls({
+  initial,
+  icons,
+}: {
+  initial: Record<ShareType, boolean>;
+  /** Server-rendered icons, so they ship as HTML rather than JavaScript. */
+  icons: { link: ReactNode; copy: ReactNode };
+}) {
   const t = useTranslations("sharing");
   const tc = useTranslations("common");
   const te = useTranslations("errors");
@@ -108,7 +113,7 @@ export function SharingControls({ initial }: { initial: Record<ShareType, boolea
                 {t("linkCreated")}
               </p>
               <p className="flex items-center gap-2 break-all text-caption text-muted">
-                <Icon icon={LinkIcon} weight="bold" size={16} />
+                {icons.link}
                 {link}
               </p>
               <button
@@ -120,7 +125,7 @@ export function SharingControls({ initial }: { initial: Record<ShareType, boolea
                 }}
                 className="inline-flex min-h-[44px] items-center gap-2 self-start rounded-[8px] px-3 text-body-sm font-bold outline-rule"
               >
-                <Icon icon={CopyIcon} weight="bold" size={18} />
+                {icons.copy}
                 <span aria-live="polite">{copied ? t("copied") : t("copyLink")}</span>
               </button>
             </>

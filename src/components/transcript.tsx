@@ -1,4 +1,4 @@
-import { HandshakeIcon, HourglassMediumIcon, LockSimpleIcon, SealCheckIcon, XCircleIcon } from "@phosphor-icons/react/ssr";
+import { CopyIcon, HandshakeIcon, HourglassMediumIcon, LinkIcon, LockSimpleIcon, SealCheckIcon, XCircleIcon } from "@phosphor-icons/react/ssr";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 import { formatHours, visibleQuote } from "@/domain/rules";
@@ -214,6 +214,7 @@ export async function Transcript({
               </h2>
               <div className="mt-2">
                 <SharingControls
+                  icons={{ link: <Icon icon={LinkIcon} weight="bold" size={16} />, copy: <Icon icon={CopyIcon} weight="bold" size={18} /> }}
                   initial={{
                     share_city_hr: view.consent.share_city_hr,
                     share_vendor_bridge: view.consent.share_vendor_bridge,
