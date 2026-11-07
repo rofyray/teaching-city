@@ -21,6 +21,14 @@
   --tc-line-info: #a3236a;
   --tc-line-safety: #5c5f00;
 
+  /* Toasts: each kind keeps one hue, a dark shade for text and a light tint behind it. */
+  --tc-toast-success-bg: color-mix(in srgb, var(--tc-line-community) 12%, white);
+  --tc-toast-success-fg: color-mix(in srgb, var(--tc-line-community) 70%, black);
+  --tc-toast-info-bg: color-mix(in srgb, var(--tc-line-finance) 12%, white);
+  --tc-toast-info-fg: color-mix(in srgb, var(--tc-line-finance) 70%, black);
+  --tc-toast-error-bg: var(--tc-due-tint);
+  --tc-toast-error-fg: color-mix(in srgb, var(--tc-due) 75%, black);
+
   /* The active line for the current screen; layouts override it per unit. */
   --tc-line: var(--tc-line-finance);
   --tc-line-tint: color-mix(in srgb, var(--tc-line) 12%, white);

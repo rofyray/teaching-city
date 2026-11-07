@@ -4,7 +4,7 @@ import { resetDemo, signInAs } from "./helpers";
 test.beforeAll(resetDemo);
 test.afterAll(resetDemo);
 
-const HIDDEN = ["Observed skills", "Hours logged", "Steady week. Next week, take the lead on one task.", "Who can see this", "Pell", "first in my family"];
+const HIDDEN = ["Observed Skills", "Hours logged", "Steady week. Next week, take the lead on one task.", "Who Can See This", "Pell", "first in my family"];
 
 test("P8.4 vendor view shows only BR-10 fields", async ({ page }) => {
   await signInAs(page, "kim");

@@ -4,6 +4,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { askReference, setQuoteHidden } from "@/server/actions/student";
+import { toast } from "@/components/toast";
 
 export function AskReferenceButton({ refereeId, name }: { refereeId: string; name: string }) {
   const t = useTranslations();
@@ -37,6 +38,7 @@ export function AskReferenceButton({ refereeId, name }: { refereeId: string; nam
                   const r = await askReference(refereeId);
                   setOpen(false);
                   setMessage(r.ok ? t("people.askSent", { name }) : t("errors.generic"));
+                  toast[r.ok ? "success" : "error"](r.ok ? t("people.askSent", { name }) : t("errors.generic"));
                 })
               }
               className="min-h-[44px] rounded-[8px] bg-ink px-4 text-body font-extrabold text-white disabled:opacity-70"
@@ -52,6 +54,8 @@ export function AskReferenceButton({ refereeId, name }: { refereeId: string; nam
 
 export function QuoteToggle({ referenceId, hidden }: { referenceId: string; hidden: boolean }) {
   const t = useTranslations("people");
+  const tc = useTranslations("common");
+  const te = useTranslations("errors");
   const [value, setValue] = useState(hidden);
   const [pending, startTransition] = useTransition();
   return (
@@ -63,6 +67,7 @@ export function QuoteToggle({ referenceId, hidden }: { referenceId: string; hidd
         startTransition(async () => {
           const r = await setQuoteHidden(referenceId, !value);
           if (r.ok) setValue(!value);
+          toast[r.ok ? "success" : "error"](r.ok ? tc("saved") : te("generic"));
         })
       }
       className="inline-flex min-h-[44px] items-center self-start text-body-sm font-bold underline disabled:opacity-70"

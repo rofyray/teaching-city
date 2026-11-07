@@ -4,7 +4,7 @@
  */
 export const VENDOR_COPY = {
   // TODO(copy): empty state for /vendor/interviews
-  interviewsEmptyTitle: { en: "No interview requests yet", es: "Todavía no hay solicitudes de entrevista" },
+  interviewsEmptyTitle: { en: "No Interview Requests Yet", es: "Todavía no hay solicitudes de entrevista" },
   // TODO(copy): empty state body for /vendor/interviews
   interviewsEmptyBody: {
     en: "Requests you send from the completers list show up here.",
@@ -24,7 +24,7 @@ export const VENDOR_COPY = {
     es: "Para dejar de recibir estos correos, abre este enlace: {url}",
   },
   // TODO(copy): unsubscribe confirmation on /notifications?unsubscribe=1
-  unsubscribeTitle: { en: "Stop notification emails?", es: "¿Dejar de recibir correos de avisos?" },
+  unsubscribeTitle: { en: "Stop Notification Emails?", es: "¿Dejar de recibir correos de avisos?" },
   // TODO(copy): unsubscribe confirm button
   unsubscribeConfirm: { en: "Stop emails", es: "Dejar de recibir correos" },
   // TODO(copy): unsubscribe done

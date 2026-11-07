@@ -20,7 +20,7 @@ export default async function HoursPage() {
     return (
       <>
         <PageHeader title={t("hours.title")} current={current} settingsHref="/s/settings" />
-        <div className="mx-auto w-full max-w-[640px] p-5">
+        <div className="mx-auto w-full max-w-[1280px] p-5 lg:px-10">
           <EmptyState icon={TimerIcon} title={t("home.notMatchedTitle")} body={t("home.notMatchedBody")} />
         </div>
       </>
@@ -39,7 +39,7 @@ export default async function HoursPage() {
         current={current}
         settingsHref="/s/settings"
       />
-      <div className="mx-auto flex w-full max-w-[640px] flex-col gap-3 px-5 py-4">
+      <div className="mx-auto grid w-full max-w-[1280px] items-start gap-3 px-5 py-4 md:grid-cols-2 lg:gap-6 lg:px-10 lg:py-8 xl:grid-cols-3">
         {weeks.map((week, i) => {
           const entry = view.hours.find((h) => h.week === week);
           const editable = view.enrollment.status === "active" && !entry?.approvedAt;

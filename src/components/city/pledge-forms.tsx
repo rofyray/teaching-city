@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useId, useState, useTransition } from "react";
 import { addPledge, endPledge } from "@/server/actions/city";
+import { toast } from "@/components/toast";
 
 const field = "min-h-[44px] w-full rounded-[8px] border-2 border-rule bg-surface px-2 text-body-sm";
 
@@ -40,8 +41,11 @@ export function AddPledgeForm({ vendorLabel, today }: { vendorLabel: string; tod
         }
         start(async () => {
           const result = await addPledge(values);
-          if (!result.ok) setError(t("errors.generic"));
-          else {
+          if (!result.ok) {
+            setError(t("errors.generic"));
+            toast.error(t("errors.generic"));
+          } else {
+            toast.success(t("common.saved"));
             setOpen(false);
             setValues({ vendorName: "", contactName: "", rolesOffered: "", pledgedAt: today });
             router.refresh();

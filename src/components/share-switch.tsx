@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { useId, useState, useTransition } from "react";
 import { setSharing } from "@/server/actions/sharing";
 import { Icon } from "./icon";
+import { toast } from "./toast";
 
 type ShareType = "share_city_hr" | "share_vendor_bridge" | "public_link";
 
@@ -53,6 +54,7 @@ function ShareSwitch({
 export function SharingControls({ initial }: { initial: Record<ShareType, boolean> }) {
   const t = useTranslations("sharing");
   const tc = useTranslations("common");
+  const te = useTranslations("errors");
   const [state, setState] = useState(initial);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [link, setLink] = useState<string | null>(null);
@@ -66,8 +68,11 @@ export function SharingControls({ initial }: { initial: Record<ShareType, boolea
       const result = await setSharing(type, next);
       if (!result.ok) {
         setState((s) => ({ ...s, [type]: previous }));
+        toast.error(te("generic"));
         return;
       }
+      if (type === "public_link" && next) toast.success(t("linkCreated"));
+      else toast.success(tc("saved"));
       if (type === "public_link") {
         setLink(next && result.url ? `${window.location.origin}${result.url}` : null);
         setCopied(false);
@@ -107,6 +112,7 @@ export function SharingControls({ initial }: { initial: Record<ShareType, boolea
                 onClick={async () => {
                   await navigator.clipboard.writeText(link);
                   setCopied(true);
+                  toast.success(t("copied"));
                 }}
                 className="inline-flex min-h-[44px] items-center gap-2 self-start rounded-[8px] px-3 text-body-sm font-bold outline-rule"
               >

@@ -21,7 +21,7 @@ export default async function PeoplePage() {
     return (
       <>
         <PageHeader title={t("people.title")} current={current} settingsHref="/s/settings" />
-        <div className="mx-auto w-full max-w-[640px] p-5">
+        <div className="mx-auto w-full max-w-[1280px] p-5 lg:px-10">
           <EmptyState icon={UsersThreeIcon} title={t("home.notMatchedTitle")} body={t("home.notMatchedBody")} />
         </div>
       </>
@@ -37,8 +37,8 @@ export default async function PeoplePage() {
   return (
     <>
       <PageHeader title={t("people.title")} current={current} settingsHref="/s/settings" />
-      <div className="mx-auto flex w-full max-w-[640px] flex-col gap-4 px-5 py-4">
-        <div className="grid gap-3 sm:grid-cols-2">
+      <div className="mx-auto grid w-full max-w-[1280px] items-start gap-4 px-5 py-4 lg:grid-cols-2 lg:gap-6 lg:px-10 lg:py-8">
+        <div className="grid gap-3 sm:grid-cols-2 lg:col-span-2">
           {people.map((p) => (
             <article key={p.id} className="card flex items-center gap-3 p-4">
               <span aria-hidden="true" className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-line-tint text-caption font-extrabold text-line-ink">

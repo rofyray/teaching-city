@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useId, useRef, useState, useTransition } from "react";
 import { Icon } from "@/components/icon";
 import { recordBlobSample, uploadSampleDirect } from "@/server/actions/student";
+import { toast } from "@/components/toast";
 
 const TYPES = [
   "application/pdf",
@@ -65,21 +66,19 @@ export function UploadForm({
           result = await uploadSampleDirect(formData);
         }
         if (!result.ok) {
-          setErrors({
-            form:
-              result.error === "wrongType"
-                ? t("work.wrongType")
-                : result.error === "tooBig"
-                  ? t("work.tooBig", { size: maxMb })
-                  : t("work.uploadFailed"),
-          });
+          const message =
+            result.error === "wrongType" ? t("work.wrongType") : result.error === "tooBig" ? t("work.tooBig", { size: maxMb }) : t("work.uploadFailed");
+          setErrors({ form: message });
+          toast.error(message);
           return;
         }
         formRef.current?.reset();
         setDone(true);
+        toast.success(t("work.added"));
         router.refresh();
       } catch {
         setErrors({ form: t("work.uploadFailed") });
+        toast.error(t("work.uploadFailed"));
       }
     });
   }

@@ -30,7 +30,7 @@ export default async function RatePage({ params }: { params: Promise<Params> }) 
   const previous = view.ratings.find((r) => r.week === week - 1 && r.submittedAt);
 
   return (
-    <main id="main" data-line={view.unit?.lineColor} className="mx-auto flex w-full max-w-[640px] flex-1 flex-col">
+    <main id="main" data-line={view.unit?.lineColor} className="flex w-full flex-1 flex-col">
       <CheckIn
         enrollmentId={enrollmentId}
         week={week}

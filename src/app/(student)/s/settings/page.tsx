@@ -18,7 +18,7 @@ export default async function SettingsPage() {
   return (
     <>
       <PageHeader title={t("nav.settings")} current={current} settingsHref="/s/settings" />
-      <div className="mx-auto flex w-full max-w-[640px] flex-col gap-4 px-5 py-4">
+      <div className="mx-auto grid w-full max-w-[1280px] items-start gap-4 px-5 py-4 lg:grid-cols-3 lg:gap-6 lg:px-10 lg:py-8">
         <section aria-labelledby="share" className="card p-4">
           <h2 id="share" className="text-subheading font-extrabold">
             {t("sharing.title")}

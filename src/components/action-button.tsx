@@ -3,16 +3,20 @@
 import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { cn } from "@/lib/cn";
+import { toast } from "./toast";
 
 /** Runs a bound Server Action and shows the generic error copy if it fails. */
 export function ActionButton({
   action,
   label,
+  successMessage,
   variant = "secondary",
   className,
 }: {
   action: () => Promise<{ ok: boolean } | void>;
   label: string;
+  /** Toast shown after the action succeeds. */
+  successMessage?: string;
   variant?: "primary" | "secondary";
   className?: string;
 }) {
@@ -28,9 +32,13 @@ export function ActionButton({
           startTransition(async () => {
             try {
               const result = await action();
-              setFailed(result ? !result.ok : false);
+              const ok = result ? result.ok : true;
+              setFailed(!ok);
+              if (!ok) toast.error(t("generic"));
+              else if (successMessage) toast.success(successMessage);
             } catch {
               setFailed(true);
+              toast.error(t("generic"));
             }
           })
         }

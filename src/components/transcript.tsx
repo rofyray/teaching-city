@@ -161,7 +161,7 @@ export async function Transcript({
 
         <div className="contents lg:flex lg:flex-col lg:gap-6 lg:[grid-area:side]">
           {!limited ? (
-            <section aria-labelledby="t-toward" className="card print-avoid order-4 p-5 shadow-[inset_0_0_0_2px_var(--tc-line)]">
+            <section aria-labelledby="t-toward" className="card print-avoid order-4 p-5 border-2 border-line">
               <h2 id="t-toward" className="flex items-center gap-3 text-[18px] leading-6 font-extrabold">
                 <Icon icon={HandshakeIcon} weight="duotone" size={32} className="text-line" />
                 {t("transcript.towardLane")}

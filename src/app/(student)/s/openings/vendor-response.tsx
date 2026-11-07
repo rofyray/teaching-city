@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { respondVendorRequest } from "@/server/actions/vendor";
+import { toast } from "@/components/toast";
 
 export function VendorResponse({ interestId }: { interestId: string }) {
   const t = useTranslations();
@@ -19,6 +20,7 @@ export function VendorResponse({ interestId }: { interestId: string }) {
     startTransition(async () => {
       const r = await respondVendorRequest(interestId, accept);
       setState(r.ok ? (accept ? "accepted" : "declined") : "error");
+      toast[r.ok ? "success" : "error"](r.ok ? t("common.saved") : t("errors.generic"));
     });
   return (
     <div className="flex flex-wrap items-center gap-2">

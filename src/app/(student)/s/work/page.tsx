@@ -21,7 +21,7 @@ export default async function WorkPage() {
     return (
       <>
         <PageHeader title={t("work.title")} current={current} settingsHref="/s/settings" />
-        <div className="mx-auto w-full max-w-[640px] p-5">
+        <div className="mx-auto w-full max-w-[1280px] p-5 lg:px-10">
           <EmptyState icon={FileTextIcon} title={t("home.notMatchedTitle")} body={t("home.notMatchedBody")} />
         </div>
       </>
@@ -32,7 +32,7 @@ export default async function WorkPage() {
   return (
     <>
       <PageHeader title={t("work.title")} current={current} settingsHref="/s/settings" />
-      <div className="mx-auto flex w-full max-w-[880px] flex-col gap-6 px-5 py-4">
+      <div className="mx-auto grid w-full max-w-[1280px] items-start gap-6 px-5 py-4 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:px-10 lg:py-8">
         {view.enrollment.status === "active" ? (
           <section aria-labelledby="add" className="card p-5">
             <h2 id="add" className="mb-3 text-subheading font-extrabold">
@@ -41,7 +41,7 @@ export default async function WorkPage() {
             <UploadForm enrollmentId={view.enrollment.id} weeks={weeks} defaultWeek={lastWeek} maxMb={maxUploadMb()} useBlob={blobConfigured()} />
           </section>
         ) : null}
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {view.samples.map((s) => (
             <WorkSampleCard
               key={s.id}

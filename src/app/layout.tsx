@@ -5,7 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { Overpass } from "next/font/google";
 import type { ReactNode } from "react";
-import { SampleDataBanner } from "@/components/sample-data-banner";
+import { Toaster } from "@/components/toast";
 import { isDemoMode } from "@/server/auth";
 import "./globals.css";
 
@@ -44,8 +44,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang={locale} className={`${overpass.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>
-          {isDemoMode() ? <SampleDataBanner /> : null}
           {children}
+          <Toaster
+            initial={isDemoMode() ? [{ id: "sample-data", message: (all.banner as { sample: string }).sample, variant: "info", duration: null }] : []}
+          />
         </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />

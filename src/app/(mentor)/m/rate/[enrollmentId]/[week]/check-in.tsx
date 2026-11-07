@@ -11,6 +11,7 @@ import { SignBand } from "@/components/sign-band";
 import { draftNote, recordAiDecision } from "@/server/actions/ai";
 import { submitRating } from "@/server/actions/mentor";
 import type { NoteDraft } from "@/server/ai/schemas";
+import { toast } from "@/components/toast";
 
 type Competency = { id: string; position: number; label: string; lastWeek?: number };
 
@@ -63,7 +64,9 @@ export function CheckIn({
       const byPosition = Object.fromEntries(competencies.map((c) => [c.position, levels[c.id]]));
       const result = await draftNote({ enrollmentId, week, notes: note, levels: byPosition });
       if (!result.ok) {
-        setAiMessage(result.error === "needNotes" ? t("ai.needNotes") : result.error === "limit" ? t("ai.limit") : t("ai.unavailable"));
+        const message = result.error === "needNotes" ? t("ai.needNotes") : result.error === "limit" ? t("ai.limit") : t("ai.unavailable");
+        setAiMessage(message);
+        toast.error(message);
         return;
       }
       setAiState({ eventId: result.eventId, draft: result.draft });
@@ -116,9 +119,12 @@ export function CheckIn({
         evidence: suggestions.filter((s) => s.keep && s.sentence.trim()).map(({ competencyId, sentence }) => ({ competencyId, sentence })),
       });
       if (!result.ok) {
-        setError(result.error === "missing" ? t("rating.missing") : t("errors.generic"));
+        const message = result.error === "missing" ? t("rating.missing") : t("errors.generic");
+        setError(message);
+        toast.error(message);
         return;
       }
+      toast.success(t("rating.submitted", { week, firstName }));
       setDone(true);
       router.refresh();
     });
@@ -126,7 +132,7 @@ export function CheckIn({
 
   if (done) {
     return (
-      <div className="flex flex-col gap-4 px-5 py-6" data-line={line}>
+      <div className="mx-auto flex w-full max-w-[640px] flex-col gap-4 px-5 py-6" data-line={line}>
         <p role="status" className="card p-5 text-body font-bold">
           {t("rating.submitted", { week, firstName })}
         </p>
@@ -165,10 +171,10 @@ export function CheckIn({
           e.preventDefault();
           submit();
         }}
-        className="flex flex-col gap-4 px-5 pt-4"
+        className="mx-auto grid w-full max-w-[1280px] gap-4 px-5 pt-4 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-6 lg:px-10 lg:pt-8"
       >
         {errorItems.length > 0 ? (
-          <div ref={summaryRef} tabIndex={-1} role="alert" className="card p-4 outline-ink">
+          <div ref={summaryRef} tabIndex={-1} role="alert" className="card p-4 outline-ink lg:col-span-2">
             <h2 className="flex items-center gap-2 text-subheading font-extrabold text-due">
               <Icon icon={WarningCircleIcon} weight="bold" size={20} />
               {t("errors.summaryTitle")}
@@ -196,7 +202,7 @@ export function CheckIn({
           </div>
         ))}
 
-        <div className="card flex flex-col gap-2 p-3 outline-rule">
+        <div className="card flex flex-col gap-2 p-3 outline-rule lg:col-span-2">
           <label htmlFor={`${id}-note`} className="text-subheading font-extrabold">
             {t("note.label", { firstName })}
           </label>
@@ -242,7 +248,7 @@ export function CheckIn({
         </div>
 
         {aiState ? (
-          <section aria-labelledby={`${id}-draft`} className="card flex flex-col gap-3 p-4 shadow-[inset_0_0_0_2px_var(--tc-line)]">
+          <section aria-labelledby={`${id}-draft`} className="lg:col-span-2 card flex flex-col gap-3 p-4 border-2 border-line">
             <h2 id={`${id}-draft`} className="flex items-center gap-2 text-subheading font-extrabold">
               <Icon icon={SparkleIcon} weight="duotone" size={20} className="text-line" />
               {t("ai.draftButton")}
@@ -276,7 +282,7 @@ export function CheckIn({
         ) : null}
 
         {suggestions.length > 0 ? (
-          <section aria-labelledby={`${id}-sugg`} className="card flex flex-col gap-3 p-4 outline-rule">
+          <section aria-labelledby={`${id}-sugg`} className="lg:col-span-2 card flex flex-col gap-3 p-4 outline-rule">
             <h2 id={`${id}-sugg`} className="text-subheading font-extrabold">
               {t("ai.evidenceSuggestions")}
             </h2>
@@ -317,12 +323,12 @@ export function CheckIn({
         ) : null}
 
         {error ? (
-          <p role="alert" className="text-body-sm font-bold text-due">
+          <p role="alert" className="text-body-sm font-bold text-due lg:col-span-2">
             {error}
           </p>
         ) : null}
 
-        <div className="pt-4 pb-5">
+        <div className="pt-4 pb-5 lg:col-span-2 lg:mx-auto lg:w-[480px]">
           <button
             type="submit"
             disabled={submitting}

@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { resetDemoData, signInAsPersona } from "@/server/actions/demo";
+import { toast } from "@/components/toast";
 
 export function PersonaButton({ personaKey, label }: { personaKey: string; label: string }) {
   const [pending, startTransition] = useTransition();
@@ -31,6 +32,8 @@ export function ResetDemoButton() {
           startTransition(async () => {
             const result = await resetDemoData();
             setMessage(result.status === "done" ? t("resetDone") : t("resetWait"));
+            if (result.status === "done") toast.success(t("resetDone"));
+            else toast.info(t("resetWait"));
           })
         }
         className="inline-flex min-h-[44px] items-center rounded-[8px] bg-surface px-4 text-body font-bold text-ink outline-ink disabled:opacity-70"

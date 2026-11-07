@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useId, useState, useTransition } from "react";
 import { completeRotation } from "@/server/actions/city";
+import { toast } from "@/components/toast";
 
 export function CompleteRotation({ enrollmentId, early, weeks, name }: { enrollmentId: string; early: boolean; weeks: number; name: string }) {
   const t = useTranslations();
@@ -40,7 +41,10 @@ export function CompleteRotation({ enrollmentId, early, weeks, name }: { enrollm
         start(async () => {
           const result = await completeRotation(enrollmentId, reason);
           if (!result.ok) setError(result.error === "reason" ? t("city.completeEarly", { week: weeks }) : t("errors.generic"));
-          else router.refresh();
+          else {
+            toast.success(t("city.completed"));
+            router.refresh();
+          }
         });
       }}
     >

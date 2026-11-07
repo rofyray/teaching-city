@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useId, useState, useTransition } from "react";
 import { respondReference } from "@/server/actions/mentor";
+import { toast } from "@/components/toast";
 
 export function ReferenceForm({ referenceId, firstName }: { referenceId: string; firstName: string }) {
   const t = useTranslations();
@@ -16,6 +17,8 @@ export function ReferenceForm({ referenceId, firstName }: { referenceId: string;
     startTransition(async () => {
       const r = await respondReference({ referenceId, decision, quote, approveQuote: approve });
       setResult(r.ok ? (decision === "confirm" ? "confirmed" : "declined") : "error");
+      if (!r.ok) toast.error(t("errors.generic"));
+      else toast.success(decision === "confirm" ? t("references.confirmed", { firstName }) : t("people.declined"));
     });
 
   if (result === "confirmed" || result === "declined") {

@@ -39,7 +39,7 @@ export default async function StudentHome() {
     return (
       <>
         <SignBand title={t("common.appName")} action={actions} />
-        <div className="mx-auto w-full max-w-[640px] p-5">
+        <div className="mx-auto w-full max-w-[1280px] p-5 lg:px-10">
           <EmptyState icon={MapTrifoldIcon} title={t("home.notMatchedTitle")} body={t("home.notMatchedBody")} />
         </div>
       </>
@@ -94,10 +94,12 @@ export default async function StudentHome() {
         line={unit?.lineColor}
         action={actions}
       />
-      <div className="mx-auto flex w-full max-w-[640px] flex-col gap-4 px-5 py-4">
+      <div className="mx-auto grid w-full max-w-[1280px] items-start gap-4 px-5 py-4 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-6 lg:px-10 lg:py-8">
         <ThisWeekPanel title={t("home.thisWeek")} rows={dueRows} />
-        <RouteVertical label={t("home.routeLabel")} stations={stations} />
-        <Link href="/s/people" className="card flex min-h-[48px] items-center gap-3 px-4 py-3 text-ink no-underline">
+        <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1">
+          <RouteVertical label={t("home.routeLabel")} stations={stations} />
+        </div>
+        <Link href="/s/people" className="card flex min-h-[48px] lg:col-start-1 items-center gap-3 px-4 py-3 text-ink no-underline">
           <Icon icon={UsersThreeIcon} weight="duotone" size={26} className="text-line" />
           <span className="flex-1 text-body font-bold">{t("home.references")}</span>
           <span className="tabular text-body font-extrabold">

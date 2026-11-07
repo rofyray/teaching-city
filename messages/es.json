@@ -25,7 +25,8 @@
     "aiDisclosureLink": "Cómo usamos la IA",
     "sampleNoteFooter": "Todas las personas, escuelas, ciudades y cifras de esta demostración son ficticias.",
     "skipToContent": "Ir al contenido",
-    "menu": "Menú"
+    "menu": "Menú",
+    "newTab": "se abre en una pestaña nueva"
   },
   "banner": {
     "sample": "Datos de ejemplo. Todas las personas y cifras son ficticias.",
@@ -205,7 +206,8 @@
     "tooBig": "Este archivo pesa más de {size} MB. Sube uno más pequeño.",
     "uploadFailed": "La carga no terminó. Revisa tu conexión e inténtalo de nuevo.",
     "titleRequired": "Escribe un título para la muestra.",
-    "weekLabel": "Semana"
+    "weekLabel": "Semana",
+    "added": "Muestra agregada. Aparece como borrador hasta que tu preceptora o preceptor la verifique."
   },
   "people": {
     "title": "Personas",
@@ -365,7 +367,8 @@
     "preceptors": "Preceptores",
     "completeRotation": "Marcar rotación como completa",
     "completeEarly": "Completar antes de la semana {week} requiere un motivo.",
-    "reasonLabel": "Motivo"
+    "reasonLabel": "Motivo",
+    "completed": "Rotación marcada como completa."
   },
   "matching": {
     "title": "Asignación",
