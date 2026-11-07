@@ -163,6 +163,11 @@
   }
 }
 
+/* Hero trains only appear when they can ride (see the motion block below). */
+.hero-train {
+  opacity: 0;
+}
+
 /* Motion. Hidden start states apply only when the motion flag is set (JavaScript ran and the
    visitor has not asked for reduced motion), so content is always readable without it. */
 @media (prefers-reduced-motion: no-preference) {
@@ -185,6 +190,15 @@
   }
   html[data-motion="on"] [data-reveal="draw-x"]:not([data-shown]) {
     transform: scaleX(0);
+  }
+  html[data-motion="on"] [data-reveal="draw-x-rev"] {
+    transform-origin: right center;
+  }
+  html[data-motion="on"] [data-reveal="draw-x-rev"]:not([data-shown]) {
+    transform: scaleX(0);
+  }
+  html[data-motion="on"] [data-reveal="fade"]:not([data-shown]) {
+    opacity: 0;
   }
   html[data-motion="on"] [data-reveal="draw-y"] {
     transform-origin: center top;
@@ -256,6 +270,18 @@
   .anim-toast {
     animation: tc-toast 280ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
+  /* Hero trains: one ride per line, then parked just short of the last stop. */
+  .hero-train {
+    animation: tc-train var(--ride) linear var(--at) both;
+  }
+  .anim-pass::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 3px var(--c);
+    animation: tc-pass 700ms ease-out var(--at) both;
+  }
 }
 
 @keyframes tc-rise {
@@ -287,6 +313,28 @@
   to {
     opacity: 0;
     transform: scale(1.5);
+  }
+}
+@keyframes tc-train {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(calc(var(--to) - 12px));
+  }
+}
+@keyframes tc-pass {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
   }
 }
 @keyframes tc-toast {
