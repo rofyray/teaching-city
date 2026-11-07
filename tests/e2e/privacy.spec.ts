@@ -26,7 +26,7 @@ test("P8.5 public link shows the shared view, then 404 once turned off", async (
   await expect(publicPage.getByText("Shared by Amara. This is a read-only copy.")).toBeVisible();
   const text = await publicPage.locator("body").innerText();
   for (const hidden of HIDDEN) expect(text).not.toContain(hidden);
-  await page.getByRole("button", { name: "Turn off" }).click();
+  await page.getByRole("button", { name: "Turn Off" }).click();
   await expect(page.getByRole("switch", { name: "Anyone with a link" })).toHaveAttribute("aria-checked", "false");
   const gone = await request.get(url.pathname);
   expect(gone.status()).toBe(404);
