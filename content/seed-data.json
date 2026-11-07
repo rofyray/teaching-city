@@ -1,0 +1,2838 @@
+{
+  "_note": "Synthetic sample data for Teaching City. Every person, school, city, firm and number is fictional.",
+  "program": {
+    "city": "City of Westbrook",
+    "programName": "Teaching City, City of Westbrook",
+    "timeZone": "America/Chicago",
+    "weeks": 15,
+    "minHours": 10,
+    "maxHours": 12,
+    "payRateCents": 1700,
+    "offerTargetDays": 30,
+    "referencesRequired": 3
+  },
+  "colleges": [
+    {
+      "key": "wsu",
+      "name": "Westbrook State University",
+      "type": "regional public university"
+    },
+    {
+      "key": "wcc",
+      "name": "Westbrook Community College",
+      "type": "community college"
+    }
+  ],
+  "coordinators": [
+    {
+      "name": "Renee Carter",
+      "title": "Talent Programs Manager, City of Westbrook HR",
+      "role": "city_coordinator",
+      "email": "renee.carter@westbrook.example.gov"
+    },
+    {
+      "name": "Omar Patel",
+      "title": "Career Services Director, Westbrook State University",
+      "role": "college_coordinator",
+      "college": "wsu",
+      "email": "omar.patel@wsu.example.edu"
+    },
+    {
+      "name": "Alicia Grant",
+      "title": "Career Center Coordinator, Westbrook Community College",
+      "role": "college_coordinator",
+      "college": "wcc",
+      "email": "alicia.grant@wcc.example.edu"
+    }
+  ],
+  "majorCategories": {
+    "accounting_finance": "Accounting or finance",
+    "business": "Business",
+    "computer_science_it": "Computer science or IT",
+    "communications_marketing": "Communications or marketing",
+    "engineering": "Engineering",
+    "economics_data_math": "Economics, data or math",
+    "social_sciences_psychology": "Social sciences or psychology",
+    "criminal_justice": "Criminal justice",
+    "humanities_arts": "Humanities or arts",
+    "other": "Something else"
+  },
+  "units": [
+    {
+      "key": "budget",
+      "name": "Budget Office",
+      "department": "Finance Department",
+      "line": "Finance line",
+      "letter": "F",
+      "color": "finance",
+      "capacity": 6,
+      "majors": [
+        "accounting_finance",
+        "economics_data_math",
+        "business"
+      ],
+      "classification": {
+        "code": "BA1",
+        "title": "Budget Analyst I",
+        "raw": "Under general supervision, performs entry-level professional budget and financial analysis for city departments. Compiles and reconciles expenditure and revenue data, prepares variance reports and budget documents, reviews department requests for accuracy and policy compliance, and responds to inquiries from staff and the public. Requires knowledge of accounting principles, spreadsheet software and municipal budget processes; a bachelor's degree in accounting, finance, economics or a related field, or equivalent experience demonstrated through a Teaching City rotation.",
+        "competencies": [
+          "Analyzes financial data accurately",
+          "Writes clearly for non-experts",
+          "Meets deadlines and follows through",
+          "Works well with colleagues",
+          "Uses spreadsheet and budget tools"
+        ]
+      },
+      "sponsor": {
+        "name": "Marcus Hill",
+        "title": "Finance Director"
+      },
+      "preceptors": [
+        {
+          "name": "Dana Ortiz",
+          "title": "Senior Budget Analyst"
+        },
+        {
+          "name": "Kevin Brooks",
+          "title": "Budget Analyst II"
+        },
+        {
+          "name": "Lena Fischer",
+          "title": "Payroll Supervisor"
+        }
+      ],
+      "scheduleWindows": [
+        {
+          "day": 1,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 2,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 3,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 4,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 5,
+          "start": "08:00",
+          "end": "17:00"
+        }
+      ]
+    },
+    {
+      "key": "works",
+      "name": "Public Works",
+      "department": "Public Works Department",
+      "line": "Works line",
+      "letter": "W",
+      "color": "works",
+      "capacity": 6,
+      "majors": [
+        "engineering"
+      ],
+      "classification": {
+        "code": "ET1",
+        "title": "Engineering Technician I",
+        "raw": "Under direct supervision, performs entry-level technical engineering work supporting design, inspection and maintenance of streets, water and drainage infrastructure. Collects field measurements, reviews plans for completeness, prepares field reports and maintains project records. Works outdoors in varying conditions and follows site safety procedures. Requires an associate degree in engineering technology or related coursework, or equivalent experience demonstrated through a Teaching City rotation, and a valid driver's license.",
+        "competencies": [
+          "Reads plans and field data accurately",
+          "Writes clear field reports",
+          "Meets deadlines and follows through",
+          "Works well with colleagues",
+          "Follows safety procedures on site"
+        ]
+      },
+      "sponsor": {
+        "name": "Helen Wu",
+        "title": "Public Works Director"
+      },
+      "preceptors": [
+        {
+          "name": "Tomás Rivera",
+          "title": "Senior Engineering Technician"
+        },
+        {
+          "name": "Angela Price",
+          "title": "Civil Engineer II"
+        },
+        {
+          "name": "Ray Duncan",
+          "title": "Water Operations Supervisor"
+        }
+      ],
+      "scheduleWindows": [
+        {
+          "day": 1,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 2,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 3,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 4,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 5,
+          "start": "08:00",
+          "end": "17:00"
+        }
+      ]
+    },
+    {
+      "key": "tech",
+      "name": "IT and GIS",
+      "department": "Information Technology Department",
+      "line": "Tech line",
+      "letter": "T",
+      "color": "tech",
+      "capacity": 5,
+      "majors": [
+        "computer_science_it",
+        "economics_data_math"
+      ],
+      "classification": {
+        "code": "IT1",
+        "title": "IT Support Analyst I",
+        "raw": "Provides first-level technical support for city employees. Responds to help desk tickets, sets up and troubleshoots computers, phones and accounts, documents solutions, and maintains equipment inventory. Follows security policies for access and data handling. Requires knowledge of desktop operating systems and basic networking; coursework in information technology or computer science, or equivalent experience demonstrated through a Teaching City rotation.",
+        "competencies": [
+          "Resolves support tickets accurately",
+          "Explains technical issues in plain language",
+          "Meets deadlines and follows through",
+          "Works well with colleagues",
+          "Handles data and access securely"
+        ]
+      },
+      "sponsor": {
+        "name": "Victor Lin",
+        "title": "Chief Information Officer"
+      },
+      "preceptors": [
+        {
+          "name": "Sam Okoye",
+          "title": "GIS Analyst II"
+        },
+        {
+          "name": "Nadia Hassan",
+          "title": "Systems Administrator"
+        }
+      ],
+      "scheduleWindows": [
+        {
+          "day": 1,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 2,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 3,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 4,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 5,
+          "start": "08:00",
+          "end": "17:00"
+        }
+      ]
+    },
+    {
+      "key": "community",
+      "name": "Housing and Community Services",
+      "department": "Housing and Community Services Department",
+      "line": "Community line",
+      "letter": "C",
+      "color": "community",
+      "capacity": 6,
+      "majors": [
+        "social_sciences_psychology",
+        "business"
+      ],
+      "classification": {
+        "code": "HP1",
+        "title": "Housing Program Specialist I",
+        "raw": "Assists residents in applying for city housing and community programs. Reviews applications for eligibility under program rules, maintains case files, explains requirements in person and by phone, coordinates with partner agencies, and protects confidential resident information. Requires strong written and verbal communication; a bachelor's degree in social work, human services, public administration or a related field, or equivalent experience demonstrated through a Teaching City rotation.",
+        "competencies": [
+          "Applies program rules accurately",
+          "Writes clearly for residents",
+          "Meets deadlines and follows through",
+          "Works well with colleagues and residents",
+          "Protects resident privacy"
+        ]
+      },
+      "sponsor": {
+        "name": "Patricia Gomez",
+        "title": "Housing Director"
+      },
+      "preceptors": [
+        {
+          "name": "Grace Mbeki",
+          "title": "Housing Program Manager"
+        },
+        {
+          "name": "Daniel Sato",
+          "title": "Community Services Coordinator"
+        },
+        {
+          "name": "Ruth Alvarez",
+          "title": "Senior Case Manager"
+        }
+      ],
+      "scheduleWindows": [
+        {
+          "day": 1,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 2,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 3,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 4,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 5,
+          "start": "08:00",
+          "end": "17:00"
+        }
+      ]
+    },
+    {
+      "key": "info",
+      "name": "Public Information and 311",
+      "department": "City Manager's Office",
+      "line": "Info line",
+      "letter": "I",
+      "color": "info",
+      "capacity": 5,
+      "majors": [
+        "communications_marketing",
+        "humanities_arts"
+      ],
+      "classification": {
+        "code": "CS1",
+        "title": "Communications Specialist I",
+        "raw": "Writes and edits public information for the city, including web updates, social media posts, news releases and 311 knowledge articles. Verifies facts with departments, follows the city's style and accessibility standards, and monitors public channels for questions. Requires excellent writing skills; a bachelor's degree in communications, journalism, English, marketing or a related field, or equivalent experience demonstrated through a Teaching City rotation.",
+        "competencies": [
+          "Writes accurate public updates",
+          "Writes clearly for non-experts",
+          "Meets deadlines and follows through",
+          "Works well with colleagues",
+          "Uses the city's channels and tools"
+        ]
+      },
+      "sponsor": {
+        "name": "Priya Shah",
+        "title": "Deputy City Manager"
+      },
+      "preceptors": [
+        {
+          "name": "Erin Walsh",
+          "title": "Communications Manager"
+        },
+        {
+          "name": "Jamal Reed",
+          "title": "311 Center Supervisor"
+        }
+      ],
+      "scheduleWindows": [
+        {
+          "day": 1,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 2,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 3,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 4,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 5,
+          "start": "08:00",
+          "end": "17:00"
+        }
+      ]
+    },
+    {
+      "key": "safety",
+      "name": "Courts and Emergency Management",
+      "department": "Municipal Court and Office of Emergency Management",
+      "line": "Safety line",
+      "letter": "S",
+      "color": "safety",
+      "capacity": 5,
+      "majors": [
+        "criminal_justice",
+        "social_sciences_psychology"
+      ],
+      "classification": {
+        "code": "EM1",
+        "title": "Emergency Management Coordinator I",
+        "raw": "Supports emergency preparedness and court operations programs. Maintains emergency plans, contact lists and records, prepares briefings, helps staff exercises and the emergency operations center, and processes court documents according to procedure. Must follow established procedures under time pressure. Requires coursework in emergency management, criminal justice, public administration or a related field, or equivalent experience demonstrated through a Teaching City rotation.",
+        "competencies": [
+          "Keeps plans and records accurate",
+          "Writes clear briefings",
+          "Meets deadlines and follows through",
+          "Works well with colleagues and partners",
+          "Follows procedures under pressure"
+        ]
+      },
+      "sponsor": {
+        "name": "Andre Mitchell",
+        "title": "Emergency Management Director"
+      },
+      "preceptors": [
+        {
+          "name": "Monica Tran",
+          "title": "Court Administrator"
+        },
+        {
+          "name": "Paul Kowalski",
+          "title": "Emergency Management Planner"
+        }
+      ],
+      "scheduleWindows": [
+        {
+          "day": 1,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 2,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 3,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 4,
+          "start": "08:00",
+          "end": "17:00"
+        },
+        {
+          "day": 5,
+          "start": "08:00",
+          "end": "17:00"
+        }
+      ]
+    }
+  ],
+  "vendors": [
+    {
+      "name": "Brightline Engineering",
+      "kind": "Civil engineering consulting",
+      "contact": "Kim Nguyen",
+      "contactTitle": "Talent lead",
+      "email": "kim.nguyen@brightline.example.com",
+      "roles": "Engineering technician, CAD drafter"
+    },
+    {
+      "name": "Harbor and Lane CPAs",
+      "kind": "Audit and accounting firm",
+      "contact": "Sarah Feld",
+      "contactTitle": "Recruiting manager",
+      "email": "sarah.feld@harborlane.example.com",
+      "roles": "Audit associate, staff accountant"
+    },
+    {
+      "name": "Northgate Systems",
+      "kind": "IT services",
+      "contact": "Devon Marsh",
+      "contactTitle": "Hiring manager",
+      "email": "devon.marsh@northgate.example.com",
+      "roles": "Help desk analyst, GIS technician"
+    }
+  ],
+  "cohorts": {
+    "spring2026": {
+      "termName": "Spring 2026",
+      "startDate": "2026-01-12",
+      "endDate": "2026-04-24",
+      "status": "completed",
+      "poolEnteredAt": "2026-04-27",
+      "students": [
+        {
+          "name": "Luis Herrera",
+          "college": "wsu",
+          "major": "Civil Engineering",
+          "majorCategory": "engineering",
+          "unit": "works",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": true,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": true,
+          "vendorInterview": null,
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Aisha Bello",
+          "college": "wsu",
+          "major": "Accounting",
+          "majorCategory": "accounting_finance",
+          "unit": "budget",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": true,
+          "offerDays": 12,
+          "offerResult": "accepted",
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Ryan Cooper",
+          "college": "wsu",
+          "major": "Computer Science",
+          "majorCategory": "computer_science_it",
+          "unit": "tech",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": true,
+          "offerDays": 21,
+          "offerResult": "accepted",
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Tanya Morris",
+          "college": "wcc",
+          "major": "Human Services",
+          "majorCategory": "social_sciences_psychology",
+          "unit": "community",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": true,
+          "offerDays": 24,
+          "offerResult": "accepted",
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Jun Park",
+          "college": "wsu",
+          "major": "Civil Engineering",
+          "majorCategory": "engineering",
+          "unit": "works",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": true,
+          "offerDays": 27,
+          "offerResult": "accepted",
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": false,
+          "withdrawReason": null
+        },
+        {
+          "name": "Rosa Delgado",
+          "college": "wcc",
+          "major": "Communications",
+          "majorCategory": "communications_marketing",
+          "unit": "info",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": true,
+          "offerDays": 33,
+          "offerResult": "accepted",
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Imani Lewis",
+          "college": "wsu",
+          "major": "Criminal Justice",
+          "majorCategory": "criminal_justice",
+          "unit": "safety",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": true,
+          "offerDays": 40,
+          "offerResult": "accepted",
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Peter Novak",
+          "college": "wsu",
+          "major": "Finance",
+          "majorCategory": "accounting_finance",
+          "unit": "budget",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": true,
+          "inPool": true,
+          "offerDays": 18,
+          "offerResult": "declined",
+          "invitePending": false,
+          "vendorInterview": {
+            "vendor": "Harbor and Lane CPAs",
+            "outcome": "offer"
+          },
+          "firstGenOrPell": false,
+          "withdrawReason": null
+        },
+        {
+          "name": "Wei Zhang",
+          "college": "wsu",
+          "major": "Information Systems",
+          "majorCategory": "computer_science_it",
+          "unit": "tech",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": true,
+          "inPool": true,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": {
+            "vendor": "Northgate Systems",
+            "outcome": "offer"
+          },
+          "firstGenOrPell": false,
+          "withdrawReason": null
+        },
+        {
+          "name": "Gabriela Ruiz",
+          "college": "wcc",
+          "major": "Social Work",
+          "majorCategory": "social_sciences_psychology",
+          "unit": "community",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": true,
+          "inPool": true,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": {
+            "vendor": "Harbor and Lane CPAs",
+            "outcome": "no_offer"
+          },
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Darnell Jackson",
+          "college": "wsu",
+          "major": "Civil Engineering",
+          "majorCategory": "engineering",
+          "unit": "works",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": true,
+          "inPool": true,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": {
+            "vendor": "Brightline Engineering",
+            "outcome": "offer"
+          },
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Hana Yamada",
+          "college": "wsu",
+          "major": "Journalism",
+          "majorCategory": "communications_marketing",
+          "unit": "info",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": true,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": false,
+          "withdrawReason": null
+        },
+        {
+          "name": "Andrés Silva",
+          "college": "wcc",
+          "major": "Emergency Management",
+          "majorCategory": "criminal_justice",
+          "unit": "safety",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": true,
+          "inPool": true,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": {
+            "vendor": "Brightline Engineering",
+            "outcome": "no_offer"
+          },
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Kayla Foster",
+          "college": "wsu",
+          "major": "Economics",
+          "majorCategory": "economics_data_math",
+          "unit": "budget",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": true,
+          "inPool": true,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Ben Adler",
+          "college": "wsu",
+          "major": "Computer Science",
+          "majorCategory": "computer_science_it",
+          "unit": "tech",
+          "status": "completed",
+          "skillsAtBar": 5,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": true,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": false,
+          "withdrawReason": null
+        },
+        {
+          "name": "Leah Kaplan",
+          "college": "wsu",
+          "major": "English",
+          "majorCategory": "humanities_arts",
+          "unit": "info",
+          "status": "completed",
+          "skillsAtBar": 4,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": true,
+          "inPool": false,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": {
+            "vendor": "Harbor and Lane CPAs",
+            "outcome": "offer"
+          },
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Tariq Ali",
+          "college": "wcc",
+          "major": "Engineering Technology",
+          "majorCategory": "engineering",
+          "unit": "works",
+          "status": "completed",
+          "skillsAtBar": 4,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": true,
+          "inPool": false,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": {
+            "vendor": "Brightline Engineering",
+            "outcome": "no_offer"
+          },
+          "firstGenOrPell": true,
+          "withdrawReason": null
+        },
+        {
+          "name": "Megan O'Brien",
+          "college": "wsu",
+          "major": "Psychology",
+          "majorCategory": "social_sciences_psychology",
+          "unit": "community",
+          "status": "completed",
+          "skillsAtBar": 4,
+          "refsConfirmed": 3,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": false,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": false,
+          "withdrawReason": null
+        },
+        {
+          "name": "Jacob Turner",
+          "college": "wsu",
+          "major": "Criminal Justice",
+          "majorCategory": "criminal_justice",
+          "unit": "safety",
+          "status": "withdrawn",
+          "skillsAtBar": 0,
+          "refsConfirmed": 0,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": false,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": true,
+          "withdrawReason": "Took a full-time job (week 4)"
+        },
+        {
+          "name": "Selena Moreno",
+          "college": "wcc",
+          "major": "Marketing",
+          "majorCategory": "communications_marketing",
+          "unit": "info",
+          "status": "withdrawn",
+          "skillsAtBar": 0,
+          "refsConfirmed": 0,
+          "shareCityHr": true,
+          "shareVendorBridge": false,
+          "inPool": false,
+          "offerDays": null,
+          "offerResult": null,
+          "invitePending": false,
+          "vendorInterview": null,
+          "firstGenOrPell": false,
+          "withdrawReason": "Moved out of the area (week 7)"
+        }
+      ]
+    },
+    "fall2026": {
+      "termName": "Fall 2026",
+      "startDate": "RELATIVE: Monday of the week 5 weeks before today, so today is in week 6",
+      "status": "active",
+      "students": [
+        {
+          "name": "Amara Okafor",
+          "college": "wsu",
+          "major": "Accounting",
+          "majorCategory": "accounting_finance",
+          "unit": "budget",
+          "preceptor": "Dana Ortiz",
+          "sponsor": "Marcus Hill",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Analyzes financial data accurately": [
+              2,
+              3,
+              3,
+              3,
+              4
+            ],
+            "Writes clearly for non-experts": [
+              1,
+              2,
+              2,
+              3,
+              3
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              2,
+              2,
+              3,
+              2,
+              2
+            ],
+            "Uses spreadsheet and budget tools": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 11,
+            "2": 11,
+            "3": 11,
+            "4": 11,
+            "5": 11,
+            "6": 11
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Jordan Ellis",
+          "college": "wsu",
+          "major": "Finance",
+          "majorCategory": "accounting_finance",
+          "unit": "budget",
+          "preceptor": "Dana Ortiz",
+          "sponsor": "Marcus Hill",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Analyzes financial data accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for non-experts": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Uses spreadsheet and budget tools": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 12,
+            "2": 10,
+            "3": 11,
+            "4": 12,
+            "5": 10
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Mei Chen",
+          "college": "wsu",
+          "major": "Economics",
+          "majorCategory": "economics_data_math",
+          "unit": "budget",
+          "preceptor": "Kevin Brooks",
+          "sponsor": "Marcus Hill",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Analyzes financial data accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for non-experts": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Uses spreadsheet and budget tools": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 10,
+            "2": 11,
+            "3": 12,
+            "4": 10,
+            "5": 11,
+            "6": 12
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Diego Morales",
+          "college": "wcc",
+          "major": "Business Administration",
+          "majorCategory": "business",
+          "unit": "budget",
+          "preceptor": "Kevin Brooks",
+          "sponsor": "Marcus Hill",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Analyzes financial data accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for non-experts": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Uses spreadsheet and budget tools": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 11,
+            "2": 12,
+            "3": 10,
+            "4": 11,
+            "5": 12
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Hannah Scott",
+          "college": "wsu",
+          "major": "Accounting",
+          "majorCategory": "accounting_finance",
+          "unit": "budget",
+          "preceptor": "Lena Fischer",
+          "sponsor": "Marcus Hill",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Analyzes financial data accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for non-experts": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Uses spreadsheet and budget tools": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 12,
+            "2": 10,
+            "3": 11,
+            "4": 12,
+            "5": 10,
+            "6": 11
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Malik Johnson",
+          "college": "wsu",
+          "major": "Civil Engineering",
+          "majorCategory": "engineering",
+          "unit": "works",
+          "preceptor": "Tomás Rivera",
+          "sponsor": "Helen Wu",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Reads plans and field data accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clear field reports": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Follows safety procedures on site": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 10,
+            "2": 11,
+            "3": 12,
+            "4": 10,
+            "5": 11
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Sofia Petrov",
+          "college": "wsu",
+          "major": "Mechanical Engineering",
+          "majorCategory": "engineering",
+          "unit": "works",
+          "preceptor": "Tomás Rivera",
+          "sponsor": "Helen Wu",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Reads plans and field data accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clear field reports": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Follows safety procedures on site": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 11,
+            "2": 12,
+            "3": 10,
+            "4": 11,
+            "5": 12,
+            "6": 10
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Carlos Mendez",
+          "college": "wcc",
+          "major": "Engineering Technology",
+          "majorCategory": "engineering",
+          "unit": "works",
+          "preceptor": "Angela Price",
+          "sponsor": "Helen Wu",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Reads plans and field data accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clear field reports": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Follows safety procedures on site": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 12,
+            "2": 10,
+            "3": 11,
+            "4": 12,
+            "5": 10
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Ava Thompson",
+          "college": "wsu",
+          "major": "Civil Engineering",
+          "majorCategory": "engineering",
+          "unit": "works",
+          "preceptor": "Angela Price",
+          "sponsor": "Helen Wu",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Reads plans and field data accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clear field reports": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Follows safety procedures on site": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 10,
+            "2": 11,
+            "3": 12,
+            "4": 10,
+            "5": 11,
+            "6": 12
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Noah Kim",
+          "college": "wcc",
+          "major": "Construction Management",
+          "majorCategory": "engineering",
+          "unit": "works",
+          "preceptor": "Ray Duncan",
+          "sponsor": "Helen Wu",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Reads plans and field data accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clear field reports": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Follows safety procedures on site": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 11,
+            "2": 12,
+            "3": 10,
+            "4": 11,
+            "5": 12
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Priyanka Rao",
+          "college": "wsu",
+          "major": "Computer Science",
+          "majorCategory": "computer_science_it",
+          "unit": "tech",
+          "preceptor": "Sam Okoye",
+          "sponsor": "Victor Lin",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Resolves support tickets accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Explains technical issues in plain language": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Handles data and access securely": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 12,
+            "2": 10,
+            "3": 11,
+            "4": 12,
+            "5": 10,
+            "6": 11
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Tyler Grant",
+          "college": "wcc",
+          "major": "Information Technology",
+          "majorCategory": "computer_science_it",
+          "unit": "tech",
+          "preceptor": "Sam Okoye",
+          "sponsor": "Victor Lin",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Resolves support tickets accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Explains technical issues in plain language": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Handles data and access securely": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 10,
+            "2": 11,
+            "3": 12,
+            "4": 10,
+            "5": 11
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Fatima Yusuf",
+          "college": "wsu",
+          "major": "Geography and GIS",
+          "majorCategory": "economics_data_math",
+          "unit": "tech",
+          "preceptor": "Sam Okoye",
+          "sponsor": "Victor Lin",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Resolves support tickets accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Explains technical issues in plain language": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Handles data and access securely": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 11,
+            "2": 12,
+            "3": 10,
+            "4": 11,
+            "5": 12,
+            "6": 10
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Ethan Clarke",
+          "college": "wsu",
+          "major": "Information Systems",
+          "majorCategory": "computer_science_it",
+          "unit": "tech",
+          "preceptor": "Nadia Hassan",
+          "sponsor": "Victor Lin",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Resolves support tickets accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Explains technical issues in plain language": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Handles data and access securely": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 12,
+            "2": 10,
+            "3": 11,
+            "4": 12,
+            "5": 10
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Isabel Cruz",
+          "college": "wcc",
+          "major": "Cybersecurity",
+          "majorCategory": "computer_science_it",
+          "unit": "tech",
+          "preceptor": "Nadia Hassan",
+          "sponsor": "Victor Lin",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Resolves support tickets accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Explains technical issues in plain language": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Handles data and access securely": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 10,
+            "2": 11,
+            "3": 12,
+            "4": 10,
+            "5": 11,
+            "6": 12
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Lily Park",
+          "college": "wsu",
+          "major": "Psychology",
+          "majorCategory": "social_sciences_psychology",
+          "unit": "community",
+          "preceptor": "Grace Mbeki",
+          "sponsor": "Patricia Gomez",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Applies program rules accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for residents": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues and residents": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Protects resident privacy": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 11,
+            "2": 12,
+            "3": 10,
+            "4": 11,
+            "5": 12
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Kofi Mensah",
+          "college": "wsu",
+          "major": "Sociology",
+          "majorCategory": "social_sciences_psychology",
+          "unit": "community",
+          "preceptor": "Grace Mbeki",
+          "sponsor": "Patricia Gomez",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Applies program rules accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for residents": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues and residents": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Protects resident privacy": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 12,
+            "2": 10,
+            "3": 11,
+            "4": 12,
+            "5": 10,
+            "6": 11
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Emily Ross",
+          "college": "wsu",
+          "major": "Social Work",
+          "majorCategory": "social_sciences_psychology",
+          "unit": "community",
+          "preceptor": "Daniel Sato",
+          "sponsor": "Patricia Gomez",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Applies program rules accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for residents": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues and residents": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Protects resident privacy": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 10,
+            "2": 11,
+            "3": 12,
+            "4": 10,
+            "5": 11
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Jasmine Ward",
+          "college": "wcc",
+          "major": "Human Services",
+          "majorCategory": "social_sciences_psychology",
+          "unit": "community",
+          "preceptor": "Daniel Sato",
+          "sponsor": "Patricia Gomez",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Applies program rules accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for residents": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues and residents": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Protects resident privacy": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 11,
+            "2": 12,
+            "3": 10,
+            "4": 11,
+            "5": 12,
+            "6": 10
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Rafael Ortega",
+          "college": "wsu",
+          "major": "Public Administration",
+          "majorCategory": "business",
+          "unit": "community",
+          "preceptor": "Ruth Alvarez",
+          "sponsor": "Patricia Gomez",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Applies program rules accurately": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for residents": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues and residents": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Protects resident privacy": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 12,
+            "2": 10,
+            "3": 11,
+            "4": 12,
+            "5": 10
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Chloe Bennett",
+          "college": "wsu",
+          "major": "Communications",
+          "majorCategory": "communications_marketing",
+          "unit": "info",
+          "preceptor": "Erin Walsh",
+          "sponsor": "Priya Shah",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Writes accurate public updates": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for non-experts": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Uses the city's channels and tools": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 10,
+            "2": 11,
+            "3": 12,
+            "4": 10,
+            "5": 11,
+            "6": 12
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Ahmed Saleh",
+          "college": "wsu",
+          "major": "Journalism",
+          "majorCategory": "communications_marketing",
+          "unit": "info",
+          "preceptor": "Erin Walsh",
+          "sponsor": "Priya Shah",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Writes accurate public updates": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for non-experts": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Uses the city's channels and tools": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 11,
+            "2": 12,
+            "3": 10,
+            "4": 11,
+            "5": 12
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Zoe Martin",
+          "college": "wsu",
+          "major": "English",
+          "majorCategory": "humanities_arts",
+          "unit": "info",
+          "preceptor": "Jamal Reed",
+          "sponsor": "Priya Shah",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Writes accurate public updates": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for non-experts": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Uses the city's channels and tools": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 12,
+            "2": 10,
+            "3": 11,
+            "4": 12,
+            "5": 10,
+            "6": 11
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Lucas Ferreira",
+          "college": "wcc",
+          "major": "Marketing",
+          "majorCategory": "communications_marketing",
+          "unit": "info",
+          "preceptor": "Jamal Reed",
+          "sponsor": "Priya Shah",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Writes accurate public updates": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for non-experts": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Uses the city's channels and tools": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 10,
+            "2": 11,
+            "3": 12,
+            "4": 10,
+            "5": 11
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Nia Robinson",
+          "college": "wsu",
+          "major": "Graphic Design",
+          "majorCategory": "humanities_arts",
+          "unit": "info",
+          "preceptor": "Erin Walsh",
+          "sponsor": "Priya Shah",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Writes accurate public updates": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clearly for non-experts": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Uses the city's channels and tools": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 11,
+            "2": 12,
+            "3": 10,
+            "4": 11,
+            "5": 12,
+            "6": 10
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Samuel Adeyemi",
+          "college": "wsu",
+          "major": "Criminal Justice",
+          "majorCategory": "criminal_justice",
+          "unit": "safety",
+          "preceptor": "Monica Tran",
+          "sponsor": "Andre Mitchell",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Keeps plans and records accurate": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clear briefings": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues and partners": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Follows procedures under pressure": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 12,
+            "2": 10,
+            "3": 11,
+            "4": 12,
+            "5": 10
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Olivia Hart",
+          "college": "wsu",
+          "major": "Criminal Justice",
+          "majorCategory": "criminal_justice",
+          "unit": "safety",
+          "preceptor": "Monica Tran",
+          "sponsor": "Andre Mitchell",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Keeps plans and records accurate": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "Writes clear briefings": [
+              2,
+              2,
+              3,
+              3
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4
+            ],
+            "Works well with colleagues and partners": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "Follows procedures under pressure": [
+              2,
+              2,
+              3,
+              3
+            ]
+          },
+          "hours": {
+            "1": 10,
+            "2": 11,
+            "3": 12,
+            "4": 10,
+            "5": 11,
+            "6": 12
+          },
+          "overdueWeek5": true
+        },
+        {
+          "name": "Brandon Lee",
+          "college": "wcc",
+          "major": "Emergency Management",
+          "majorCategory": "criminal_justice",
+          "unit": "safety",
+          "preceptor": "Paul Kowalski",
+          "sponsor": "Andre Mitchell",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Keeps plans and records accurate": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clear briefings": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues and partners": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Follows procedures under pressure": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 11,
+            "2": 12,
+            "3": 10,
+            "4": 11,
+            "5": 12
+          },
+          "overdueWeek5": false
+        },
+        {
+          "name": "Maya Singh",
+          "college": "wsu",
+          "major": "Political Science",
+          "majorCategory": "social_sciences_psychology",
+          "unit": "safety",
+          "preceptor": "Paul Kowalski",
+          "sponsor": "Andre Mitchell",
+          "firstGenOrPell": false,
+          "ratingsWeeks1to5": {
+            "Keeps plans and records accurate": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "Writes clear briefings": [
+              2,
+              2,
+              3,
+              3
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4
+            ],
+            "Works well with colleagues and partners": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "Follows procedures under pressure": [
+              2,
+              2,
+              3,
+              3
+            ]
+          },
+          "hours": {
+            "1": 12,
+            "2": 10,
+            "3": 11,
+            "4": 12,
+            "5": 10,
+            "6": 11
+          },
+          "overdueWeek5": true
+        },
+        {
+          "name": "Elena Vasquez",
+          "college": "wcc",
+          "major": "Paralegal Studies",
+          "majorCategory": "criminal_justice",
+          "unit": "safety",
+          "preceptor": "Paul Kowalski",
+          "sponsor": "Andre Mitchell",
+          "firstGenOrPell": true,
+          "ratingsWeeks1to5": {
+            "Keeps plans and records accurate": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Writes clear briefings": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ],
+            "Meets deadlines and follows through": [
+              3,
+              3,
+              4,
+              4,
+              4
+            ],
+            "Works well with colleagues and partners": [
+              1,
+              1,
+              2,
+              2,
+              3
+            ],
+            "Follows procedures under pressure": [
+              2,
+              2,
+              3,
+              3,
+              4
+            ]
+          },
+          "hours": {
+            "1": 10,
+            "2": 11,
+            "3": 12,
+            "4": 10,
+            "5": 11
+          },
+          "overdueWeek5": false
+        }
+      ]
+    }
+  },
+  "springOpenings": [
+    {
+      "title": "Budget Analyst I",
+      "classification": "BA1",
+      "unit": "Budget Office",
+      "invitees": [
+        "Aisha Bello",
+        "Peter Novak"
+      ],
+      "status": "filled"
+    },
+    {
+      "title": "IT Support Analyst I",
+      "classification": "IT1",
+      "unit": "IT and GIS",
+      "invitees": [
+        "Ryan Cooper"
+      ],
+      "status": "filled"
+    },
+    {
+      "title": "Housing Program Specialist I",
+      "classification": "HP1",
+      "unit": "Housing and Community Services",
+      "invitees": [
+        "Tanya Morris"
+      ],
+      "status": "filled"
+    },
+    {
+      "title": "Engineering Technician I, Streets",
+      "classification": "ET1",
+      "unit": "Public Works",
+      "invitees": [
+        "Jun Park"
+      ],
+      "status": "filled"
+    },
+    {
+      "title": "Communications Specialist I",
+      "classification": "CS1",
+      "unit": "Public Information and 311",
+      "invitees": [
+        "Rosa Delgado"
+      ],
+      "status": "filled"
+    },
+    {
+      "title": "Emergency Management Coordinator I",
+      "classification": "EM1",
+      "unit": "Courts and Emergency Management",
+      "invitees": [
+        "Imani Lewis"
+      ],
+      "status": "filled"
+    },
+    {
+      "title": "Engineering Technician I, Water Utilities",
+      "classification": "ET1",
+      "unit": "Public Works",
+      "invitees": [
+        "Luis Herrera"
+      ],
+      "status": "open"
+    }
+  ],
+  "luisInvite": {
+    "opening": "Engineering Technician I, Water Utilities",
+    "invitedAt": "RELATIVE: today minus 7 days",
+    "interviewAt": "RELATIVE: today plus 3 days, 10:00"
+  },
+  "amara": {
+    "email": "amara.okafor@wsu.example.edu",
+    "classYear": "junior",
+    "courses": [
+      "Intermediate Accounting I",
+      "Cost Accounting",
+      "Business Statistics",
+      "Excel for Business Analytics",
+      "Business Writing"
+    ],
+    "availability": [
+      {
+        "day": 1,
+        "start": "13:00",
+        "end": "17:00"
+      },
+      {
+        "day": 3,
+        "start": "13:00",
+        "end": "17:00"
+      },
+      {
+        "day": 5,
+        "start": "13:00",
+        "end": "17:00"
+      },
+      {
+        "day": 4,
+        "start": "17:00",
+        "end": "18:00"
+      }
+    ],
+    "demographics": {
+      "firstGen": true,
+      "pell": true,
+      "adultLearner": false,
+      "veteran": false,
+      "consent": true
+    },
+    "consents": {
+      "program_participation": true,
+      "share_city_hr": true,
+      "share_vendor_bridge": false,
+      "public_link": false,
+      "demographic_reporting": true
+    },
+    "matchReason": "Accounting maps to the Budget Office. 12 of your 13 free hours overlap the office's hours.",
+    "hours": {
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "4": 11,
+      "5": 11,
+      "6": 11
+    },
+    "hoursApprovedThroughWeek": 5,
+    "ratings": {
+      "Analyzes financial data accurately": [
+        2,
+        3,
+        3,
+        3,
+        4
+      ],
+      "Writes clearly for non-experts": [
+        1,
+        2,
+        2,
+        3,
+        3
+      ],
+      "Meets deadlines and follows through": [
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "Works well with colleagues": [
+        2,
+        2,
+        3,
+        2,
+        2
+      ],
+      "Uses spreadsheet and budget tools": [
+        2,
+        2,
+        3,
+        3,
+        4
+      ]
+    },
+    "notes": [
+      "Good first week. You asked smart questions about the chart of accounts. Next week, keep a running list of terms to review with me.",
+      "Your overtime pull was accurate. Next step: write one paragraph explaining what the numbers mean for a department head.",
+      "The resident FAQ draft was clear and friendly. Next week, check every figure against the adopted budget before sharing.",
+      "Solid reconciliation work across all departments. Try speaking up in Tuesday's team check-in with one finding.",
+      "Your variance memo was clear enough to send to the Parks director unedited. Next week, lead the walkthrough of your overtime model."
+    ],
+    "evidence": {
+      "Analyzes financial data accurately": "Reconciled Q1 overtime across 11 departments with no corrections needed.",
+      "Writes clearly for non-experts": "Wrote a resident budget FAQ the communications office published as written.",
+      "Meets deadlines and follows through": "Delivered every weekly deliverable on or before its due date.",
+      "Works well with colleagues": "Still building. Dana suggests leading one Parks check-in call.",
+      "Uses spreadsheet and budget tools": "Built the overtime model in the city's budget workbook."
+    },
+    "workSamples": [
+      {
+        "week": 3,
+        "title": "Plain-language budget FAQ for residents",
+        "meta": "1 page, week 3",
+        "status": "verified"
+      },
+      {
+        "week": 4,
+        "title": "Q1 overtime reconciliation by department",
+        "meta": "Spreadsheet export, week 4",
+        "status": "verified"
+      },
+      {
+        "week": 5,
+        "title": "Parks overtime variance memo",
+        "meta": "2 pages, week 5",
+        "status": "verified"
+      }
+    ],
+    "sponsorMeetings": [
+      {
+        "week": 2,
+        "day": "Tuesday",
+        "time": "15:00",
+        "completed": true,
+        "summary": "Talked about paths from budget analyst to finance director."
+      },
+      {
+        "week": 7,
+        "day": "Tuesday",
+        "time": "15:00",
+        "completed": false,
+        "summary": null
+      }
+    ],
+    "references": [
+      {
+        "name": "Dana Ortiz",
+        "title": "Senior Budget Analyst",
+        "relation": "preceptor",
+        "status": "confirmed",
+        "confirmedWeek": 4,
+        "quote": "Amara checks her own numbers before anyone asks. I would hire her into this office.",
+        "quoteApproved": true
+      },
+      {
+        "name": "Marcus Hill",
+        "title": "Finance Director",
+        "relation": "sponsor",
+        "status": "confirmed",
+        "confirmedWeek": 5,
+        "quote": "She asks the questions new analysts usually take a year to learn to ask.",
+        "quoteApproved": true
+      },
+      {
+        "name": "Priya Shah",
+        "title": "Deputy City Manager",
+        "relation": "other",
+        "status": "asked",
+        "askedDaysAgo": 4,
+        "quote": null,
+        "quoteApproved": false
+      }
+    ]
+  },
+  "expectedMetrics": {
+    "spring": {
+      "enrolled": 20,
+      "completers": 18,
+      "completionRate": 90.0,
+      "reach": 65.0,
+      "reachN": 13,
+      "referencesRate": 100.0,
+      "poolEntries": 15,
+      "offers": 7,
+      "offerRate": 38.9,
+      "medianDaysToOffer": 24,
+      "hiredByCity": 6,
+      "notHiredByCity": 12,
+      "vendorInterviews": 7,
+      "vendorRate": 58.3,
+      "underemployment": "not_measured"
+    },
+    "fall": {
+      "enrolled": 30,
+      "reach": 63.3,
+      "reachN": 19
+    }
+  }
+}
