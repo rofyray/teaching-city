@@ -1,8 +1,9 @@
-import { MapTrifoldIcon } from "@phosphor-icons/react/ssr";
+import { MapTrifoldIcon, PrinterIcon } from "@phosphor-icons/react/ssr";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { EmptyState } from "@/components/empty-state";
 import { HeaderActions } from "@/components/header-actions";
+import { Icon } from "@/components/icon";
 import { PrintButton } from "@/components/print-button";
 import { Transcript } from "@/components/transcript";
 import { getStudentArea } from "@/server/queries/student";
@@ -29,7 +30,7 @@ export default async function StudentTranscriptPage() {
       variant="owner"
       headerActions={
         <div className="flex items-center gap-1">
-          <PrintButton label={t("transcript.print")} />
+          <PrintButton label={t("transcript.print")} icon={<Icon icon={PrinterIcon} weight="bold" size={22} />} />
           <div className="no-print flex lg:hidden">
             <HeaderActions current={current} settingsHref="/s/settings" />
           </div>

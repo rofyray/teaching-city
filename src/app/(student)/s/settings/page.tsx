@@ -1,4 +1,6 @@
+import { CopyIcon, LinkIcon } from "@phosphor-icons/react/ssr";
 import type { Metadata } from "next";
+import { Icon } from "@/components/icon";
 import { getTranslations } from "next-intl/server";
 import { LanguageSwitch } from "@/components/language-switch";
 import { PageHeader } from "@/components/page-header";
@@ -23,7 +25,8 @@ export default async function SettingsPage() {
           <h2 id="share" className="text-subheading font-extrabold">
             {t("sharing.title")}
           </h2>
-          <SharingControls initial={{ share_city_hr: consent.share_city_hr, share_vendor_bridge: consent.share_vendor_bridge, public_link: consent.public_link }} />
+          <SharingControls
+                  icons={{ link: <Icon icon={LinkIcon} weight="bold" size={16} />, copy: <Icon icon={CopyIcon} weight="bold" size={18} /> }} initial={{ share_city_hr: consent.share_city_hr, share_vendor_bridge: consent.share_vendor_bridge, public_link: consent.public_link }} />
         </section>
         <section aria-labelledby="lang" className="card p-4">
           <h2 id="lang" className="sr-only">
