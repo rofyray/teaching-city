@@ -11,13 +11,13 @@ export default function LandingPage() {
   return (
     <>
       <div className="sign print-sign bg-ink text-white">
-        <div className="mx-auto max-w-[1120px] px-4 pt-10 pb-12 sm:px-6 sm:pt-16 sm:pb-16">
-          <h1 className="max-w-[18ch] text-[34px] leading-[38px] font-extrabold sm:text-display">{landing.title}</h1>
-          <p className="mt-5 max-w-[64ch] text-body text-sign-muted">{landing.lead}</p>
+        <div className="mx-auto max-w-[1280px] px-4 pt-10 pb-12 sm:px-6 lg:px-10 sm:pt-16 sm:pb-16">
+          <h1 className="text-[34px] leading-[38px] font-extrabold sm:text-display">{landing.title}</h1>
+          <p className="mt-5 text-body text-sign-muted">{landing.lead}</p>
         </div>
       </div>
 
-      <div className="mx-auto flex w-full max-w-[1120px] flex-col gap-12 px-4 py-10 sm:px-6">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-12 px-4 py-10 sm:px-6 lg:px-10">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           <Link
             href="/demo"
@@ -30,7 +30,7 @@ export default function LandingPage() {
           </Link>
         </div>
 
-        <section aria-labelledby="barrier" className="max-w-[72ch]">
+        <section aria-labelledby="barrier">
           <h2 id="barrier" className="text-title font-extrabold">
             {landing.barrier.heading}
           </h2>
@@ -44,7 +44,7 @@ export default function LandingPage() {
           <FourPartRoute stations={landing.route.stations} label={landing.route.heading} />
         </section>
 
-        <section aria-labelledby="why-now" className="max-w-[72ch]">
+        <section aria-labelledby="why-now">
           <h2 id="why-now" className="text-title font-extrabold">
             {landing.whyNow.heading}
           </h2>

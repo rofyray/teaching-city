@@ -15,13 +15,13 @@ const same = (en: string): Copy => ({ en, es: en });
 
 export const METRIC_COPY: Record<MetricKey, { name: Copy; value: Copy; target: Copy; how: Copy }> = {
   completion: {
-    name: same("Finish the rotation"),
+    name: same("Finish the Rotation"),
     value: same("Completion rate"),
     target: same("85% or more"),
     how: same("Students who finished the rotation, divided by all students enrolled in the cohort."),
   },
   reach: {
-    name: same("Reach students who need it most"),
+    name: same("Reach Students Who Need It Most"),
     value: same("First-gen or Pell share"),
     target: same("60% or more"),
     how: same(
@@ -29,13 +29,13 @@ export const METRIC_COPY: Record<MetricKey, { name: Copy; value: Copy; target: C
     ),
   },
   references: {
-    name: same("Leave with 3 senior references"),
+    name: same("Leave with 3 Senior References"),
     value: same("Share of completers with 3+ confirmed references"),
     target: same("Every completer"),
     how: same("Completers with 3 or more confirmed senior references, divided by all completers."),
   },
   offers: {
-    name: same("Get a public-sector offer"),
+    name: same("Get a Public-Sector Offer"),
     value: same("Offer rate"),
     target: same("30% or more"),
     how: same(
@@ -43,7 +43,7 @@ export const METRIC_COPY: Record<MetricKey, { name: Copy; value: Copy; target: C
     ),
   },
   offerDays: {
-    name: same("Offer within 30 days"),
+    name: same("Offer Within 30 Days"),
     value: same("Median days from joining the hiring lane to an offer"),
     target: same("30 days or fewer"),
     how: same(
@@ -51,7 +51,7 @@ export const METRIC_COPY: Record<MetricKey, { name: Copy; value: Copy; target: C
     ),
   },
   vendor: {
-    name: same("Interview with a city vendor"),
+    name: same("Interview with a City Vendor"),
     value: same("Vendor interview rate"),
     target: same("50% or more"),
     how: same(
@@ -59,7 +59,7 @@ export const METRIC_COPY: Record<MetricKey, { name: Copy; value: Copy; target: C
     ),
   },
   underemployment: {
-    name: same("Lower underemployment than peers"),
+    name: same("Lower Underemployment than Peers"),
     value: same("Completers vs. matched peers"),
     target: same("Lower than matched peers"),
     how: same(
@@ -84,7 +84,7 @@ export function matchReason(major: string, unit: string, overlap: number, free: 
 
 // TODO(copy): UI labels below are not in the Content Pack. Short, plain, sentence case.
 export const CITY_COPY = {
-  matchingEmptyTitle: { en: "No one is waiting for a match", es: "Nadie está esperando asignación" },
+  matchingEmptyTitle: { en: "No One Is Waiting for a Match", es: "Nadie está esperando asignación" },
   matchingEmptyBody: {
     en: "Students appear here after they finish onboarding and give both consents.",
     es: "Los estudiantes aparecen aquí cuando terminan la inscripción y aceptan ambos consentimientos.",
@@ -99,7 +99,7 @@ export const CITY_COPY = {
   week: { en: "Week", es: "Semana" },
   allClassifications: { en: "All classifications", es: "Todas las clasificaciones" },
   filter: { en: "Filter", es: "Filtrar" },
-  noOpenings: { en: "No openings yet", es: "Todavía no hay vacantes" },
+  noOpenings: { en: "No Openings Yet", es: "Todavía no hay vacantes" },
   noOpeningsBody: { en: "Create an opening, then invite people from the hiring lane.", es: "Crea una vacante y luego invita a personas de la vía de contratación." },
   noOneToInvite: { en: "No one in the hiring lane for this classification right now.", es: "Ahora no hay nadie en la vía de contratación para esta clasificación." },
   statusLabel: { en: "Status", es: "Estado" },
@@ -114,15 +114,15 @@ export const CITY_COPY = {
     draft: { en: "Draft, not shown to students", es: "Borrador, no se muestra a estudiantes" },
     approved: { en: "Approved, shown to students", es: "Aprobado, se muestra a estudiantes" },
   },
-  officialDescription: { en: "Official description", es: "Descripción oficial" },
+  officialDescription: { en: "Official Description", es: "Descripción oficial" },
   summary: { en: "Summary", es: "Resumen" },
   onePerLine: { en: "One per line", es: "Uno por línea" },
   vendorName: { en: "Firm", es: "Empresa" },
   ended: { en: "Ended", es: "Terminado" },
   active: { en: "Active", es: "Activo" },
-  enrollmentsByUnit: { en: "Students by unit", es: "Estudiantes por unidad" },
-  overdueList: { en: "Ratings overdue", es: "Evaluaciones atrasadas" },
-  activeStudents: { en: "Active students", es: "Estudiantes activos" },
+  enrollmentsByUnit: { en: "Students by Unit", es: "Estudiantes por unidad" },
+  overdueList: { en: "Ratings Overdue", es: "Evaluaciones atrasadas" },
+  activeStudents: { en: "Active Students", es: "Estudiantes activos" },
   preceptor: { en: "Preceptor", es: "Preceptora o preceptor" },
   sponsor: { en: "Sponsor", es: "Patrocinador o patrocinadora" },
   value: { en: "Value", es: "Valor" },

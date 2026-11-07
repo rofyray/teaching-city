@@ -21,7 +21,7 @@ export default async function VendorHome() {
   return (
     <div className="mx-auto w-full max-w-[1280px] px-4 py-6 lg:px-10">
       <h1 className="text-title font-extrabold">{t("vendorPortal.title")}</h1>
-      <p className="mt-1 max-w-prose text-body text-muted">{t("vendorPortal.lead")}</p>
+      <p className="mt-1 text-body text-muted">{t("vendorPortal.lead")}</p>
       {completers.length === 0 ? (
         <div className="mt-6">
           <EmptyState icon={BriefcaseIcon} title={t("vendorPortal.emptyTitle")} body={t("vendorPortal.emptyBody")} />

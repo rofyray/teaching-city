@@ -1,6 +1,6 @@
 /** Content Pack 13.6, verbatim. The "Built with AI" line was filled for the team to confirm. */
 export const aiDisclosure = {
-  title: "How Teaching City uses AI",
+  title: "How Teaching City Uses AI",
   lead: "AI helps with three writing tasks. People make every selection and hiring decision, and nothing AI writes reaches a student's record until a person accepts it.",
   table: {
     headers: ["Feature", "What it does", "What it receives", "Who reviews it"],
@@ -25,7 +25,7 @@ export const aiDisclosure = {
       ],
     ],
   },
-  neverHeading: "What AI never does in Teaching City:",
+  neverHeading: "What AI Never Does in Teaching City:",
   never: [
     "Rank, score, screen or reject a student",
     "See demographic answers, email addresses, hours or past ratings",

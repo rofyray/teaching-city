@@ -11,6 +11,7 @@ import { cn } from "@/lib/cn";
 import { mapCourses, recordAiDecision } from "@/server/actions/ai";
 import { finishOnboarding } from "@/server/actions/student";
 import type { ScheduleWindow } from "@/server/db/schema";
+import { toast } from "@/components/toast";
 
 const STEPS = ["stepWelcome", "stepConsent", "stepAbout", "stepAvailability", "stepCourses", "stepOptional", "stepReview"] as const;
 const CATEGORIES = [
@@ -124,6 +125,7 @@ export function OnboardingWizard({
       const result = await mapCourses(courses.filter((c) => c.trim()));
       if (!result.ok) {
         setAiMessage(result.error === "limit" ? t("ai.limit") : t("ai.unavailable"));
+        toast.error(result.error === "limit" ? t("ai.limit") : t("ai.unavailable"));
         return;
       }
       setMapping(result.mapping.matches);
@@ -154,6 +156,7 @@ export function OnboardingWizard({
         return;
       }
       if (mappingEvent) void recordAiDecision(mappingEvent, true);
+      toast.success(t("onboarding.finished"));
       setFinished(true);
     });
   }
@@ -164,7 +167,7 @@ export function OnboardingWizard({
   return (
     <div className="flex flex-1 flex-col">
       <SignBand title={t(`onboarding.${STEPS[step]}`)} subtitle={t("onboarding.stepOf", { step: step + 1, total: STEPS.length })} />
-      <ol aria-label={t("onboarding.stepOf", { step: step + 1, total: STEPS.length })} className="mx-auto flex w-full max-w-[640px] items-center px-5 pt-4">
+      <ol aria-label={t("onboarding.stepOf", { step: step + 1, total: STEPS.length })} className="mx-auto flex w-full max-w-[1280px] items-center px-5 pt-4 lg:px-10">
         {STEPS.map((s, i) => (
           <li key={s} className="flex flex-1 items-center last:flex-none" aria-current={i === step ? "step" : undefined}>
             <span
@@ -182,7 +185,7 @@ export function OnboardingWizard({
         ))}
       </ol>
 
-      <div className="mx-auto flex w-full max-w-[640px] flex-col gap-4 px-5 py-5">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 px-5 py-5 lg:px-10">
         {finished ? (
           <div className="card flex flex-col gap-4 p-5">
             <p role="status" className="flex items-center gap-2 text-body font-bold">

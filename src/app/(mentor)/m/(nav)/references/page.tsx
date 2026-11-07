@@ -21,7 +21,7 @@ export default async function ReferencesPage() {
   return (
     <>
       <PageHeader title={t("references.title")} current={current} />
-      <div className="mx-auto flex w-full max-w-[880px] flex-col gap-4 px-4 py-5 lg:px-10">
+      <div className="mx-auto grid w-full max-w-[1280px] items-start gap-4 px-4 py-5 md:grid-cols-2 lg:gap-6 lg:px-10 lg:py-8">
         {requests.length === 0 ? (
           <EmptyState icon={SealCheckIcon} title={t("references.title")} body={t("references.empty")} />
         ) : (

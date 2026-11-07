@@ -24,9 +24,9 @@ export default async function DemoPage() {
   if (!isDemoMode()) notFound();
   const t = await getTranslations("demo");
   return (
-    <div className="mx-auto w-full max-w-[1120px] px-4 py-8 sm:px-6">
+    <div className="mx-auto w-full max-w-[1280px] px-4 py-8 sm:px-6 lg:px-10">
       <h1 className="text-display font-extrabold">{t("title")}</h1>
-      <p className="mt-2 max-w-prose text-body text-muted">{t("lead")}</p>
+      <p className="mt-2 text-body text-muted">{t("lead")}</p>
       <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {PERSONAS.map((p) => {
           const key = p.key as "student";

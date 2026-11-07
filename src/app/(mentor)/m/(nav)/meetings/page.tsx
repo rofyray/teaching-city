@@ -27,7 +27,7 @@ export default async function MeetingsPage() {
   return (
     <>
       <PageHeader title={t("meetings.title")} current={current} />
-      <div className="mx-auto flex w-full max-w-[880px] flex-col gap-6 px-4 py-5 lg:px-10">
+      <div className="mx-auto grid w-full max-w-[1280px] items-start gap-6 px-4 py-5 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:px-10 lg:py-8">
         {students.length > 0 ? (
           <section aria-labelledby="sched" className="card p-5">
             <h2 id="sched" className="mb-3 text-subheading font-extrabold">

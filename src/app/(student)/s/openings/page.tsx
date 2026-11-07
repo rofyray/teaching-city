@@ -29,9 +29,9 @@ export default async function OpeningsPage() {
   return (
     <>
       <PageHeader title={t("openings.title")} current={current} settingsHref="/s/settings" />
-      <div className="mx-auto flex w-full max-w-[640px] flex-col gap-4 px-5 py-4">
+      <div className="mx-auto grid w-full max-w-[1280px] items-start gap-4 px-5 py-4 lg:grid-cols-2 lg:gap-6 lg:px-10 lg:py-8">
         {view && view.enrollment.status !== "proposed" ? (
-          <section aria-labelledby="status" className="card p-4 shadow-[inset_0_0_0_2px_var(--tc-line)]">
+          <section aria-labelledby="status" className="card p-4 border-2 border-line">
             <h2 id="status" className="flex items-center gap-3 text-subheading font-extrabold">
               <Icon icon={HandshakeIcon} weight="duotone" size={28} className="text-line" />
               {inPool ? t("openings.statusInPool") : t("openings.statusNotYet")}

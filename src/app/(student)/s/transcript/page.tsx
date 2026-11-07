@@ -17,7 +17,7 @@ export default async function StudentTranscriptPage() {
   const t = await getTranslations();
   if (!view || view.enrollment.status === "proposed") {
     return (
-      <div className="mx-auto w-full max-w-[640px] p-5">
+      <div className="mx-auto w-full max-w-[1280px] p-5 lg:px-10">
         <h1 className="sr-only">{t("transcript.title")}</h1>
         <EmptyState icon={MapTrifoldIcon} title={t("home.notMatchedTitle")} body={t("home.notMatchedBody")} />
       </div>

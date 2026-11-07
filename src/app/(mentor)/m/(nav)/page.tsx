@@ -45,7 +45,7 @@ export default async function MentorHome() {
   return (
     <>
       <PageHeader title={t("mentor.title")} current={current} />
-      <div className="mx-auto flex w-full max-w-[880px] flex-col gap-6 px-4 py-5 lg:px-10">
+      <div className="mx-auto grid w-full max-w-[1280px] items-start gap-6 px-4 py-5 lg:grid-cols-2 lg:px-10 lg:py-8">
         {students.length === 0 ? (
           <EmptyState icon={UsersThreeIcon} title={t("mentor.emptyTitle")} body={t("mentor.emptyBody")} />
         ) : null}

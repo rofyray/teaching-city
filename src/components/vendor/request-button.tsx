@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
 import { Icon } from "@/components/icon";
 import { requestInterview } from "@/server/actions/vendor";
+import { toast } from "@/components/toast";
 
 export function RequestInterviewButton({ studentId, studentName, pending }: { studentId: string; studentName: string; pending: boolean }) {
   const t = useTranslations();
@@ -28,8 +29,13 @@ export function RequestInterviewButton({ studentId, studentName, pending }: { st
         onClick={() =>
           startTransition(async () => {
             const result = await requestInterview(studentId);
-            if (result.ok || result.error === "pending") setSent(true);
-            else setError(true);
+            if (result.ok || result.error === "pending") {
+              setSent(true);
+              toast.success(t("vendorPortal.requested"));
+            } else {
+              setError(true);
+              toast.error(t("errors.generic"));
+            }
           })
         }
         className="inline-flex min-h-[44px] items-center justify-center rounded-[8px] bg-ink px-4 text-body-sm font-extrabold text-white disabled:opacity-70"

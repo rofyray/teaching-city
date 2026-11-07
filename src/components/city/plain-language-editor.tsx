@@ -8,6 +8,7 @@ import { useId, useState, useTransition } from "react";
 import { Icon } from "@/components/icon";
 import { draftPlainLanguage, recordAiDecision } from "@/server/actions/ai";
 import { approvePlainLanguage } from "@/server/actions/city";
+import { toast } from "@/components/toast";
 
 type Plain = { summary: string; dayToDay: string[]; whatYouNeed: string[] };
 
@@ -48,6 +49,7 @@ export function PlainLanguageEditor({
               if (!result.ok) {
                 setIsError(true);
                 setMessage(result.error === "limit" ? t("ai.limit") : t("ai.unavailable"));
+                toast.error(result.error === "limit" ? t("ai.limit") : t("ai.unavailable"));
                 return;
               }
               setIsError(false);
@@ -108,12 +110,14 @@ export function PlainLanguageEditor({
               if (!result.ok) {
                 setIsError(true);
                 setMessage(t("errors.generic"));
+                toast.error(t("errors.generic"));
                 return;
               }
               if (eventId) await recordAiDecision(eventId, true);
               setEventId(null);
               setIsError(false);
               setMessage(t("ai.plainApproved"));
+              toast.success(t("ai.plainApproved"));
               router.refresh();
             })
           }

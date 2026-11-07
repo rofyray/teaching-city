@@ -61,7 +61,7 @@ export async function OutcomesTable({ metrics }: { metrics: MetricResult[] }) {
             </dl>
             <details className="mt-3">
               <summary className="inline-flex min-h-[44px] cursor-pointer items-center text-body-sm font-bold text-focus">{t("howWeCount")}</summary>
-              <p className="max-w-prose text-body-sm text-muted">{pick(copy.how, locale)}</p>
+              <p className="text-body-sm text-muted">{pick(copy.how, locale)}</p>
             </details>
           </li>
         );

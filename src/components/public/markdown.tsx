@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { titleCase } from "@/lib/title-case";
 
 /**
  * A small renderer for the brief's Markdown subset: headings, paragraphs, bullet lists,
@@ -23,7 +24,7 @@ export function parseBlocks(markdown: string): Block[] {
     }
     const heading = line.match(/^(#{1,6})\s+(.*)$/);
     if (heading) {
-      blocks.push({ type: "heading", level: heading[1].length, text: heading[2] });
+      blocks.push({ type: "heading", level: heading[1].length, text: titleCase(heading[2]) });
       i++;
       continue;
     }
@@ -164,13 +165,13 @@ export function Markdown({ source }: { source: string }) {
           }
           case "paragraph":
             return (
-              <p key={i} className="my-4 max-w-[72ch] text-body">
+              <p key={i} className="my-4 text-body">
                 <Inline text={block.text} />
               </p>
             );
           case "list":
             return (
-              <ul key={i} className="my-4 flex max-w-[72ch] list-disc flex-col gap-2 pl-6 text-body">
+              <ul key={i} className="my-4 flex list-disc flex-col gap-2 pl-6 text-body">
                 {block.items.map((item, j) => (
                   <li key={j}>
                     <Inline text={item} />

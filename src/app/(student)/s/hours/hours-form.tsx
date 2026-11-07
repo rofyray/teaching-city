@@ -6,6 +6,7 @@ import { useId, useState, useTransition } from "react";
 import { Icon } from "@/components/icon";
 import { formatMoney, validateHours } from "@/domain/rules";
 import { saveHours } from "@/server/actions/student";
+import { toast } from "@/components/toast";
 
 export function HoursForm({
   week,
@@ -51,8 +52,14 @@ export function HoursForm({
         setError(null);
         startTransition(async () => {
           const result = await saveHours(week, value, note);
-          if (result.ok) setSaved(true);
-          else setError(result.error === "tooMany" || result.error === "notNumber" ? t(`hours.${result.error}`) : t("errors.generic"));
+          if (result.ok) {
+            setSaved(true);
+            toast.success(t("common.saved"));
+          } else {
+            const message = result.error === "tooMany" || result.error === "notNumber" ? t(`hours.${result.error}`) : t("errors.generic");
+            setError(message);
+            toast.error(message);
+          }
         });
       }}
     >

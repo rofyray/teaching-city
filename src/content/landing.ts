@@ -5,11 +5,11 @@ export const landing = {
   primaryAction: "Try the demo",
   secondaryLink: "How it works",
   barrier: {
-    heading: "The barrier",
+    heading: "The Barrier",
     body: "The barrier is not a lack of talent or job listings. It is the absence of a structured rotation that lets employers see students do real work before hiring them, the bridge nursing and teaching students already have.",
   },
   route: {
-    heading: "Four parts, one route",
+    heading: "Four Parts, One Route",
     stations: [
       { name: "1. The Rotation", line: "One paid semester inside a city office matched to your major, for credit." },
       { name: "2. The Preceptor Network", line: "A preceptor guides you weekly and a director meets with you monthly." },
@@ -18,7 +18,7 @@ export const landing = {
     ],
   },
   whyNow: {
-    heading: "Why now",
+    heading: "Why Now",
     body: "In an AI-saturated hiring market, a résumé is cheap and observed work is scarce. Whoever watches a student do real work for a semester holds the most valuable hiring signal there is.",
   },
 } as const;

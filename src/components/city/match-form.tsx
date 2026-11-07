@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useId, useState, useTransition } from "react";
 import { confirmMatch } from "@/server/actions/city";
+import { toast } from "@/components/toast";
 
 type Option = { id: string; label: string };
 
@@ -59,10 +60,14 @@ export function MatchForm({
         start(async () => {
           const result = await confirmMatch({ profileId, unitId, classificationId, preceptorId, sponsorId, reason });
           if (!result.ok) {
-            setError(result.error === "full" ? t("matching.full", { unit: result.data?.unit ?? "" }) : t("errors.generic"));
+            const message = result.error === "full" ? t("matching.full", { unit: result.data?.unit ?? "" }) : t("errors.generic");
+            setError(message);
+            toast.error(message);
             return;
           }
-          setSuccess(t("matching.confirmed", { firstName: result.data?.firstName ?? "", preceptor: result.data?.preceptor ?? "" }));
+          const message = t("matching.confirmed", { firstName: result.data?.firstName ?? "", preceptor: result.data?.preceptor ?? "" });
+          setSuccess(message);
+          toast.success(message);
           router.refresh();
         });
       }}

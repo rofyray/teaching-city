@@ -49,7 +49,7 @@ export default async function NotificationsPage({ searchParams }: { searchParams
           </div>
         }
       />
-      <main id="main" className="mx-auto w-full max-w-[720px] flex-1 px-4 py-6">
+      <main id="main" className="mx-auto w-full max-w-[1280px] flex-1 px-4 py-6">
         {params.unsubscribe === "1" ? (
           <form action={unsubscribeEmails} className="card mb-4 flex flex-wrap items-center justify-between gap-3 p-4 outline-rule">
             <p className="text-body font-bold">{vendorCopy(locale, "unsubscribeTitle")}</p>

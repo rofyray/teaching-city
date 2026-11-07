@@ -6,6 +6,7 @@ import { useId, useRef, useState, useTransition } from "react";
 import * as z from "zod";
 import { Icon } from "@/components/icon";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "@/components/toast";
 
 export function SignInForm() {
   const t = useTranslations();
@@ -25,8 +26,13 @@ export function SignInForm() {
     setError(null);
     startTransition(async () => {
       const result = await authClient.signIn.magicLink({ email, callbackURL: "/" });
-      if (result.error) setError(t("errors.generic"));
-      else setSent(true);
+      if (result.error) {
+        setError(t("errors.generic"));
+        toast.error(t("errors.generic"));
+      } else {
+        setSent(true);
+        toast.success(t("auth.linkSent"));
+      }
     });
   }
 

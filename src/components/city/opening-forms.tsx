@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useId, useState, useTransition } from "react";
 import { createOpening, inviteToOpening, updateInvite } from "@/server/actions/city";
+import { toast } from "@/components/toast";
 
 const field = "min-h-[44px] w-full rounded-[8px] border-2 border-rule bg-surface px-2 text-body-sm";
 
@@ -43,8 +44,11 @@ export function NewOpeningForm({
         }
         start(async () => {
           const result = await createOpening({ title, classificationId, department });
-          if (!result.ok) setError(t("errors.generic"));
-          else {
+          if (!result.ok) {
+            setError(t("errors.generic"));
+            toast.error(t("errors.generic"));
+          } else {
+            toast.success(t("common.saved"));
             setOpen(false);
             setTitle("");
             router.refresh();
@@ -114,6 +118,7 @@ export function InviteForm({ openingId, candidates, emptyLabel }: { openingId: s
         e.preventDefault();
         start(async () => {
           const result = await inviteToOpening(openingId, selected);
+          toast[result.ok ? "success" : "error"](result.ok ? t("openingsAdmin.invited") : t("errors.generic"));
           if (!result.ok) setError(t("errors.generic"));
           else {
             setSelected([]);
@@ -177,6 +182,7 @@ export function InviteDates({
     setError(null);
     start(async () => {
       const result = await updateInvite({ inviteId, field, date: date || undefined });
+      toast[result.ok ? "success" : "error"](result.ok ? t("common.saved") : t("errors.generic"));
       if (!result.ok) setError(t("errors.generic"));
       else router.refresh();
     });

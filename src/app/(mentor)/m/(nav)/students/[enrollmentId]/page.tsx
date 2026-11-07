@@ -52,7 +52,7 @@ export default async function MentorStudentPage({ params }: { params: Promise<Pa
         sampleActions={
           isPreceptor
             ? (sampleId, status) =>
-                status === "draft" ? <ActionButton action={verifySample.bind(null, sampleId)} label={t("mentor.verifySample")} /> : null
+                status === "draft" ? <ActionButton action={verifySample.bind(null, sampleId)} label={t("mentor.verifySample")} successMessage={t("common.saved")} /> : null
             : undefined
         }
       />
@@ -70,7 +70,7 @@ export default async function MentorStudentPage({ params }: { params: Promise<Pa
                   {h.approvedAt ? (
                     <span className="text-caption font-bold text-muted">{t("hours.approved", { name: current.name })}</span>
                   ) : (
-                    <ActionButton action={approveHours.bind(null, h.id)} label={t("mentor.approveHours")} />
+                    <ActionButton action={approveHours.bind(null, h.id)} label={t("mentor.approveHours")} successMessage={t("common.saved")} />
                   )}
                 </li>
               ))}

@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useId, useState, useTransition } from "react";
 import { updateInterview } from "@/server/actions/vendor";
+import { toast } from "@/components/toast";
 
 export function InterviewForm({
   interestId,
@@ -32,6 +33,7 @@ export function InterviewForm({
             outcome: String(form.get("outcome") ?? "none") as "none",
           });
           setStatus(result.ok ? "saved" : "error");
+          toast[result.ok ? "success" : "error"](result.ok ? t("common.saved") : t("errors.generic"));
         })
       }
     >

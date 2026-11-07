@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useId, useState, useTransition } from "react";
 import { completeMeeting, scheduleMeeting } from "@/server/actions/mentor";
+import { toast } from "@/components/toast";
 
 const field = "min-h-[44px] rounded-[8px] border-2 border-rule bg-surface px-3 text-body";
 
@@ -18,6 +19,7 @@ export function ScheduleForm({ students }: { students: { enrollmentId: string; n
         startTransition(async () => {
           const r = await scheduleMeeting(String(fd.get("enrollmentId")), String(fd.get("date")), String(fd.get("time")));
           setMessage(r.ok ? t("common.saved") : t("errors.generic"));
+          toast[r.ok ? "success" : "error"](r.ok ? t("common.saved") : t("errors.generic"));
         })
       }
     >
@@ -61,6 +63,7 @@ export function CompleteMeetingForm({ meetingId }: { meetingId: string }) {
         startTransition(async () => {
           const r = await completeMeeting(meetingId, String(fd.get("summary") ?? ""));
           setError(!r.ok);
+          toast[r.ok ? "success" : "error"](r.ok ? t("common.saved") : t("errors.generic"));
         })
       }
     >
