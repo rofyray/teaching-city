@@ -28,10 +28,10 @@ export default async function DemoPage() {
       <h1 className="text-display font-extrabold">{t("title")}</h1>
       <p className="mt-2 text-body text-muted">{t("lead")}</p>
       <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {PERSONAS.map((p) => {
+        {PERSONAS.map((p, i) => {
           const key = p.key as "student";
           return (
-            <li key={p.key} data-line={p.line} className="card flex flex-col gap-3 p-5">
+            <li key={p.key} data-line={p.line} data-reveal="rise" style={{ ["--i" as string]: i }} className="card flex flex-col gap-3 p-5">
               <div className="flex items-center gap-3">
                 <span
                   aria-hidden="true"
@@ -39,10 +39,13 @@ export default async function DemoPage() {
                 >
                   {p.initials}
                 </span>
-                <h2 className="text-subheading font-extrabold">{t(key)}</h2>
+                <div className="flex min-w-0 flex-col items-start gap-1">
+                  <h2 className="text-subheading font-extrabold">{NAMES[p.key]}</h2>
+                  <span className="rounded-[12px] bg-line-tint px-[10px] py-[2px] text-micro font-extrabold text-line-ink">{t(key)}</span>
+                </div>
               </div>
               <p className="flex-1 text-body-sm text-muted">{t(`${key}Detail`)}</p>
-              <PersonaButton personaKey={p.key} label={t("enterAs", { name: NAMES[p.key] })} />
+              <PersonaButton personaKey={p.key} label={t("enter")} accessibleName={t("enterAs", { name: NAMES[p.key] })} />
             </li>
           );
         })}

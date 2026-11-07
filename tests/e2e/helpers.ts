@@ -2,13 +2,13 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, type Page } from "@playwright/test";
 
 export const PERSONAS = {
-  amara: "Continue as Amara Okafor",
-  dana: "Continue as Dana Ortiz",
-  marcus: "Continue as Marcus Hill",
-  renee: "Continue as Renee Carter",
-  omar: "Continue as Omar Patel",
-  kim: "Continue as Kim Nguyen",
-  luis: "Continue as Luis Herrera",
+  amara: "Enter as Amara Okafor",
+  dana: "Enter as Dana Ortiz",
+  marcus: "Enter as Marcus Hill",
+  renee: "Enter as Renee Carter",
+  omar: "Enter as Omar Patel",
+  kim: "Enter as Kim Nguyen",
+  luis: "Enter as Luis Herrera",
 } as const;
 
 export async function signInAs(page: Page, persona: keyof typeof PERSONAS) {

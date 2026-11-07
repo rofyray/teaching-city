@@ -128,7 +128,7 @@ export function InviteForm({ openingId, candidates, emptyLabel }: { openingId: s
       }}
     >
       <fieldset>
-        <legend className="text-caption font-extrabold text-muted">{t("openingsAdmin.invite")}</legend>
+        <legend className="text-caption font-extrabold text-muted">{t("openingsAdmin.inviteLegend")}</legend>
         <ul className="mt-1 flex flex-wrap gap-2">
           {candidates.map((c) => (
             <li key={c.id}>

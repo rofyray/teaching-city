@@ -30,7 +30,7 @@ test("P4.3 and P4.4: an accounting student sees Budget Office first and the matc
   const card = page.getByRole("listitem").filter({ has: page.getByRole("heading", { name: "Jada Brooks" }) }).first();
   await expect(card.getByText("Budget Office").first()).toBeVisible();
   await expect(card.getByText("12 of 12 free hours overlap").first()).toBeVisible();
-  await card.getByRole("button", { name: "Confirm match" }).click();
+  await card.getByRole("button", { name: "Confirm" }).click();
   await expect(toast(page, /Match confirmed\. Jada and .* have been notified\./)).toBeVisible();
   const status = await db((c) =>
     c.query(`select e.status, e.match_reason, (select count(*)::int from audit_log a where a.entity_id = e.id) as audits
@@ -66,7 +66,7 @@ test("P9.4: create an opening and invite from the hiring lane", async ({ page })
   const opening = page.getByRole("listitem").filter({ has: page.getByRole("heading", { name: "Engineering Technician I, Drainage" }) });
   await expect(opening).toBeVisible();
   await opening.getByRole("checkbox").first().check();
-  await opening.getByRole("button", { name: "Invite from the hiring lane" }).click();
+  await opening.getByRole("button", { name: "Invite" }).click();
   await expect(toast(page, "Invited")).toBeVisible();
 });
 
@@ -77,7 +77,7 @@ test("P11.3: approve a plain-language version and students see it", async ({ pag
   await editor.getByLabel("Summary").fill("You help keep streets, water and drainage working by measuring, checking plans and writing field reports.");
   await editor.getByLabel("Day to Day").fill("Take field measurements\nCheck plans for missing details\nWrite field reports");
   await editor.getByLabel("What You Need").fill("An associate degree in engineering technology, or equivalent experience from a Teaching City rotation\nA valid driver's license");
-  await editor.getByRole("button", { name: "Approve for students" }).click();
+  await editor.getByRole("button", { name: "Approve" }).click();
   await expect(toast(page, "Approved. Students now see this version.")).toBeVisible();
   await signInAs(page, "luis");
   await page.goto("/s/openings");
@@ -99,7 +99,7 @@ test("P10.1: ending a pledge hides its students from that vendor", async ({ page
 test("P10.1: add a vendor pledge", async ({ page }) => {
   await signInAs(page, "renee");
   await page.goto("/city/vendors");
-  await page.getByRole("button", { name: "Add a pledge" }).click();
+  await page.getByRole("button", { name: "Add pledge" }).click();
   await page.getByLabel("Firm").fill("Riverbend Survey Co");
   await page.getByLabel("Contact").fill("Jo Park");
   await page.getByLabel("Roles offered").fill("Survey technician");
@@ -111,12 +111,12 @@ test("P10.1: add a vendor pledge", async ({ page }) => {
 test("P9.2: completing a rotation early needs a reason and is audit logged", async ({ page }) => {
   await signInAs(page, "renee");
   await page.goto("/city");
-  await page.getByRole("button", { name: /Mark rotation complete.*Jordan Ellis/ }).click();
+  await page.getByRole("button", { name: /Complete rotation.*Jordan Ellis/ }).click();
   const form = page.locator("form").filter({ hasText: "Reason" }).first();
-  await form.getByRole("button", { name: "Mark rotation complete" }).click();
+  await form.getByRole("button", { name: "Complete rotation" }).click();
   await expect(form.getByText("Completing before week 15 needs a reason.").last()).toBeVisible();
   await form.getByLabel("Reason").fill("Hired early by the Finance Department");
-  await form.getByRole("button", { name: "Mark rotation complete" }).click();
+  await form.getByRole("button", { name: "Complete rotation" }).click();
   await expect(toast(page, "Rotation marked complete.")).toBeVisible();
   const rows = await db((c) =>
     c.query(`select e.status, (select count(*)::int from audit_log a where a.entity_id = e.id) as audits from enrollments e where e.id = 'enr_fall_jordan-ellis'`),

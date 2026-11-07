@@ -37,16 +37,17 @@ export async function SkillsGrid({ rows, weeks, caption }: { rows: GridRow[]; we
                   <th scope="row" className="py-[10px] pr-3 text-left text-[15px] leading-5 font-bold">
                     {row.label}
                   </th>
-                  {weeks.map((w) => {
+                  {weeks.map((w, wi) => {
                     const level = row.byWeek.get(w);
                     return (
                       <td key={w} className="p-1">
                         {level ? (
                           <div
                             className={cn(
-                              "flex min-h-8 items-center justify-center rounded-[6px] px-1 text-center text-micro font-extrabold",
+                              "anim-fade flex min-h-8 items-center justify-center rounded-[6px] px-1 text-center text-micro font-extrabold",
                               levelCell[level],
                             )}
+                            style={{ ["--i" as string]: wi * 2 }}
                           >
                             {t(`levels.short${level}` as "levels.short1")}
                           </div>

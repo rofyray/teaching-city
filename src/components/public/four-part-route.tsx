@@ -19,12 +19,21 @@ export function FourPartRoute({ stations, label }: { stations: readonly { name: 
             {!last ? (
               <span
                 aria-hidden="true"
-                className="absolute top-10 bottom-0 left-[17px] w-[6px] bg-future md:top-[17px] md:right-[-50%] md:bottom-auto md:left-1/2 md:h-[6px] md:w-auto"
+                data-reveal="draw-route"
+                style={{ ["--i" as string]: i * 2 + 1 }}
+                className="absolute top-10 bottom-0 left-[17px] w-[6px] bg-line md:top-[17px] md:right-[-50%] md:bottom-auto md:left-1/2 md:h-[6px] md:w-auto"
               />
             ) : null}
-            <LineBadge letter={String(i + 1)} line={line} className="relative" />
-            <span aria-hidden="true" className={cn("hidden w-[3px] bg-line md:block", i % 2 === 0 ? "h-5" : "h-16")} />
-            <div className="flex flex-col gap-1 pt-2 md:max-w-[260px] md:pt-3">
+            <span data-reveal="pop" style={{ ["--i" as string]: i * 2 }} className="relative">
+              <LineBadge letter={String(i + 1)} line={line} />
+            </span>
+            <span
+              aria-hidden="true"
+              data-reveal="draw-y"
+              style={{ ["--i" as string]: i * 2 + 1 }}
+              className={cn("hidden w-[3px] bg-line md:block", i % 2 === 0 ? "h-5" : "h-16")}
+            />
+            <div data-reveal="rise" style={{ ["--i" as string]: i * 2 + 1 }} className="flex flex-col gap-1 pt-2 md:max-w-[260px] md:pt-3">
               <h3 className="text-subheading font-extrabold">{station.name}</h3>
               <p className="text-body-sm text-muted">{station.line}</p>
             </div>

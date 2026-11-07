@@ -36,10 +36,10 @@ test("P5.3 hours validation errors", async ({ page }) => {
   const first = page.getByRole("region", { name: "Week 6" });
   const input = first.getByLabel("Hours worked");
   await input.fill("13");
-  await first.getByRole("button", { name: "Save hours" }).click();
+  await first.getByRole("button", { name: "Save" }).click();
   await expect(first.getByText("Enter 12 hours or fewer for one week.")).toBeVisible();
   await input.fill("ten");
-  await first.getByRole("button", { name: "Save hours" }).click();
+  await first.getByRole("button", { name: "Save" }).click();
   await expect(first.getByText("Enter hours as a number, like 11 or 10.5.")).toBeVisible();
 });
 
@@ -72,7 +72,7 @@ test("sample data notice is a closable toast and work samples open in a new tab"
   await notice.getByRole("button", { name: "Close" }).click();
   await expect(notice).toHaveCount(0);
   await page.goto("/s/transcript");
-  const link = page.getByRole("link", { name: /Open sample.*Parks overtime variance memo.*opens in a new tab/ });
+  const link = page.getByRole("link", { name: /Open.*Parks overtime variance memo.*opens in a new tab/ });
   await expect(link).toHaveAttribute("target", "_blank");
   await expect(link).toHaveAttribute("rel", "noopener noreferrer");
 });
@@ -82,6 +82,6 @@ test("saving hours shows a toast", async ({ page }) => {
   await page.goto("/s/hours");
   const week = page.getByRole("region", { name: "Week 6" });
   await week.getByLabel("Hours worked").fill("11");
-  await week.getByRole("button", { name: "Save hours" }).click();
+  await week.getByRole("button", { name: "Save" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Saved" }).first()).toBeVisible();
 });

@@ -126,7 +126,7 @@ export default async function PeoplePage() {
         {referees.length > 0 && view.enrollment.status === "active" ? (
           <section aria-labelledby="ask" className="card p-4">
             <h2 id="ask" className="text-subheading font-extrabold">
-              {t("people.ask")}
+              {t("people.askTitle")}
             </h2>
             <ul className="mt-2">
               {referees.map((r) => (

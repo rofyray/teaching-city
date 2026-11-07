@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { expectNoAxeViolations, signInAs, type PERSONAS } from "./helpers";
 
-const PUBLIC = ["/", "/why", "/how-it-works", "/pilot", "/about/ai", "/demo", "/sign-in"];
+const PUBLIC = ["/", "/how-it-works", "/submission", "/about/ai", "/demo", "/sign-in"];
 const BY_PERSONA: [keyof typeof PERSONAS, string[]][] = [
   ["amara", ["/s", "/s/hours", "/s/work", "/s/transcript", "/s/people", "/s/openings", "/s/settings", "/s/onboarding", "/notifications"]],
   ["dana", ["/m", "/m/rate/enr_fall_amara-okafor/6", "/m/students/enr_fall_amara-okafor", "/m/references"]],
@@ -14,7 +14,8 @@ const BY_PERSONA: [keyof typeof PERSONAS, string[]][] = [
 
 for (const width of [390, 1280]) {
   test.describe(`axe at ${width}px`, () => {
-    test.use({ viewport: { width, height: 900 } });
+    // Axe measures settled states; entrance animations briefly lower opacity on purpose.
+    test.use({ viewport: { width, height: 900 }, reducedMotion: "reduce" });
 
     test("public pages", async ({ page }) => {
       for (const path of PUBLIC) {

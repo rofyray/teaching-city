@@ -5,11 +5,12 @@ import { useState, useTransition } from "react";
 import { resetDemoData, signInAsPersona } from "@/server/actions/demo";
 import { toast } from "@/components/toast";
 
-export function PersonaButton({ personaKey, label }: { personaKey: string; label: string }) {
+export function PersonaButton({ personaKey, label, accessibleName }: { personaKey: string; label: string; accessibleName: string }) {
   const [pending, startTransition] = useTransition();
   return (
     <button
       type="button"
+      aria-label={accessibleName}
       disabled={pending}
       onClick={() => startTransition(() => signInAsPersona(personaKey))}
       className="inline-flex min-h-[48px] items-center justify-center rounded-[8px] bg-ink px-4 text-body font-extrabold text-white disabled:opacity-70"

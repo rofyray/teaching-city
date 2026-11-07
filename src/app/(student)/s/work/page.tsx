@@ -36,7 +36,7 @@ export default async function WorkPage() {
         {view.enrollment.status === "active" ? (
           <section aria-labelledby="add" className="card p-5">
             <h2 id="add" className="mb-3 text-subheading font-extrabold">
-              {t("work.add")}
+              {t("work.addTitle")}
             </h2>
             <UploadForm enrollmentId={view.enrollment.id} weeks={weeks} defaultWeek={lastWeek} maxMb={maxUploadMb()} useBlob={blobConfigured()} />
           </section>

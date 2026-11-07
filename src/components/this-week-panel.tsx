@@ -36,7 +36,7 @@ export function ThisWeekPanel({ title, rows }: { title: string; rows: ThisWeekRo
             row.due && "bg-due-tint",
           );
           return (
-            <li key={row.label}>
+            <li key={row.label} className="anim-rise" style={{ ["--i" as string]: i + 1 }}>
               {row.href ? (
                 <Link href={row.href} className={cls}>
                   {inner}
