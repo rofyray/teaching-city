@@ -186,6 +186,15 @@
   html[data-motion="on"] [data-reveal="draw-x"]:not([data-shown]) {
     transform: scaleX(0);
   }
+  html[data-motion="on"] [data-reveal="draw-x-rev"] {
+    transform-origin: right center;
+  }
+  html[data-motion="on"] [data-reveal="draw-x-rev"]:not([data-shown]) {
+    transform: scaleX(0);
+  }
+  html[data-motion="on"] [data-reveal="fade"]:not([data-shown]) {
+    opacity: 0;
+  }
   html[data-motion="on"] [data-reveal="draw-y"] {
     transform-origin: center top;
   }
