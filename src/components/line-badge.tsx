@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cx } from "@/lib/cx";
 
 /** Circle in the line color with the line letter. The adjacent text always names the line. */
 export function LineBadge({ letter, line, size = 40, className }: { letter: string; line?: string; size?: number; className?: string }) {
@@ -6,7 +6,7 @@ export function LineBadge({ letter, line, size = 40, className }: { letter: stri
     <span
       aria-hidden="true"
       data-line={line}
-      className={cn("inline-flex shrink-0 items-center justify-center rounded-full bg-line font-extrabold text-white", className)}
+      className={cx("inline-flex shrink-0 items-center justify-center rounded-full bg-line font-extrabold text-white", className)}
       style={{ width: size, height: size, fontSize: size / 2, lineHeight: 1 }}
     >
       {letter}

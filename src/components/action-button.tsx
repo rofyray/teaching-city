@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
-import { cn } from "@/lib/cn";
+import { cx } from "@/lib/cx";
 import { toast } from "./toast";
 
 /** Runs a bound Server Action and shows the generic error copy if it fails. */
@@ -42,7 +42,7 @@ export function ActionButton({
             }
           })
         }
-        className={cn(
+        className={cx(
           "inline-flex min-h-[44px] items-center justify-center rounded-[8px] px-3 text-body-sm font-bold disabled:opacity-70",
           variant === "primary" ? "bg-ink font-extrabold text-white" : "bg-surface text-ink outline-rule",
           className,

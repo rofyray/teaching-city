@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
-import { cn } from "@/lib/cn";
+import { cx } from "@/lib/cx";
 
 /**
  * One skill: a fieldset of four native radio inputs drawn as buttons. Native radios give
@@ -44,10 +44,9 @@ export function RatingControl({
             <label
               key={level}
               title={t(`levels.help${level}` as "levels.help1")}
-              className={cn(
+              className={cx(
                 "flex min-h-12 cursor-pointer items-center justify-center gap-[6px] rounded-[8px] border-2 px-1 text-body-sm font-semibold has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-focus",
-                selected ? "border-ink bg-ink font-extrabold text-white" : "border-rule bg-surface text-ink",
-                invalid && !value && "border-due",
+                selected ? "border-ink bg-ink font-extrabold text-white" : invalid && !value ? "border-due bg-surface text-ink" : "border-rule bg-surface text-ink",
               )}
             >
               <input
